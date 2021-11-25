@@ -154,6 +154,18 @@
   .bottom-icons-nav.bottom-icons-nav--withtext > li {
     min-height: 5rem;
   }
+
+  .audiChatButton {
+    -webkit-backdrop-filter: blur(0px) !important;
+    backdrop-filter: blur(0px) !important;
+    border-bottom: 0.5px solid rgb(255, 255, 255) !important;
+    background: rgba(0, 114, 172, 0.3) !important;
+  }
+
+  .audiChatButton div {
+    padding: 0.5rem !important;
+    justify-content: center;
+  }
 }
 
 @media only screen and (max-width: 991px) and (orientation: landscape) {

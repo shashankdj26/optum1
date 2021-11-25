@@ -479,6 +479,54 @@
   outline: none;
 }
 
+.lower__hand {
+  color: #fff;
+  transform: rotate(20deg);
+  position: relative;
+  z-index: 1;
+}
+
+.audiButtonContainer {
+  position: absolute;
+  margin: 0rem;
+  top: 86vh;
+  right: auto;
+  bottom: 0;
+  /* height: auto; */
+  display: flex;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  animation: 0.75s commentSection forwards;
+  height: fit-content;
+  background: rgba(0, 0, 0, 0.1);
+  border: rgba(255, 255, 255, 0.2);
+  border-width: thick;
+  border-style: double;
+}
+
+@keyframes commentSectionOut {
+  0% {
+    opacity: 1;
+    bottom: 0;
+  }
+  100% {
+    opacity: 0;
+    bottom: -75vw;
+  }
+}
+
+@keyframes commentSection {
+  0% {
+    opacity: 0;
+    bottom: -75vw;
+  }
+  100% {
+    opacity: 1;
+    bottom: 0;
+  }
+}
+
 /* Tablet */
 @media only screen and (min-width: 900px) {
   /* .footerBox { position: fixed; right: 0; top: 0; z-index: 3; width: 5.2rem; height: 100%; } */
@@ -521,6 +569,24 @@
     height: calc(100% - 4.9375rem) !important;
   }
 
+  .likeButton {
+    color: rgba(255, 255, 255, 0.6);
+    width: 1.8rem;
+    height: 1.8rem;
+  }
+
+  .heartButton {
+    color: rgba(255, 255, 255, 0.6);
+    width: 1.8rem;
+    height: 1.8rem;
+  }
+
+  .clapButton {
+    color: #fff;
+    width: 1.7rem;
+    height: 1.7rem;
+  }
+
   /* .chat-section__header { margin: 0; padding: 0 0.5rem; } */
 }
 
@@ -528,5 +594,12 @@
 @media only screen and (max-width: 991px) {
   .submenu-container.expended {
     height: calc(100vh - 10vh - 6.5rem);
+  }
+
+  .audiButtonContainer {
+    height: fit-content;
+    width: fit-content;
+    margin-bottom: 6rem;
+    right: 7rem;
   }
 }

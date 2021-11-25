@@ -20,6 +20,7 @@ const LogoRight = {
   backgroundPosition: "center",
   backgroundSize: "contain",
   backgroundRepeat: "no-repeat",
+  display: "none",
 };
 const closeButton = {
   background: "url(/assets/images/close.png)",

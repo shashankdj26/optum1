@@ -76,18 +76,15 @@ export const loadUser = async (
   email,
   password,
   name,
-  unicode,
   forceCreateNew = true
 ) => {
   return new Promise(async (res, rej) => {
-    console.log(unicode, "inside loaduser");
     try {
       await signInWithId(email, password);
       res();
     } catch (err) {
       if (err.code === "auth/user-not-found" && forceCreateNew) {
         try {
-          console.log(unicode);
           // window.userData = await getUserDetails(email);
           window.userData = {
             email: email,
@@ -96,7 +93,7 @@ export const loadUser = async (
           await signUpWithId(
             email,
             password,
-            window.userData.name,
+            name,
             window.userData.profile_image
           );
           console.log("done");
@@ -482,17 +479,34 @@ export const addLoginAnalytics = (user) => {
       }
 
       if (snapShot.exists()) {
-        await reference.update({
-          ...details,
-          lastLoginTime: firebase.database.ServerValue.TIMESTAMP,
-        });
+        if (
+          snapShot.val().email === undefined ||
+          snapShot.val().email === null ||
+          snapShot.val().name === undefined ||
+          snapShot.val().name === null
+        ) {
+          await reference.update({
+            email: user.email ? user.email : window.userData.email,
+            name: user.displayName ? user.displayName : window.userData.name,
+            passcode: `${window.jry ? "optjry" : "optstu"}`,
+            lastLoginTime: firebase.database.ServerValue.TIMESTAMP,
+          });
+        } else {
+          await reference.update({
+            passcode: `${window.jry ? "optjry" : "optstu"}`,
+            lastLoginTime: firebase.database.ServerValue.TIMESTAMP,
+          });
+        }
       } else {
         await reference.set({
-          ...details,
+          email: user.email ? user.email : window.userData.email,
+          name: user.displayName ? user.displayName : window.userData.name,
+          passcode: `${window.jry ? "optjry" : "optstu"}`,
           firstLoginTime: firebase.database.ServerValue.TIMESTAMP,
           lastLoginTime: firebase.database.ServerValue.TIMESTAMP,
         });
       }
+
       res();
     } catch (error) {
       console.log(error);
@@ -1225,4 +1239,29 @@ export const checkForSpeaker = (userEmail) => {
       rej(error);
     }
   });
+};
+
+export const checkForSpecialUser = async (user, callback) => {
+  const ref = firestore
+    .collection(AppString.BACKSATGE)
+    .doc(AppString.SPECIALUSER);
+  const docRef = await ref.get();
+  if (!docRef.exists) {
+    callback({ code: "NoDocFound", message: "noDocFound" });
+  }
+  const data = docRef.data();
+  // if (data.userUid) {
+  //     if (data.userUid.indexOf(user.uid) !== -1) {
+  //         callback(null, data.link);
+  //     } else {
+  //         callback({ code: 'notAdmin', message: 'simpleUser' })
+  //     }
+  // } else {
+  //     callback({ code: 'notAdmin', message: 'simpleUser' })
+  // }
+  if (window.jry) {
+    callback(null, data.link);
+  } else {
+    callback({ code: "notAdmin", message: "simpleUser" });
+  }
 };

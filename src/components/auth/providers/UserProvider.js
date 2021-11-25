@@ -14,19 +14,30 @@ class UserProvider extends Component {
     user: JSON.parse(localStorage.getItem("UserAuth")),
   };
   checkUser = null;
+
+  checkUserType = (email) => {
+    if (email.includes("optstu")) {
+      window.jry = false;
+    } else if (email.includes("optjry")) {
+      window.jry = true;
+    }
+  };
+
   componentDidMount = async () => {
     auth.onAuthStateChanged(async (userAuth) => {
       try {
         if (userAuth) {
           this.checkUser = userAuth;
+          this.checkUserType(userAuth.email);
 
           console.log(userAuth.email, userAuth.photoURL);
           let Id = userAuth.email;
           Id = Id.replace(/[&\/\\#,+$~%.'":*?<>{}]/g, "");
           Id = Id.toLowerCase();
 
+          console.log(userAuth.email, userAuth.displayName);
           await updateUserStatus(Id);
-          window.userData = await getUserDetails(userAuth.email);
+          // window.userData = await getUserDetails(userAuth.email);
           this.setState(
             {
               user: userAuth,

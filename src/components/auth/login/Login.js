@@ -1,28 +1,18 @@
 import React, { Component } from "react";
 import "./Login.css";
-import mobileBottom from "./assets/bottom-mobile.png";
-import cross from "./assets/closeButton.png";
-import { isIOS } from "react-device-detect";
-import {
-  realDB,
-  loadUser,
-  getUserDetails,
-  getUniCode,
-} from "../../firebase/firebase";
+import { realDB, loadUser, getUserDetails } from "../../firebase/firebase";
 import { ImageString } from "../../../const/assets/ImageString";
-import "./Login.css";
 
 class Login extends Component {
   state = {
     email: "",
     name: "",
-    unicode: "",
+    passcode: "",
     error: false,
     errorMessage: "",
     _loading: false,
     forceDisable: false,
     forceUpdate: false,
-    showConsent: false,
   };
 
   componentDidMount = () => {
@@ -32,12 +22,7 @@ class Login extends Component {
   onInputChange = (event) => {
     event.preventDefault();
     let value = event.target.value;
-    this.setState({
-      [event.target.name]: value,
-      forceDisable: false,
-      error: false,
-      errorMessage: "",
-    });
+    this.setState({ [event.target.name]: value });
   };
 
   showLoginError = (err) => {
@@ -53,6 +38,8 @@ class Login extends Component {
     return re.test(String(email).toLowerCase());
   };
 
+  checkPasscode = (userPasscode) => {};
+
   onFormSubmit = async (event) => {
     event.preventDefault();
     try {
@@ -60,15 +47,30 @@ class Login extends Component {
         error: false,
         forceDisable: true,
       });
-      let email = this.state.email.toLowerCase().trim();
-      let name = this.state.name;
-      let unicode = this.state.unicode.toLowerCase().trim();
-      let password = `${email}123456`;
-      await getUniCode(email, unicode);
-      await loadUser(email, password, "name", unicode, true);
-      console.log("user loaded");
+
+      let userPasscode = this.state.passcode.toLowerCase().trim();
+      if (userPasscode === "optstu") {
+        window.jry = false;
+      } else if (userPasscode === "optjry") {
+        window.jry = true;
+      } else {
+        let err = {
+          code: "InvalidPasscode",
+          message: "Please enter valid passcode",
+        };
+        throw err;
+      }
+      let name = this.state.name.replace(/\s+/g, "").toLowerCase().trim();
+      const userEmail = userPasscode + name + "@event.com";
+      const password = `${userEmail}123456`;
+      // let email = this.state.email.toLowerCase();
+      // let name = this.state.name;
+      // let password = `${email}123456`
+      await loadUser(userEmail, password, this.state.name, true);
     } catch (err) {
-      console.log(err);
+      this.setState({
+        forceDisable: false,
+      });
       let error = "";
       switch (err.code) {
         case "auth/wrong-password":
@@ -90,7 +92,6 @@ class Login extends Component {
       this.setState({
         error: true,
         errorMessage: error,
-        forceDisable: false,
       });
     }
   };
@@ -140,145 +141,81 @@ class Login extends Component {
       return <img alt="loading" src="/images/loader.gif" />;
     }
     return (
-      <>
-        <section className="landing-page min-height-full">
-          <aside
-            className="landing-pageBox d-flex justify-content-between align-items-start min-height-full image-bg"
-            style={{ backgroundImage: `url(${ImageString.LoginScreen})` }}
-          ></aside>
-          <aside className="signinBox min-height-full">
-            {this.props.showLoggingIn && (
-              <>
+      <section className="landing-page min-height-full">
+        <aside
+          className="landing-pageBox d-flex justify-content-between align-items-start min-height-full image-bg"
+          style={{ backgroundImage: `url(${ImageString.LoginScreen})` }}
+        ></aside>
+        <aside className="signinBox min-height-full">
+          {this.props.showLoggingIn && (
+            <>
+              <div className="signinBox__heading">
+                <div className="left"></div>
+                {/* <div className="right"></div> */}
+              </div>
+              <br></br>
+              <div className="loaderContainer">
+                <img src="/assets/images/Loader.gif" alt="loader"></img>
+                <div>Logging you in...</div>
+              </div>
+            </>
+          )}
+          {!this.props.showLoggingIn && (
+            <>
+              <form onSubmit={this.onFormSubmit}>
                 <div className="signinBox__heading">
-                  {/* <div className="left"></div> */}
+                  <div className="left"></div>
                   {/* <div className="right"></div> */}
                 </div>
-                <br></br>
-                <div
-                  className="loaderContainer msg_login_container"
-                  // style={{
-                  //   borderTop: "0.15rem solid #e29c31",
-                  // }}
-                >
-                  <div className="msg_login">Logging you in...</div>
-                  <br />
-                  <img src="/assets/images/Loader.gif" alt="loader"></img>
+                <div className="signinBox__body pd-t70">
+                  <div className="form-group mg-b50">
+                    <input
+                      type="text"
+                      className="form-control"
+                      name="passcode"
+                      value={this.state.passcode}
+                      placeholder="ENTER YOUR PASSCODE"
+                      onChange={this.onInputChange}
+                      required={true}
+                    />
+                  </div>
+                  <div className="form-group mg-b50">
+                    <input
+                      type="text"
+                      className="form-control"
+                      name="name"
+                      value={this.state.name}
+                      placeholder="ENTER YOUR NAME"
+                      onChange={this.onInputChange}
+                      required={true}
+                    />
+                  </div>
+                  {/* <div className="form-group mg-b50">
+                                        <input type="text" className="form-control" name="email" value={this.state.email} placeholder="ENTER YOUR EMAIL ID" onChange={this.onInputChange} autoComplete="off"
+                                            autoCorrect="off" required={true} />
+                                    </div> */}
+                  {this.state.error && (
+                    <div
+                      className="mg-b50"
+                      style={{ color: "red", fontSize: "1.25rem" }}
+                    >
+                      {this.state.errorMessage}
+                    </div>
+                  )}
+                  <div className="">
+                    <button
+                      className="btn btn-md btn-yellow"
+                      disabled={this.state.forceDisable ? true : false}
+                    >
+                      LOG IN
+                    </button>
+                  </div>
                 </div>
-              </>
-            )}
-            {!this.props.showLoggingIn && (
-              <>
-                <form onSubmit={this.onFormSubmit}>
-                  <div className="signinBox__heading">
-                    {/* <div className="left"></div> */}
-                    {/* <div className="right"></div> */}
-                  </div>
-                  <div className="signinBox__body pd-top-body">
-                    <div className="form-group mg-b50">
-                      <input
-                        type="email"
-                        className="form-control "
-                        name="email"
-                        value={this.state.email}
-                        placeholder="ENTER YOUR EMAIL ID"
-                        onChange={this.onInputChange}
-                        autoComplete="off"
-                        autoCorrect="off"
-                        required={true}
-                      />
-                    </div>
-                    <div className="form-group mg-b50">
-                      <input
-                        type="text"
-                        className="form-control"
-                        name="unicode"
-                        value={this.state.unicode}
-                        placeholder="ENTER UNIQUE CODE"
-                        onChange={this.onInputChange}
-                        required={true}
-                      />
-                    </div>
-                    {this.state.error && (
-                      <div className="mg-b50 errorBox">
-                        {/* Thank you for your interest.<br></br>
-                      Please visit these links for live streaming of the summit:<br></br>
-                      <div>
-                        <img src="/3dAssets/UI/Icon_web.png" alt="web" onClick={() => window.open(this.props.links.weblink, "_blank")}></img>
-                        <img src="/3dAssets/UI/Icon_facebook.png" alt="web" onClick={() => window.open(this.props.links.fblink, "_blank")}></img>
-                        <img src="/3dAssets/UI/Icon_youtube.png" alt="web" onClick={() => window.open(this.props.links.ytlink, "_blank")}></img>
-                        <img src="/3dAssets/UI/Icon_twitter.png" alt="web" onClick={() => window.open(this.props.links.twitterLink, "_blank")}></img>
-
-                      </div> */}
-                        {this.state.errorMessage}
-                      </div>
-                    )}
-                    <div className="">
-                      <button
-                        className="btn btn-lg btn-signIn btn-pd"
-                        disabled={
-                          this.state.forceDisable
-                            ? true
-                            : !this.validateEmail(this.state.email)
-                        }
-                      >
-                        SIGN IN
-                      </button>
-                    </div>
-                    <div className="login-faqs">
-                      <p style={{ textAlign: "left", color: "#fff" }}>
-                        For more information, please visit the{" "}
-                        <span
-                          style={{
-                            color: "#69b9f7",
-                            display: "inline",
-                            cursor: "pointer",
-                          }}
-                          onClick={() => {
-                            this.setState({ showConsent: true });
-                          }}
-                        >
-                          FAQ document
-                        </span>
-                        .
-                      </p>
-                    </div>
-                  </div>
-                  <div className="bottom-mobile-img">
-                    <img src={mobileBottom} />
-                  </div>
-                </form>
-                <div
-                  className={`bottom-img ${isIOS ? "ipad-bottom" : ""}`}
-                ></div>
-              </>
-            )}
-          </aside>
-        </section>
-
-        <div
-          className={this.state.showConsent ? "consent__viewer" : "notOpened"}
-          onClick={() => {
-            this.setState({ showConsent: false });
-          }}
-        >
-          <img src={cross} alt="" className="cross" />
-          {this.state.showConsent ? (
-            <>
-              <iframe
-                title={"pdf"}
-                src={
-                  "/web/viewer.html?file=%2Fassets%2Fcontent%2Finfo_desk%2FFAQs.pdf"
-                }
-                className="main_consent_container"
-                width="100%"
-                height="100%"
-              ></iframe>
+              </form>
             </>
-          ) : (
-            <></>
           )}
-        </div>
-      </>
+        </aside>
+      </section>
     );
   }
 }

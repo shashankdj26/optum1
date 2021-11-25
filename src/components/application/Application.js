@@ -17,6 +17,7 @@ import {
   turnOnUserCard,
   firestore,
   checkForSpeaker,
+  checkForSpecialUser,
 } from "../firebase/firebase";
 import Home from "../Home/Home";
 
@@ -189,6 +190,15 @@ class Application extends Component {
       await getProjectData();
       const isSpeaker = await checkForSpeaker(userAuth.email);
       window.isSpeaker = isSpeaker;
+
+      checkForSpecialUser(userAuth, (err, link) => {
+        if (err) {
+          console.log(err);
+          return;
+        }
+        window.specialUser = true;
+        window.zoomLink = link;
+      });
 
       // liveCountListener((data, err) => {
       //   if (err) {

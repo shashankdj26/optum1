@@ -13,6 +13,10 @@ import Scene from "../common/Scene/Scene";
 import QNA from "../Qna/App1";
 import PublicPoll from "../Poll/PublicPoll";
 import Connect from "../Connect/Connect";
+import Lottie from "react-lottie-player";
+import { AiFillHeart, AiFillLike } from "react-icons/ai";
+import { FaHandPaper } from "react-icons/fa";
+import clapSound from "./clapping.mp3";
 
 //#endregion
 //#region Const import
@@ -61,6 +65,7 @@ import {
   analytics,
   getBreakoutRoomListener,
   addScore,
+  firebaseApp,
 } from "../firebase/firebase";
 import LobbyTut from "./Tut/LobbyTut";
 import ReactAudioPlayer from "react-audio-player";
@@ -96,6 +101,12 @@ class Home extends Component {
   state = {
     BreakoutRoomsHotspot: BreakoutRoomsHotspot,
     currenLocation: "",
+    playlikeLottie: false,
+    playheartLottie: false,
+    playClapLottie: false,
+    likeCount: 0,
+    heartCount: 0,
+    clapCount: 0,
     UI: {
       menuItems: menuItems,
       activeMenu: menuItems[0],
@@ -162,13 +173,14 @@ class Home extends Component {
   currentOverlayCallback = null;
   currentAudioRef = React.createRef();
   AudioListenerRemoved = false;
+  clapref = React.createRef();
 
   componentDidMount = () => {
     window.c = this;
     window.addEventListener("click", this.playIntroAudio);
     this.dailycoSetup();
     this.gettingMeetingRoomErrMessage();
-    window.zoomlink = DBRData.zoomlink;
+    // window.zoomlink = DBRData.zoomlink;
 
     // getBreakoutRoomListener((err, hotspot) => {
     //   if (err) {
@@ -188,6 +200,31 @@ class Home extends Component {
     //   console.log(newObj);
     //   this.setState({ BreakoutRoomsHotspot: newObj });
     // });
+
+    firestore
+      .collection(AppString.BACKSATGE)
+      .doc("totalLikes")
+      .onSnapshot((doc) => {
+        if (doc.exists) {
+          this.setState({ likeCount: doc.data().count });
+        }
+      });
+    firestore
+      .collection(AppString.BACKSATGE)
+      .doc("totalHearts")
+      .onSnapshot((doc) => {
+        if (doc.exists) {
+          this.setState({ heartCount: doc.data().count });
+        }
+      });
+    firestore
+      .collection(AppString.BACKSATGE)
+      .doc("totalClaps")
+      .onSnapshot((doc) => {
+        if (doc.exists) {
+          this.setState({ clapCount: doc.data().count });
+        }
+      });
 
     getLinkListener((err, data) => {
       if (err) {
@@ -272,6 +309,11 @@ class Home extends Component {
   handleClick = (event, item, overlayCloseCallback) => {
     if (event) event.preventDefault();
     this.closeMediaModal();
+    this.setState({
+      playlikeLottie: false,
+      playClapLottie: false,
+      playheartLottie: false,
+    });
 
     if (this.state.UI.overlayMenu) {
       if (item.id === this.state.UI.overlayMenu.id) {
@@ -925,6 +967,13 @@ class Home extends Component {
     return this.state.UI.menuItems;
   }
 
+  updatesLikeClapsHearts = async (doc) => {
+    await firestore
+      .collection(AppString.BACKSATGE)
+      .doc(doc)
+      .update({ count: firebaseApp.firestore.FieldValue.increment(1) });
+  };
+
   // getActiveSubMenuItems() {
   //     var activeMenuItems = this.getActiveMenuItems();
   //     for(var i = 0; i < activeMenuItems.length; i++)
@@ -1181,6 +1230,77 @@ class Home extends Component {
                 </button> */}
               </>
             )}
+
+            {this.state.UI.activeMenu.id === menuItemsId.Audi && (
+              <Lottie
+                style={{
+                  position: "fixed",
+                  zIndex: 111,
+                  left: 0,
+                  right: 0,
+                  height: "100vh",
+                  width: "100%",
+                  pointerEvents: "none",
+                  visibility: this.state.playlikeLottie ? "visible" : "hidden",
+                }}
+                path={"/like-anim/Likes.json"}
+                play={this.state.playlikeLottie}
+                loop={true}
+                onLoopComplete={() => {
+                  this.setState({ playlikeLottie: false });
+                }}
+                onLoad={() => {
+                  console.log("ready to play");
+                }}
+              />
+            )}
+            {this.state.UI.activeMenu.id === menuItemsId.Audi && (
+              <Lottie
+                style={{
+                  position: "fixed",
+                  zIndex: 111,
+                  left: 0,
+                  right: 0,
+                  height: "100vh",
+                  width: "100%",
+                  pointerEvents: "none",
+                  visibility: this.state.playheartLottie ? "visible" : "hidden",
+                }}
+                path={"/heart-anim/Heart.json"}
+                play={this.state.playheartLottie}
+                loop={true}
+                onLoopComplete={() => {
+                  this.setState({ playheartLottie: false });
+                }}
+                onLoad={() => {
+                  console.log("ready to play");
+                }}
+              />
+            )}
+            {this.state.UI.activeMenu.id === menuItemsId.Audi && (
+              <Lottie
+                style={{
+                  position: "fixed",
+                  zIndex: 111,
+                  left: 0,
+                  right: 0,
+                  height: "100vh",
+                  width: "100%",
+                  pointerEvents: "none",
+                  visibility: this.state.playClapLottie ? "visible" : "hidden",
+                }}
+                path={"/clap-anim/Clap.json"}
+                play={this.state.playClapLottie}
+                loop={true}
+                onLoopComplete={() => {
+                  this.setState({ playClapLottie: false });
+                }}
+                onLoad={() => {
+                  console.log("ready to play");
+                }}
+              />
+            )}
+
             {this.state.UI.activeMenu.id === menuItemsId.Lobby && (
               <>
                 <Scene
@@ -1250,27 +1370,144 @@ class Home extends Component {
               </>
             )}
             {this.state.UI.activeMenu.id === menuItemsId.Audi && (
-              <AudiScene
-                changeComponenet={this.handleClick}
-                ShowMediaModal={this.showMediaModal}
-                initialVideo={AudiData.introVideo}
-                globalBackButton={true}
-                AudiZoomLink={AudiZoomLink.link}
-                showZoom={false}
-                showCover={false}
-                link={this.state.audiLnk}
-                framePlacementStyle={AudiData.placementStyle}
-                hiddeMute={false}
-                //For Tutorial
-                sceneName="audi"
-                showTut={isMobileOnly ? false : true}
-                tutComponent={AudiTut}
-                subMenus={this.state.UI.activeSubMenu}
-                //Analytics
-                addAnalytics={(value) => {
-                  this.addComponentAnalytics(AnalyticsLocations.Audi, value);
-                }}
-              ></AudiScene>
+              <>
+                <AudiScene
+                  changeComponenet={this.handleClick}
+                  ShowMediaModal={this.showMediaModal}
+                  initialVideo={AudiData.introVideo}
+                  globalBackButton={true}
+                  AudiZoomLink={AudiZoomLink.link}
+                  showZoom={false}
+                  showCover={false}
+                  link={this.state.audiLnk}
+                  framePlacementStyle={AudiData.placementStyle}
+                  hiddeMute={false}
+                  //For Tutorial
+                  sceneName="audi"
+                  showTut={isMobileOnly ? false : true}
+                  tutComponent={AudiTut}
+                  subMenus={this.state.UI.activeSubMenu}
+                  //Analytics
+                  addAnalytics={(value) => {
+                    this.addComponentAnalytics(AnalyticsLocations.Audi, value);
+                  }}
+                ></AudiScene>
+
+                <div
+                  className={`audiButtonContainer ${
+                    this.state.UI.hideCommentsBtn ? "commentSection-out" : ""
+                  }`}
+                >
+                  <div
+                    className="audiChatButton"
+                    onClick={async (e) => {
+                      if (e) {
+                        e.preventDefault();
+                      }
+                      this.setState({ playlikeLottie: true });
+                      this.updatesLikeClapsHearts("totalLikes");
+
+                      await addRealtimeHotspotAnalytics(this.context, "likes");
+                    }}
+                    style={{
+                      // background:
+                      //   "linear-gradient(0deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)), linear-gradient(180deg, rgba(255, 255, 255, 0.4) 0%, rgba(150, 150, 150, 0.4) 100%)",
+                      backdropFilter: "blur(34px)",
+                      // borderBottom: "0.5px solid #000000",
+                    }}
+                  >
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                      }}
+                    >
+                      <AiFillLike
+                        className="likeButton"
+                        style={{ color: "#fff" }}
+                      />
+                      {/* <p style={{ color: "#fff", marginLeft: "0.3rem" }}>
+                            {this.state.likeCount}
+                          </p> */}
+                    </div>
+                  </div>
+                  <div
+                    className="audiChatButton"
+                    onClick={async (e) => {
+                      if (e) {
+                        e.preventDefault();
+                      }
+                      console.log("in");
+                      this.setState({ playheartLottie: true }, () => {
+                        console.log(this.state.playheartLottie);
+                      });
+                      this.updatesLikeClapsHearts("totalHearts");
+                      await addRealtimeHotspotAnalytics(this.context, "hearts");
+                    }}
+                    style={{
+                      // background:
+                      //   "linear-gradient(0deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)), linear-gradient(180deg, rgba(255, 255, 255, 0.4) 0%, rgba(150, 150, 150, 0.4) 100%)",
+                      backdropFilter: "blur(34px)",
+                      // borderBottom: "0.5px solid #000000",
+                    }}
+                  >
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                      }}
+                    >
+                      <AiFillHeart
+                        className="heartButton"
+                        style={{ color: "#fff" }}
+                      />
+                      {/* <p style={{ color: "#fff", marginLeft: "0.3rem" }}>
+                            {this.state.heartCount}
+                          </p> */}
+                    </div>
+                  </div>
+                  <div
+                    className="audiChatButton"
+                    onClick={async (e) => {
+                      if (e) {
+                        e.preventDefault();
+                      }
+                      this.setState({ playClapLottie: true });
+                      this.updatesLikeClapsHearts("totalClaps");
+                      if (this.clapref.current) {
+                        this.clapref.current.audioEl.current.play();
+                        setTimeout(() => {
+                          if (this.clapref.current) {
+                            this.clapref.current.audioEl.current.pause();
+                            this.clapref.current.audioEl.current.load();
+                          }
+                        }, 5000);
+                      }
+                      await addRealtimeHotspotAnalytics(this.context, "clap");
+                    }}
+                    style={{
+                      // background:
+                      //   "linear-gradient(0deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)), linear-gradient(180deg, rgba(255, 255, 255, 0.4) 0%, rgba(150, 150, 150, 0.4) 100%)",
+                      backdropFilter: "blur(34px)",
+                      // borderBottom: "0.5px solid #000000",
+                    }}
+                  >
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                      }}
+                    >
+                      <div className="clap">
+                        <FaHandPaper className="lower__hand clapButton" />
+                      </div>
+                      {/* <p style={{ color: "#fff", marginLeft: "0.3rem" }}>
+                            {this.state.clapCount}
+                          </p> */}
+                    </div>
+                  </div>
+                </div>
+              </>
             )}
             {this.state.UI.activeMenu.id === menuItemsId.Networking && (
               <>
@@ -1849,6 +2086,20 @@ class Home extends Component {
               ref={this.currentAudioRef}
             />
           )}
+
+        {this.state.UI.activeMenu.id === menuItemsId.Audi && (
+          <ReactAudioPlayer
+            src={clapSound}
+            autoPlay={false}
+            volume={0.5}
+            loop={false}
+            preload="auto"
+            onEnded={() => {
+              this.clapref.current.audioEl.current.load();
+            }}
+            ref={this.clapref}
+          />
+        )}
       </>
     );
   }

@@ -119,7 +119,7 @@
   height: 6rem;
 }
 .signinBox__heading .left {
-  background: url(./assets/logo-tech.png);
+  /* background: url(./assets/logo-tech.png); */
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;

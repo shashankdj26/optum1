@@ -20,6 +20,7 @@ export const AppString = {
   MEETINGROOMDOC: "1_Ultra-Tech",
 
   CONNECT: "connect",
-  SPEAKERS: 'speakers',
-  ADMIN: 'Admin',
+  SPEAKERS: "speakers",
+  SPECIALUSER: "specialUser",
+  ADMIN: "Admin",
 };
