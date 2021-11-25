@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <title>Photogallery</title>
+  </head>
+  <body>
+    <div id="bg">
+      <img src="./textures/ImageGallery.png" id="header" />
+      <div id="divs">
+        <div class="divBG" id="ogDiv">
+          <div class="imgBG">
+            <img src="./textures/ImageGallery.png" class="imgDiv" />
+            <div class="btnDiv" style="display: none">
+              <img
+                src="./textures/likeBtn.png"
+                class="likeBtn btn"
+                data-status="idle"
+              />
+              <img src="./textures/View.png" class="viewBtn btn" />
+            </div>
+          </div>
+          <!-- <div class="footer"></div> -->
+        </div>
+      </div>
+      <div class="footerEnd"></div>
+      <img src="./textures/rolling.svg" id="loader" />
+    </div>
+  </body>
+  <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-database.js"></script>
+
+  <script src="./scripts/inits.js"></script>
+  <script src="./scripts/script.js"></script>
+</html>

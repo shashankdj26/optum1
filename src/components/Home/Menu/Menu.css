@@ -1,0 +1,164 @@
+.footerBox {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background: #323466;
+}
+/* @media only screen and (max-width: 700px) {
+  .footerBox {
+    max-width: 100%;
+    overflow-x: auto;
+  }
+} */
+.loggedin-page .stages-header__menu {
+  display: block;
+}
+.loggedin-page .stages-header__menu li {
+  margin-bottom: 1.5rem;
+}
+
+/* Icon Menu */
+.bottom-icons-nav {
+  position: relative;
+  display: flex;
+  list-style-type: none;
+  background: #323466;
+  z-index: 3;
+  overflow: auto;
+}
+.bottom-icons-nav > li {
+  width: 20%;
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+}
+.bottom-icons-nav > li > a {
+  color: rgba(255, 255, 255, 0.3);
+  height: 100%;
+  text-transform: uppercase;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  text-decoration: none;
+  cursor: pointer;
+}
+.bottom-icons-nav > li > a.active {
+  color: rgba(255, 255, 255, 1);
+}
+.desktop__logo {
+  /* padding: 2rem 1rem; */
+  opacity: 1;
+  display: none;
+}
+
+.bottom-icons-nav.bottom-icons-nav--withtext > li {
+  font-size: 1.25rem;
+}
+.bottom-icons-nav.bottom-icons-nav--withtext > li > a {
+  padding: 0.934rem 1rem;
+  color: #fff;
+}
+.bottom-icons-nav.bottom-icons-nav--withtext > li > a > i {
+  margin-bottom: 0.75rem;
+  display: inline-block;
+}
+.bottom-icons-nav.bottom-icons-nav--withtext > li > a.active {
+  background: #f291bc;
+  color: #fff !important;
+}
+.bottom-icons-nav.bottom-icons-nav--withtext > li > a.active > i::before {
+  color: white !important;
+}
+.bottom-icons-nav.bottom-icons-nav--withtext > li > a > span {
+  display: block;
+  font-size: 0.75rem;
+  line-height: 0.85rem;
+}
+
+.has-notification > i {
+  position: relative;
+}
+.has-notification > i:after {
+  position: absolute;
+  content: "";
+  right: -7px;
+  top: -7px;
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  background: #f34343;
+}
+
+.menuBackButton a span {
+  /* font-size: 1.15rem !important; */
+}
+/* Tablet */
+@media only screen and (min-width: 991px) {
+  .has-right-menu {
+    position: relative;
+    margin-right: 7rem;
+    width: auto;
+  }
+  .loggedin-page .stages-header__menu {
+    display: block;
+    padding-right: 8rem;
+  }
+
+  .desktop__logo {
+    display: block;
+  }
+  .footerBox {
+    left: auto;
+    bottom: auto;
+    right: 0;
+    top: 0;
+    z-index: 3;
+    width: 7rem;
+    height: 100%;
+  }
+
+  .bottom-icons-nav {
+    flex-direction: column;
+    height: 100%;
+    overflow: auto;
+    z-index: 5;
+    padding-top: 0rem;
+  }
+  .bottom-icons-nav > li {
+    margin: 0.5rem 0;
+    width: 100%;
+    font-size: 2rem;
+  }
+  .bottom-icons-nav > li > a {
+    padding: 2rem 1rem;
+  }
+  .bottom-icons-nav.bottom-icons-nav--withtext > li > a {
+    padding: 1rem 1rem;
+  }
+}
+
+/* Desktop */
+@media only screen and (max-width: 991px) {
+  .mobile-video {
+    width: calc(60vh * 1.77) !important;
+    height: 60vh !important;
+  }
+
+  .footerBox {
+    z-index: 6;
+    min-height: 5rem;
+  }
+
+  .bottom-icons-nav.bottom-icons-nav--withtext > li {
+    min-height: 5rem;
+  }
+}
+
+@media only screen and (max-width: 991px) and (orientation: landscape) {
+  .tutCardContainer-body {
+    max-height: 45vh !important;
+    justify-content: flex-start !important;
+  }
+}

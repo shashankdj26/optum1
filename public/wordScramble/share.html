@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Word Puzzle</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="HandheldFriendly" content="true">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="images/icons/favicon.ico" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
+    <!--===============================================================================================-->
+
+    <script src="vendor/jquery/js/jquery.min.js"></script>
+    <!--===============================================================================================-->
+
+    <link rel="stylesheet" type="text/css" href="css/util.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="src/css/quizstyle.css">
+    <!--===============================================================================================-->
+
+    <!--===============================================================================================-->
+</head>
+
+<body>
+    <div class="limiter">
+        <div class="logo-partnersumit">
+
+        </div>
+        <div class="container-login100">
+            <div class="wrap-login100-height-full">
+                <div class="login100-form validate-form">
+                    <span class="login100-form-title-la p-b-250 ">
+                        <img id="logo" src="img/logo.png" alt="logo">
+                    </span>
+
+                    <div class="login100-form validate-form ">
+                        <span class="login100-form-title">
+                            <img id="covid-message" src="img/congratulations.png" alt="covid-message">
+                        </span>
+                    </div>
+                    <div class="login100-form-title">
+                        <span class="txt1">
+                            You have answered <span id="score_board"></span></p>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- firebase start-->
+    <!-- Fire base connectivity -->
+
+    <script src="https://www.gstatic.com/firebasejs/7.15.2/firebase-app.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/7.15.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.2/firebase-database.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/7.15.2/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.2/firebase-analytics.js"></script>
+
+    <script>
+        var firebaseConfig =  {
+  apiKey: "AIzaSyCs6NzzHFwuOywcjKb6weU2tnblFOJYQJQ",
+  authDomain: "optum-cdcd7.firebaseapp.com",
+  databaseURL: "https://optum-cdcd7-default-rtdb.firebaseio.com",
+  projectId: "optum-cdcd7",
+  storageBucket: "optum-cdcd7.appspot.com",
+  messagingSenderId: "33244416026",
+  appId: "1:33244416026:web:cd039c460016444059a9a3",
+  measurementId: "G-ZR8NLSNB91",
+};
+        firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+        var rdb = firebase.database();    
+    </script>
+    <script src="src/js/main.js"></script>
+    <script src="src/js/scriptend.js"></script>
+
+    <!-- firebase end -->
+
+</body>
+
+</html>

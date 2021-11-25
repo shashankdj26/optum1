@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Word Puzzle</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1,user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="HandheldFriendly" content="true">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
+<!--===============================================================================================-->
+
+<script src="vendor/jquery/js/jquery.min.js"></script>
+<!--===============================================================================================-->
+
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="src/css/quizstyle.css">
+<!--===============================================================================================-->
+	<script src="src/js/script.js "></script>
+<!--===============================================================================================-->
+</head>
+<body onload="onload();">	
+	<div class="limiter">
+		<div class="logo-partnersumit">
+					
+		</div>  
+		<div class="container-login100">
+			<div class="wrap-login100">	
+					
+				<div class="login100-form validate-form">					
+					<span class="login100-form-title-la p-b-0 ">
+						<img id="logo" src="img/logo.png" alt="logo">					
+					</span>	
+
+					<span class="login100-form-title p-b-30">
+						<h1 id="timer">00:45</h1>						
+					</span>
+					<span class="login100-form-title p-b-30">						
+						<p id="question">What should you wash your hands with for atleast 20 seconds, when visibly dirty?</p>
+					</span>					
+					<span class="login100-form-title p-b-20">
+						<div class="puzzleword" id="puzzleword1">
+						</div>
+					</span>
+					<span class="login100-form-title p-b-10">
+						<div class="puzzleword" id="puzzleword2">
+						</div>
+					</span>
+				
+
+					<span class="login100-form-title p-b-6">	
+						<p id="answer">answer</p>					
+					</span>
+					
+					<div class="input-group mb-3 input-group-lg" id="puzzleword">
+						<textarea id="puzzlesolution" value="" disabled></textarea>
+					</div>
+
+					
+					<!-- /////////////////////////////////////////// -->
+
+			
+					<div class="row">
+						<div class="col">
+							<input type="image" src="img/back.png" id="back-btn" value="Back" alt="Submit" class="puzzle-back" onclick="clickOnBackBTN();">
+						</div>
+						
+						<div class="col">
+							<input type="image" src="img/next.png" id="next-btn" value="Next" alt="Submit" class="puzzle-next" onclick="LoadGui();">
+						</div>
+					</div>
+
+					<div class="text-center p-t-30 p-b-0">												
+							<p id="questionnumber">1/10</p>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+	
+
+</body>
+</html>

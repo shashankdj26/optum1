@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Photobooth</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link href="./css/main.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="photobooth1-container">
+      <div class="photobooth1-header"></div>
+      <div class="photo-frame-area">
+        <video
+          class="player"
+          style="
+            width: 1px;
+            height: 1px;
+            position: absolute;
+            z-index: 555;
+            top: 0;
+            left: 0;
+          "
+        ></video>
+        <canvas class="photo"></canvas>
+      </div>
+      <div id="buttons">
+        <div class="button-area">
+          <div
+            class="capture-button button-bg-img"
+            id="Capture"
+            onClick="takePhoto();"
+            style="position: absolute; bottom: 1.5rem"
+          >
+            <img src="./img/capture.png" style="width: 100%" />
+          </div>
+          <div class="retake-button button-bg-img" id="Retake">
+            <img src="./img/Retake.png" style="width: 100%" />
+          </div>
+          <div class="save-button button-bg-img" id="Save">
+            <img src="./img/Save.png" style="width: 100%" />
+          </div>
+          <div class="save-button button-bg-img" id="Share">
+            <img src="./img/Share.png" style="width: 100%" />
+          </div>
+        </div>
+      </div>
+      <div id="share-options" style="display: none">
+        <div id="closeSharePopUp"></div>
+        <div class="inner-share">
+          <a id="facebookShare" class="fab fa-facebook" target="_blank"></a>
+          <a id="linkedInShare" class="fab fa-linkedin-in" target="_blank"></a>
+          <a id="emailShare" class="fa fa-envelope"></a>
+        </div>
+      </div>
+      <!-- <div id="arrowBG">
+  <img src="./img/arrow.png" id="arrowLeft" class="arrow" onclick="arrowLeft()">
+  <img src="./img/arrow.png" id="arrowRight" class="arrow" onclick="arrowRight()">
+</div> -->
+      <div id="photogalleryBG">
+        <div onclick="openIframe()" id="pgBtn"></div>
+        <iframe src="./photogallery/index.html" id="photogallery"></iframe>
+      </div>
+      <!-- Flash -->
+      <div id="flash" class="flashon"></div>
+      <div id="blackFlash" class="flashon"></div>
+    </div>
+
+    <audio class="snap" src="./mp3/snap.mp3" hidden></audio>
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-storage.js"></script>
+    <script src="./js/script.js"></script>
+  </body>
+</html>

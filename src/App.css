@@ -1,0 +1,273 @@
+/* Track */
+
+::-webkit-scrollbar-track {
+  background: #6d6c6c46;
+}
+
+/* Handle */
+
+::-webkit-scrollbar-thumb {
+  background: #f291bc;
+}
+
+/* Handle on hover */
+
+::-webkit-scrollbar-thumb:hover {
+  background: #f291bc;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 991px) {
+  .logout-profile-bottom {
+    margin-bottom: 4.5rem;
+  }
+
+  .footer-ios {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 7rem;
+    background-color: #323466;
+    height: 100vh;
+    bottom: auto;
+    left: auto;
+    max-height: 100vh;
+    overflow-y: auto;
+    padding-bottom: 6rem;
+  }
+}
+
+@media only screen and (min-width: 991px) {
+  /* width */
+  ::-webkit-scrollbar {
+    width: 0.65rem;
+  }
+
+  .logout-profile-bottom {
+    margin-bottom: 5rem !important;
+  }
+
+  .ipad-bottom {
+    bottom: 4rem;
+  }
+
+  .stallchat-ipad {
+    margin-bottom: 4rem;
+    width: 40vw;
+  }
+
+  .ipad-stall-chat {
+    width: 40vw;
+  }
+
+  .ipad-launge-chat {
+    width: 40vw;
+  }
+
+  .ios-video {
+    height: 100% !important;
+    width: calc(100vw - 7rem) !important;
+    position: fixed !important;
+    left: 0 !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+  }
+}
+
+.audi-video-myiframe {
+  /*CSS transitions*/
+  -o-transition-property: none !important;
+  -moz-transition-property: none !important;
+  -ms-transition-property: none !important;
+  -webkit-transition-property: none !important;
+  transition-property: none !important; /*CSS transforms*/
+  -o-transform: none !important;
+  -moz-transform: none !important;
+  -ms-transform: none !important;
+  -webkit-transform: none !important;
+  transform: none !important;
+  /*CSS animations*/
+  -webkit-animation: none !important;
+  -moz-animation: none !important;
+  -o-animation: none !important;
+  -ms-animation: none !important;
+  animation: none !important;
+}
+
+.ios-page {
+  /* display: none; */
+  width: calc(100% - 7rem);
+}
+.ios-page.has-right-menu {
+  margin-right: 7 !important;
+}
+
+.ios-btn-right {
+  right: 8rem;
+}
+
+.ios-chatButton {
+  bottom: 0.25rem;
+  right: 7rem;
+}
+
+.lobby-ios {
+  height: 100vh !important;
+  width: calc(100% - 7rem) !important;
+}
+.ios-page #FrameImage,
+.ios-page #FrameVideo,
+.ios-page .TransitionVideo {
+  height: 100vh !important;
+  width: 233vh !important;
+}
+.ios-page #overlayContent {
+  height: 100vh !important;
+  width: 233vh !important;
+}
+.ios-page #leftArrow {
+  display: block !important;
+}
+.ios-page #rightArrow {
+  display: block !important;
+  right: 8rem !important;
+}
+
+.footer-ios ul {
+  height: 100%;
+  flex-direction: column;
+  padding-top: 1rem;
+}
+.footer-ios ul li {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+.ios-page .submenu-container {
+  position: fixed;
+  left: unset;
+  right: 7rem;
+  top: 0;
+  height: 87vh !important;
+  width: 30rem;
+}
+.ios-page #audiVideoFrame {
+  height: 100vh !important;
+}
+.ios-page .user-profile {
+  top: 0;
+  bottom: unset;
+  right: 7rem;
+  width: 30rem;
+  height: calc(100vh);
+  z-index: 11111;
+  position: fixed;
+}
+
+.ios-15 #FrameImage,
+.ios-15 #FrameVideo,
+.ios-15 .TransitionVideo {
+  width: calc((100vh - 7rem) * 2.33) !important;
+  height: calc(100vh - 7rem) !important;
+}
+.ios-15 #overlayContent {
+  width: calc((100vh - 7rem) * 2.33) !important;
+  height: calc(100vh - 7rem) !important;
+}
+
+.ios-15 .submenu-container {
+  position: fixed;
+  left: unset;
+  right: 7rem;
+  top: 0;
+  height: calc(100vh - 9rem) !important;
+  width: 30rem;
+}
+.ios-15 #audiVideoFrame {
+  height: calc(100vh - 9rem) !important;
+}
+.ios-15 .user-profile {
+  top: 0;
+  bottom: unset;
+  right: 7rem;
+  width: 30rem;
+  height: calc(100vh - 7rem);
+  z-index: 11111;
+  position: fixed;
+}
+.ios-15 .commentSection {
+  height: 60vh !important;
+  width: 75vw !important;
+}
+.ios-15 .box-cont {
+  height: calc(60vh - 10rem) !important;
+  overflow-y: auto;
+}
+
+.ios-15 #FrameImage,
+.ios-15 #FrameVideo,
+.ios-15 .TransitionVideo {
+  width: calc((100vh - 7rem) * 2.33) !important;
+  height: calc(100vh - 7rem) !important;
+}
+.ios-15 #overlayContent {
+  width: calc((100vh - 7rem) * 2.33) !important;
+  height: calc(100vh - 7rem) !important;
+}
+
+.ios-15-ch .submenu-container {
+  position: fixed;
+  left: unset;
+  right: 7rem;
+  top: 0;
+  height: calc(100vh - 4rem) !important;
+  width: 30rem;
+}
+.ios-15-ch #audiVideoFrame {
+  height: calc(100vh - 4rem) !important;
+}
+.ios-15-ch .user-profile {
+  top: 0;
+  bottom: unset;
+  right: 7rem;
+  width: 30rem;
+  height: calc(100vh - 4rem);
+  z-index: 11111;
+  position: fixed;
+}
+
+.ios-14-2 #FrameImage,
+.ios-14-2 #FrameVideo,
+.ios-14-2 .TransitionVideo {
+  width: calc((100vh - 7rem) * 2.33) !important;
+  height: calc(100vh - 7rem) !important;
+}
+.ios-14-2 #overlayContent {
+  width: calc((100vh - 7rem) * 2.33) !important;
+  height: calc(100vh - 7rem) !important;
+}
+.ios-14-2 #audiVideoFrame {
+  height: calc(100vh - 7rem) !important;
+}
+.ios-14-2 .user-profile {
+  top: 0;
+  bottom: unset;
+  right: 7rem;
+  width: 30rem;
+  height: calc(100vh - 7rem);
+  z-index: 11111;
+  position: fixed;
+}
+.ios-14-2 .submenu-container {
+  position: fixed;
+  left: unset;
+  right: 7rem;
+  top: 0;
+  height: calc(100vh - 7rem) !important;
+  width: 30rem;
+}
+
+@media (min-width: 1000px) {
+  .ios-page {
+    width: 100% !important;
+  }
+}

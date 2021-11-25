@@ -1,0 +1,304 @@
+.lobbyTutContainer {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.562);
+  z-index: 50;
+  font-family: Calibri;
+  font-style: normal;
+}
+
+.tutCardContainer {
+  width: 25%;
+  /* height: 50%; */
+  background: #fff;
+  border-radius: 0.2rem;
+  height: auto;
+  /* padding-bottom: 2rem; */
+  color: black;
+  /* background: url(./assets/sideBg.jpg); */
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.tutCardContainer-sm {
+  width: 80%;
+}
+
+.width-cal {
+  width: 90%;
+}
+
+.mg-top-lobby {
+  margin-top: 1.875rem !important;
+}
+
+.tutCardContainer-header {
+  margin-top: 0.5rem;
+  background: #fff;
+  /* box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.25); */
+  /* border-radius: 0.2rem; */
+  /* border-bottom-left-radius: 0; */
+  /* border-bottom-right-radius: 0; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.1rem 2rem;
+  text-transform: uppercase;
+  color: #000;
+  font-weight: bold;
+  font-size: 1.5rem;
+  border-bottom: 1px solid #ccc;
+}
+
+.blackText {
+  color: #000;
+}
+
+.bottom-border {
+  border-bottom: 0.3rem solid #ccc;
+}
+
+.tutCardContainer-header div {
+  cursor: default;
+}
+
+.tutCardContainer-header img {
+  width: 5rem;
+  height: auto;
+}
+
+.noLeftPadding {
+  padding-left: 0rem;
+}
+
+.ptb-extra {
+  padding-top: 3.8rem;
+  padding-bottom: 1.8rem;
+}
+
+.tutCardButton {
+  min-width: unset;
+  height: 3.5rem;
+  border: 0;
+  opacity: 0.95;
+  transform: scale(0.95);
+  transition: 0.15s;
+  font-size: 1rem;
+  cursor: pointer;
+  text-align: center;
+  line-height: unset;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.tutCardButton:hover {
+  opacity: 1;
+  transform: scale(1);
+  box-shadow: 0px 4px 11px #f291bc;
+  border: 1px solid #f291bc;
+}
+
+.coloredHover:hover {
+  box-shadow: 0px 4px 11px rgba(255, 255, 255, 0.25);
+  color: white;
+  background: #ec6208;
+}
+
+.tutCardContainer-body {
+  width: 100%;
+  height: auto;
+  max-height: 80%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* margin-top: 0.8rem; */
+  padding: 0.75rem 1.5rem;
+  color: #000;
+}
+
+.tutCardContainer-body-extraPd {
+  padding: 1.5rem 1.5rem;
+}
+
+.tutCardContainer-bodyItem {
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  font-size: 1.15rem;
+}
+
+.tutCardContainer-bodyItem img {
+  box-shadow: 0px 4px 44px rgba(0, 0, 0, 0.25);
+  transition: 0.15s;
+  transform: scale(0.95);
+  width: 5rem;
+}
+
+.tutCardContainer-bodyItem img:hover {
+  transform: scale(1);
+  box-shadow: 0px 4px 44px #e19c2f;
+}
+
+.tutCardContainer-bodyItem h2 {
+  color: #323466;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.bottom-shade {
+  width: 100%;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+}
+
+.bodyItem-text {
+  margin-left: 0.5rem;
+  cursor: default;
+}
+
+.tutCardContainer-body-textContainer {
+  text-align: justify;
+  font-size: 1.5rem;
+  /* padding: 1rem; */
+}
+
+.tutCardContainer-body-textContainer h3,
+.tutCardContainer-body-textContainer h4,
+.tutCardContainer-body-textContainer h6 {
+  color: #e29c31;
+  text-align: initial;
+  font-size: 2rem;
+}
+
+.selfAlign {
+  align-self: center;
+}
+
+.tutCardContainer-headerImg {
+  min-height: 8rem;
+  max-height: 8rem;
+}
+
+.tutCardContainer-body-textContainer {
+  padding: 1rem;
+  max-height: 33vh;
+  overflow: auto;
+  justify-content: unset;
+}
+
+.tutCardContainer {
+  /* max-height: 85vh; */
+}
+
+@keyframes errorBox {
+  0% {
+    opacity: 0.5;
+    transform: scale(0.3);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.errorBox {
+  border: 0.15rem solid rgba(128, 128, 128, 0.404);
+  border-radius: 0.75rem;
+
+  padding: 0.5rem 0.25rem;
+
+  color: #ff1212;
+  font-size: 1.25rem;
+
+  animation: 0.25s errorBox forwards;
+}
+
+.errorBox > div {
+  margin-top: 0.5rem;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.errorBox > div img {
+  cursor: pointer;
+  max-width: 2.5rem;
+  transform: scale(1) rotate(0deg);
+  transition: 0.25s;
+}
+.errorBox img:hover {
+  transform: scale(1.1);
+}
+
+@media only screen and (max-height: 876px) {
+  .tutCardContainer-body-textContainer {
+    max-height: 50vh;
+    overflow: auto;
+    justify-content: unset;
+  }
+  .tutCardContainer-headerImg {
+    min-height: 182px;
+  }
+}
+
+@media only screen and (max-height: 700px) {
+  .tutCardContainer-body-textContainer {
+    max-height: 26vh;
+    overflow: auto;
+    justify-content: unset;
+  }
+  .tutCardContainer-headerImg {
+    min-height: 182px;
+  }
+}
+
+@media only screen and (min-width: 1900px) {
+  .tutCardContainer-body-textContainer {
+    font-size: 1.8rem;
+  }
+}
+
+@media only screen and (min-height: 1400px) {
+  .tutCardContainer-headerImg {
+    /* min-height: 462px; */
+  }
+}
+
+@media only screen and (min-width: 991px) {
+  .width-cal {
+    width: 30%;
+  }
+  .tutCardContainer-sm {
+    width: unset;
+  }
+  .tutCardContainer-bodyItem img {
+    width: 5rem;
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  .tutCardContainer {
+    max-height: 85vh;
+
+    width: 70%;
+  }
+
+  .tutCardContainer-headerImg {
+    min-height: 9rem;
+  }
+
+  .mg-top-lobby {
+    margin-top: 0 !important;
+  }
+}

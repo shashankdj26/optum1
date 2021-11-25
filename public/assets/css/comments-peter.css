@@ -1,0 +1,33 @@
+@font-face {
+  font-family: "icomoon";
+  src: url("comments-peter/icomoon.eot?pd1com");
+  src: url("comments-peter/icomoon.eot?pd1com#iefix")
+      format("embedded-opentype"),
+    url("comments-peter/icomoon.ttf?pd1com") format("truetype"),
+    url("comments-peter/icomoon.woff?pd1com") format("woff"),
+    url("comments-peter/icomoon.svg?pd1com#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: "icomoon" !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-comments-peter:before {
+  content: "\1f50a";
+  color: #fff;
+}

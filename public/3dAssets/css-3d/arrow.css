@@ -1,0 +1,59 @@
+#leftArrow {
+  transform: scale(1.2, 1.2) rotate(90deg);
+  top: 60%;
+  left: 1%;
+}
+#rightArrow {
+  transform: scale(1.2, 1.2) rotate(270deg);
+  top: 60%;
+  right: 1%;
+}
+
+/* Arrow & Hover Animation */
+
+.more-arrows {
+  cursor: pointer;
+  position: absolute;
+  width: 75px;
+  height: 65px;
+}
+
+.more-arrows:hover polygon {
+  fill: #fff;
+  transition: all 0.2s ease-out;
+}
+
+.more-arrows:hover polygon.arrow-bottom {
+  transform: translateY(-18px);
+}
+
+.more-arrows:hover polygon.arrow-top {
+  transform: translateY(18px);
+}
+
+polygon {
+  fill: #fff;
+  transition: all 0.2s ease-out;
+  opacity: 0.85;
+}
+
+polygon.arrow-middle {
+  opacity: 0.75;
+}
+
+polygon.arrow-top {
+  opacity: 0.55;
+}
+
+@media only screen and (max-width: 991px) {
+  #leftArrow {
+    transform: scale(0.6, 0.6) rotate(90deg);
+    top: 46%;
+    left: 1%;
+  }
+  #rightArrow {
+    transform: scale(0.6, 0.6) rotate(270deg);
+    top: 46%;
+    right: 1%;
+  }
+}

@@ -1,0 +1,297 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+html{
+  overflow: hidden;
+}
+body{
+  font-family: 'Roboto', sans-serif;
+  background-color: black;
+  height: 100%;
+  margin: 0;
+  position: absolute;
+  width: 100%;
+  overflow: hidden;
+}
+
+#welcomeMenu
+{
+  z-index: 2;
+}
+
+.global-user { 
+  font-size: 1rem;  
+  min-width: 200px; 
+  line-height: 1.4rem; 
+  text-align: center; 
+  color: rgb(0, 0, 0);
+  position: absolute; 
+  left: 50%;
+  bottom: 20px; 
+  z-index: 1;
+  border-radius: 10px; 
+  background: #ffffff;
+  transform: translate(-50%,0);
+}
+
+#pdfDiv
+{
+  z-index: 2;
+}
+
+.iframe-embed{
+    
+    border-radius: 15px;
+    /* box-shadow: 0px 0px 30px rgb(255 255 255 / 50%); */
+}
+
+.popups{
+    display: none;
+}
+
+#headerPopup{
+    background-color: #000000b3;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0%;
+    z-index: 12;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+#lobbyVideo{
+    position: absolute;
+    width: auto; 
+    height: 100%;
+}
+
+#fromLobbyTransition{
+    display : none;
+    position: absolute;
+    width: auto; 
+    height: 100%;
+}
+
+#fromLobbyTransitionImg{
+  display : none;
+  position: absolute;
+  width: auto; 
+  height: 100%;
+}
+
+#choiceMenu{
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+ 
+  top: 0px;
+  background-color: rgb(59 172 204 / 90%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#choiceButton{
+
+  filter:opacity(100%);
+}
+#choiceButton:hover{
+  filter:opacity(80%);
+}
+#welcome{
+  width: 80%;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.blocker{
+  z-index: 100;
+  background-color: #0000002e;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+@keyframes myanim {
+    100% {
+       margin: 0% 23%;
+    }
+ }
+
+
+.infoButton{
+    cursor: pointer;
+    position: absolute;
+    height: 15%;
+    top: 50%;
+    left: 50%;
+    justify-content: center;
+    align-items: center;
+}
+
+/* backarrow */
+div.arrow {
+    display: none;
+    cursor: pointer;
+    width: 4vmin;
+    height: 4vmin;
+    box-sizing: border-box;
+    position: absolute;
+    left: 4%;
+    top: 6%;
+    transform: rotateZ(270deg) rotate(-45deg);
+}
+div.arrow::before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    border-width: 0.7vmin 0.7vmin 0 0;
+    border-style: solid;
+    border-color: #fafafa;
+    transition: 0.2s ease;
+    display: block;
+    transform-origin: 100% 0;
+}
+div.arrow:after {
+    content: '';
+    float: left;
+    position: relative;
+    top: -100%;
+    width: 100%;
+    height: 100%;
+    border-width: 0 0.7vmin 0 0;
+    border-style: solid;
+    border-color: #fafafa;
+    transform-origin: 100% 0;
+    transition: 0.2s ease;
+}
+div.arrow:hover::after {
+    transform: rotate(45deg);
+    border-color: #5DCBF1;
+    height: 120%;
+}
+div.arrow:hover::before {
+    border-color: #5DCBF1;
+    transform: scale(0.8);
+}
+
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
+/* closebutton  */
+/*
+button {
+    background: none;
+    border: 0;
+    box-sizing: border-box;
+    color: transparent;
+    cursor: pointer;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 12px;
+    right: 45.5%;
+    letter-spacing: 1.5px;
+    line-height: 60px;
+    outline: none;
+    overflow: hidden;
+    position: absolute;
+    text-transform: uppercase;
+    top: 8%;
+    transform: translate(-50%, -50%);
+    transition: all 0.2s ease-in;
+    width: 70px;
+  }
+  
+  button::before,
+  button::after {
+    background-color: white;
+    content: '';
+    display: block;
+    height: 2.5px;
+    left: 0;
+    position: absolute;
+    transform-origin: center left;
+    transition: all 0.2s ease-in;
+    width: 141.4214px;
+    z-index: -1;
+  }
+  
+  button::before {
+    top: 0;
+    transform: rotate(45deg);
+  }
+  
+  button::after {
+    bottom: 0;
+    transform: rotate(-45deg);
+  }
+  
+  button:hover {
+    color: #8A2387;
+  }
+  
+  button:hover::before,
+  button:hover::after {
+    height: 50px;
+    transform: rotate(0deg);
+  }
+*/
+#sidebarHolder{
+    width: 100%;
+    height: 100%;
+    top: 58px;
+    position: absolute;
+    /* clip: rect(58px 2000px 2000px 0px); */
+}
+  
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background: linear-gradient(-90deg, #4cc4d0 0%,#25B8E1 100%);
+  overflow-x: hidden;;
+  overflow-y: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.bottomleft{
+  cursor: pointer;
+  position: absolute;
+  height: 67px;
+  width: auto;
+  bottom: 3%;
+  left: 2%;
+  border-radius: 100px;
+  box-shadow: 0px 0px 20px rgb(0 0 0);
+}
+
+#headingText{
+  position: absolute;
+  top: 6px;
+  left: 24px;
+  height: 49px;
+  width: auto;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 4px;
+  right: 21px;
+  font-size: 36px;
+  margin-left: 52px;
+  color: white;
+  
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}

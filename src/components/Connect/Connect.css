@@ -1,0 +1,159 @@
+.connectContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #272727;
+  z-index: 50;
+}
+/* Header */
+.connectHeader {
+  width: 100%;
+  height: 8rem;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-height: 10vh;
+}
+
+.connectHeader div {
+  width: 5rem;
+  height: 5rem;
+}
+
+.logo-right {
+  width: 8rem !important;
+  height: 8rem !important;
+}
+
+.connect-closeButton {
+  transform: scale(0.95);
+  opacity: 0.9;
+  transition: 0.15s;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.connect-closeButton:hover {
+  transform: scale(1);
+  opacity: 1;
+  box-shadow: 0px 4px 24px #4951ec;
+}
+/* Header-end */
+
+/* MainBody */
+.connectBody {
+  padding: 4rem 5rem;
+  overflow: auto;
+  display: flex;
+  flex-flow: row wrap;
+  max-height: 90vh;
+  justify-content: center;
+}
+/*  */
+
+/* Connect Card */
+.connect-card {
+  background: #fff;
+  width: fit-content;
+  border-radius: 0.2rem;
+  margin: 1rem;
+  box-shadow: 0px 0px 1rem rgba(0, 0, 0, 0.596);
+  transition: 0.25s;
+}
+
+.connect-card:hover {
+  transform: scale(1.07);
+  z-index: 5;
+}
+
+.connect-card-head {
+  background: #e9e9e9;
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  border-top-left-radius: 0.2rem;
+  border-top-right-radius: 0.2rem;
+}
+
+.connect-card-head-image {
+  width: 7rem;
+  height: 7rem;
+  border-radius: 50%;
+  border: 2px solid #00000081;
+}
+
+.connect-card-head-details {
+  max-width: 14.5rem;
+  margin: 0 0.8rem;
+}
+
+.connect-card-name {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 1.25rem;
+  color: black;
+}
+
+.connect-card-title {
+  text-transform: uppercase;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #717171;
+}
+
+.connect-card-email {
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: #717171;
+  margin-top: 0.8rem;
+}
+
+.connect-card-body {
+  padding: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.connect-card-button {
+  background-color: #4951ec;
+  color: black;
+  padding: 0.8rem 2rem;
+  border-radius: 0.25rem;
+  margin-top: 4%;
+  text-transform: uppercase;
+  font-weight: 500;
+  box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.25);
+  opacity: 0.9;
+  transform: scale(0.95);
+  transition: 0.15s;
+}
+
+.connect-card-button:hover {
+  background-color: black;
+  color: #4951ec;
+  box-shadow: 0px 0px 0.15rem #ffbc048e;
+  opacity: 1;
+  transform: scale(1);
+  border: 0.05rem solid #4951ec;
+  cursor: pointer;
+}
+/* Connect Card - End */
+
+@media only screen and (max-width: 991px) {
+  .connectBody {
+    max-height: 80vh;
+  }
+  .connectBody {
+    padding: 2rem;
+  }
+
+  .connect-card {
+    width: 100%;
+  }
+}

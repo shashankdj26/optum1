@@ -1,0 +1,60 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('../fonts/Newicomoon.eot?bj1064');
+  src:  url('../fonts/Newicomoon.eot?bj1064#iefix') format('embedded-opentype'),
+    url('../fonts/Newicomoon.ttf?bj1064') format('truetype'),
+    url('../fonts/Newicomoon.woff?bj1064') format('woff'),
+    url('../fonts/Newicomoon.svg?bj1064#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="Newicon-"], [class*=" Newicon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-size: 200% !important;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-Profile:before {
+  content: "\e600";
+  color: #fff;
+}
+.icon-Product:before {
+  content: "\e601";
+  color: #fff;
+}
+.icon-Breakout:before {
+  content: "\e602";
+  color: #fff;
+}
+.icon-Auditorium:before {
+  content: "\e603";
+  color: #fff;
+}
+.icon-InfoDesk:before {
+  content: "\e604";
+  color: #fff;
+}
+.icon-Lobby:before {
+  content: "\e605";
+  color: #fff;
+}
+
+/* Tablet */
+@media only screen and (min-width: 767px) {
+  [class^="Newicon-"], [class*=" Newicon-"] {
+    font-size: 150% !important;
+  }
+  
+}

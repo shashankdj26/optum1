@@ -1,0 +1,281 @@
+.landing-pageBox {
+  padding: 2rem;
+  padding-right: 38.125rem;
+  width: 100%;
+}
+.landing-pageBox__logo {
+  width: 6.4375rem;
+}
+.landing-pageBox__banner {
+  margin: 6rem 3.75rem 0 0;
+  width: 43.5rem;
+}
+
+.pd-top-body {
+  padding-top: 4.375rem;
+}
+
+.signinBox {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 30.125rem;
+  min-width: 30.125rem;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  /* background-color: #000; */
+  /* background: url(./assets/sideBg.jpg) ; */
+  background-position: bottom;
+  background-color: #323466;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.signinBox__heading {
+  margin-top: 0rem;
+  padding: 2rem;
+  font-size: 1.875rem;
+  text-align: center;
+  color: #000;
+  text-transform: uppercase;
+  font-family: "Avenir Next Bold";
+  background: url(./assets/MainEventLogo.png);
+  display: flex;
+  justify-content: space-between;
+  /* border-bottom: 0.3rem solid white; */
+  background-position: center;
+  /* background-color: #272425; */
+  min-height: 10rem;
+  height: 19vh;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.msg_login_container {
+  padding: 1.5rem;
+  text-transform: none !important;
+  /* text-align: center; */
+  /* border-top: 0.15rem solid #e29c31; */
+}
+
+.btn-signIn {
+  color: #fff;
+  background: #e197b9;
+  border: 1px solid #fff;
+}
+
+.btn-signIn:disabled {
+  background: rgba(225, 151, 185, 0.5) !important;
+  color: #fff !important;
+  border-color: rgba(225, 151, 185, 0.2) !important;
+  opacity: 1;
+  pointer-events: none;
+}
+
+.consent__viewer {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.login-faqs {
+  margin-top: 2.4rem;
+}
+
+.notOpened {
+  display: none;
+}
+
+.cross {
+  margin-bottom: 25px;
+  cursor: pointer;
+  width: 45px;
+}
+
+.main_consent_container {
+  position: relative;
+  z-index: 102;
+  /* background: none; */
+  overflow-y: auto;
+  height: 80%;
+  width: 80%;
+}
+
+.msg_login {
+  font-size: 1.5rem;
+}
+
+.signinBox__heading div {
+  width: 6rem;
+  height: 6rem;
+}
+.signinBox__heading .left {
+  background: url(./assets/logo-tech.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.signinBox__heading .right {
+  background: url(./assets/koaLogo.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.signinBox__body {
+  padding: 2.125rem 2.275rem 2.125rem 2.275rem;
+  overflow: auto;
+  height: 100%;
+  position: relative;
+  max-height: calc(100vh - 40vh);
+}
+
+.successful-registration {
+  padding: 4rem;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.9);
+  opacity: 0.9;
+  z-index: 10;
+}
+
+.loaderContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 2.5rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  padding-bottom: 10rem;
+  min-height: 18rem;
+}
+.loaderContainer img {
+  width: 5rem;
+}
+
+.bottom-mobile-img {
+  display: none;
+}
+
+.form-control {
+  border: 1px solid #fff;
+  color: #fff;
+  background: #323466;
+}
+
+::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  color: #fff !important;
+}
+::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #fff !important;
+  opacity: 1;
+}
+:-ms-input-placeholder {
+  /* IE 10+ */
+  color: #fff !important;
+}
+:-moz-placeholder {
+  /* Firefox 18- */
+  color: #fff !important;
+}
+
+.bottom-img {
+  background-image: url(./assets/bottom.png);
+  background-position: bottom;
+  background-repeat: no-repeat;
+  height: 13rem;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+}
+
+/* Desktop */
+@media only screen and (max-width: 991px) {
+  .signinBox {
+    /* position: static; */
+    min-width: 0;
+    width: 31%;
+    /* height: 65vh;
+    max-height: 100vh;
+    min-height: 38rem;
+    overflow: auto; */
+  }
+  .landing-pageBox {
+    /* padding: 1.35rem;
+    min-height: auto;
+    height: 40%;
+    height: 35vh;
+    max-height: 100vh;
+    min-height: 20rem; */
+  }
+  .landing-pageBox__banner {
+    margin: 1.5rem 1rem 0 0;
+    width: 20rem;
+  }
+  .landing-pageBox__logo {
+    width: 4.25rem;
+  }
+  .signinBox__body {
+    padding: 2rem;
+    overflow: auto;
+    height: 70rem;
+  }
+
+  .bottom-img {
+    display: none;
+  }
+
+  .btn-pd {
+    padding: 1.14rem 1.875rem !important;
+  }
+
+  .bottom-mobile-img {
+    /* background-image: url(./assets/bottom-mobile.png); */
+    /* background-position: bottom; */
+    /* background-repeat: no-repeat; */
+    /* height: 11rem; */
+    display: block;
+    width: 100%;
+    height: 15rem;
+    display: none;
+    /* margin-bottom: 5rem; */
+  }
+
+  .form-control {
+    font-size: 0.9rem;
+  }
+
+  .bottom-mobile-img > img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+/* Tablet */
+@media only screen and (min-width: 1900px) {
+  .signinBox {
+    /* width: 39.125rem; */
+  }
+}

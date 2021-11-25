@@ -1,0 +1,67 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot?lrorou');
+  src:  url('fonts/icomoon.eot?lrorou#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?lrorou') format('truetype'),
+    url('fonts/icomoon.woff?lrorou') format('woff'),
+    url('fonts/icomoon.svg?lrorou#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-Audi:before {
+  content: "\e1700";
+  color: #fff;
+}
+.icon-Chat:before {
+  content: "\e1701";
+  color: #fff;
+}
+.icon-DBR:before {
+  content: "\e1702";
+  color: #fff;
+}
+.icon-Lobby:before {
+  content: "\e1703";
+  color: #fff;
+}
+.icon-Meeting:before {
+  content: "\e1704";
+  color: #fff;
+}
+.icon-MyProfile:before {
+  content: "\e1705";
+  color: #fff;
+}
+.icon-Networkinh:before {
+  content: "\e1706";
+  color: #fff;
+}
+.icon-Poll:before {
+  content: "\e1707";
+  color: #fff;
+}
+.icon-Qna:before {
+  content: "\e1708";
+  color: #fff;
+}
+.icon-Stage:before {
+  content: "\e1709";
+  color: #fff;
+}

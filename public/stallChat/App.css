@@ -1,0 +1,415 @@
+@import url("https://fonts.googleapis.com/css?family=Dosis|Itim");
+
+@font-face {
+  font-family: Helvetica;
+  src: url(./peter-fonts/Helvetica.ttf);
+}
+
+body {
+  margin: 0px auto;
+  font-family: Helvetica, Roboto, "Dosis", sans-serif;
+  background: linear-gradient(
+      rgba(38, 132, 156, 0.15) 100%,
+      rgb(102, 199, 140) 100%
+    ),
+    url(/splash.png);
+  background-size: cover;
+}
+
+.chat_header {
+  background-color: #000;
+  height: 65px;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  color: white;
+  border-width: 0px 0px 8px 0px;
+  border-style: inset;
+  border-image: linear-gradient(to right, #ff3c5a, #ff9a0a) 1;
+}
+
+.main__container {
+  margin: 2em auto;
+  width: 68%;
+
+  position: relative;
+}
+.login-btn {
+  color: #fff;
+  display: inline-block;
+  background-image: linear-gradient(-90deg, #07b8e0, #5a80d1);
+  background-repeat: no-repeat;
+  padding: 15px 75px;
+  font-size: 20px;
+  border: 0px;
+  border-radius: 18px;
+}
+.login-area {
+  background-color: #2d2d2d;
+  margin: -15px;
+  padding: 50px;
+}
+
+.outer-box-login {
+  margin-top: 15rem;
+  color: #1aacae;
+  background: rgb(0 0 0);
+  border-radius: 4px;
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0 0 17px 10px #86868670;
+}
+
+.offlineUser {
+  text-transform: capitalize;
+  color: red;
+}
+
+.onlineUser {
+  text-transform: capitalize;
+  color: #4caf50;
+}
+
+.user-data-info {
+  display: flex;
+  height: 50px;
+  padding: 5px;
+  background-color: #fff;
+
+  justify-content: space-between;
+}
+.user-data-info-image {
+  height: 40px;
+}
+.user-data-info-text {
+  margin: auto;
+}
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+.left__section {
+  height: 90vh;
+  flex: 1;
+  background: #fff;
+  border-right: 1px solid #0000000d;
+  transition: 0.8s all;
+  border-radius: 0px 0px 5px 5px;
+  min-width: 70px;
+  overflow: scroll;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.left__section::-webkit-scrollbar {
+}
+.right__section {
+  flex: 3 1;
+  background-color: rgb(247, 244, 244);
+  position: relative;
+  background: linear-gradient(to right, #e2e2e2, #c9d6ff);
+  border-radius: 0px 0px 3px 0px;
+  display: flex;
+  flex-direction: column;
+  height: 90vh;
+}
+.message__type__box {
+  position: relative;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  overflow: hidden;
+  background-color: #fff;
+  border-radius: 0px 0px 3px 0px;
+  border-top: 1px solid #e91e63;
+}
+.message__type__box > textarea {
+  height: 55px;
+  width: 100%;
+  margin: 0px;
+  padding: 10px 85px 5px 16px;
+  box-sizing: border-box;
+  border: 0px solid #ccc;
+  border-radius: 0px;
+  background-color: #fff;
+  resize: none;
+  float: left;
+  box-shadow: none;
+  line-height: 26px;
+  font-family: "Dosis", sans-serif;
+}
+.message__type__box > input {
+  height: 55px;
+  width: 100%;
+  margin: 0px;
+  padding: 10px 85px 5px 16px;
+  box-sizing: border-box;
+  border: 0px solid #ccc;
+  border-radius: 0px;
+  background-color: #fff;
+  resize: none;
+  float: left;
+  box-shadow: none;
+  line-height: 26px;
+  font-family: "Dosis", sans-serif;
+}
+.message__type__box > input:focus {
+  border: 0px solid #fff;
+  outline: none;
+}
+.message__type__box > textarea:focus {
+  border: 0px solid #607d8b;
+  outline: none;
+}
+.message__type__box > button {
+  position: absolute;
+  right: 6px;
+  top: 13px;
+  padding: 5px 15px;
+  border: 0px solid #cccccc87;
+  background: transparent;
+  text-transform: uppercase;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: "Itim", cursive;
+  color: #e91e63;
+}
+.message__type__box .emojiIcon {
+  position: absolute;
+  top: 1px;
+  right: 46px;
+  font-size: 30px;
+  cursor: pointer;
+  color: #333;
+}
+.message__type__box .emojiIcon:hover {
+  color: red;
+}
+.openNav {
+  display: none;
+  cursor: pointer;
+  float: right;
+  margin-right: 20px;
+  margin-top: 10px;
+}
+.closeNav {
+  display: block;
+  cursor: pointer;
+  float: right;
+  margin-right: 20px;
+  margin-top: 10px;
+}
+.userList {
+  padding-left: 15px;
+  padding-right: 15px;
+  display: inline-grid;
+  width: 100%;
+}
+.userList a {
+  border-bottom: 1px solid #ff000012;
+  float: left;
+  padding: 8px 0px;
+  font-family: "Itim", cursive;
+  cursor: pointer;
+  position: relative;
+}
+.userList img {
+  border-radius: 50%;
+  float: left;
+  margin-right: 5px;
+}
+.userList span {
+  text-transform: capitalize;
+  padding-top: 10px;
+  float: left;
+  color: #e91e63bd;
+}
+.userList .notify {
+  position: absolute;
+  border: 0px solid;
+  background: #ea4763de;
+  color: #ffffff;
+  width: 20px;
+  height: 20px;
+  padding: 0px;
+  text-align: center;
+  border-radius: 50%;
+  left: 0px;
+  top: 0px;
+}
+.message__box {
+  flex: 1 1;
+  overflow: scroll;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  padding-left: 12px;
+  overflow-y: auto;
+  padding-bottom: 12px;
+}
+
+.message__box::-webkit-scrollbar {
+}
+
+.scrollbar-style::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #f5f5f5;
+}
+
+.scrollbar-style::-webkit-scrollbar {
+  width: 6px;
+  background-color: #f5f5f5;
+}
+
+.scrollbar-style::-webkit-scrollbar-thumb {
+  background-color: #000000;
+}
+
+.msg__text {
+  display: flex;
+  padding-right: 12px;
+  padding-top: 12px;
+}
+.msg__text img {
+  margin-right: 10px;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+}
+.msg__text span {
+  background-color: #fff;
+  padding: 5px 10px;
+  margin-top: 10px;
+  border-radius: 1px 10px 10px 15px;
+  font-family: "Dosis", sans-serif;
+  box-shadow: 0px -4px 41px -12px rgba(0, 0, 0, 0.39);
+  min-width: 185px;
+  word-break: break-all;
+}
+.msg__text__right {
+  display: flex;
+  padding-right: 12px;
+  padding-top: 12px;
+  flex-flow: row-reverse;
+}
+.msg__text__right img {
+  margin-left: 10px;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+}
+.msg__text__right span {
+  background-color: #fbeaef;
+  padding: 5px 10px;
+  margin-top: 10px;
+  border-radius: 10px 1px 10px 15px;
+  font-family: "Dosis", sans-serif;
+  box-shadow: 0px -4px 41px -12px rgba(0, 0, 0, 0.39);
+  min-width: 185px;
+}
+
+/* emoji */
+.emoji {
+  position: absolute;
+  background: rgb(255, 255, 255);
+  font-size: 22px;
+  bottom: 56px;
+  right: 0%;
+  width: 45%;
+  height: 200px;
+  padding: 7px 10px;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  overflow-y: scroll;
+  z-index: 9999999;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  box-shadow: 0px 0px 20px 4px rgba(0, 0, 0, 0.12);
+  display: none;
+}
+.emoji a {
+  cursor: pointer;
+  color: #000;
+}
+.emoji a:hover {
+  text-decoration: none;
+  color: #e91e63;
+}
+
+.stallName {
+  font-size: 25px;
+}
+/* signout */
+.signout {
+  bottom: 7px;
+  left: 25px;
+  padding: 5px 16px;
+  border: 0px;
+  background-image: linear-gradient(-90deg, #07b8e0, #5a80d1);
+  color: #fff;
+  border-radius: 3px;
+}
+
+/* Spinner */
+.spinner {
+  margin: 0;
+  text-align: center;
+}
+
+.spinner > div {
+  width: 10px;
+  height: 10px;
+  border-radius: 100%;
+  display: inline-block;
+  -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+  animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+  background: rgba(0, 0, 0, 1);
+}
+
+.spinner .bounce1 {
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s;
+}
+
+.spinner .bounce2 {
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+}
+
+@media only screen and (max-width: 768px) {
+  .main__container {
+    margin: 0em auto;
+    width: 100%;
+    height: 100vh;
+  }
+  .wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+  .left__section {
+    height: 100vh;
+    min-width: 40%;
+    -webkit-transition: 0.4s all;
+    -o-transition: 0.4s all;
+    transition: 0.4s all;
+  }
+
+  .emoji {
+    bottom: -9px;
+  }
+
+  .right__section {
+    height: 100vh;
+    min-width: 60%;
+  }
+  .openNav {
+    margin-right: -10px;
+    margin-top: 0px;
+    background: #fff;
+    position: absolute;
+    left: 0;
+    z-index: 111111;
+    padding: 5px 10px;
+    color: #e91e63;
+  }
+}

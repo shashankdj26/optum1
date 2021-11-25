@@ -1,0 +1,120 @@
+.notificationContainer {
+  position: absolute;
+  top: 2rem;
+  left: 50%;
+  width: 30rem;
+  height: auto;
+  background: #fff;
+  color: #000;
+  font-weight: bold;
+  width: fit-content;
+  max-width: 35rem;
+  font-size: 1.32rem;
+  padding: 0.8rem 2rem;
+  margin: 1rem;
+  z-index: 55;
+  border-radius: 0.5rem;
+  transition: 0.4s;
+  transform: translateX(-50%);
+}
+
+.close-cut {
+  position: absolute;
+  height: 2.5rem;
+  width: 2.5rem;
+  right: -1rem;
+  top: -1rem;
+  cursor: pointer;
+}
+
+.zoomLinkPopUpContainer {
+  position: absolute;
+  bottom: 40%;
+  left: 0;
+  width: 27vw;
+  height: 15rem;
+  background: white;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  color: #000;
+  text-align: center;
+  font-size: 1.32rem;
+  padding: 0.8rem 2rem;
+  margin: 1rem;
+  z-index: 55;
+  border-radius: 0.5rem;
+  transition: 0.4s;
+}
+
+.notification-hidden {
+  opacity: 0;
+  /* left: -40rem; */
+  top: -10rem;
+}
+
+.notification-show {
+  opacity: 1;
+  /* left: 0; */
+  top: 2rem;
+}
+
+.zoomLinkPopUp-show {
+  opacity: 1;
+  left: 0%;
+}
+
+.zoomLinkPopUp-hidden {
+  opacity: 0;
+  left: -200rem;
+}
+
+.closeButtonContainer {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.joinButtonContainer {
+  /* width: 100%; */
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.joinButton {
+  color: red;
+}
+
+.w-25 {
+  width: 25% !important;
+}
+.closeButton-notification {
+  background: url(./assets/close.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 991px) {
+  .notificationContainer {
+    top: 0%;
+    bottom: auto;
+    /* left: unset; */
+  }
+  .notification-hidden {
+    opacity: 0;
+    top: -40rem;
+  }
+  .notification-show {
+    opacity: 1;
+    top: 0;
+  }
+
+  .w-25 {
+    width: 75% !important;
+  }
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Twieets</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgb(237 237 237);
+        }
+
+        body iframe {
+            box-shadow: 0px 0px 2px grey;
+        }
+
+        .container {
+            margin: 0 auto;
+            box-sizing: border-box;
+            text-align: center;
+            width: 720px;
+            max-width: 100%;
+        }
+
+        .container a{
+            margin-top: 120px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <a class="twitter-timeline" href="https://twitter.com/livemint?ref_src=twsrc%5Etfw" onload={openTweets}>
+            Loading...
+        </a>
+    </div>
+
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <script>
+        function openTweets() {
+            // document.querySelector('.twitter-timeline').click()
+        }
+    </script>
+</body>
+
+</html>

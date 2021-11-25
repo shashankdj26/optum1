@@ -1,0 +1,158 @@
+/* ### sidebar ### */
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 30.625rem;
+  margin-right: -30.625rem;
+  transition: all 0.3s;
+  height: 100%;
+  z-index: 9;
+  background: #f2f2f2;
+  overflow-y: auto;
+}
+.sidebar__body {
+  padding: 5.5625rem 0 1rem;
+  overflow: auto;
+  height: 100%;
+}
+.sidebar__title {
+  padding: 1rem 2.325rem 0;
+  color: #383838;
+  font-size: 1.5rem;
+}
+
+.sidebar.active {
+  margin-right: 0;
+}
+
+/* ### sidebar tabs ### */
+.sidebar__tabs {
+  /* min-width: 30.625rem; */
+  display: flex;
+  font-size: 0.875rem;
+  list-style-type: none;
+  background: #fff;
+  z-index: 1;
+}
+.sidebar__tabs > li {
+  width: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+.sidebar__tabs > li > a {
+  padding: 1.8175rem 0rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  text-decoration: none;
+  color: #000;
+  justify-content: center;
+}
+.sidebar__tabs > li > a > i {
+  font-size: 1.625rem;
+  display: inline-block;
+  margin-right: 0.75rem;
+}
+.sidebar__tabs > li > a::after {
+  content: "";
+  display: none;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 4px;
+  border-radius: 4px;
+  background: #000;
+}
+.sidebar__tabs > li > a.active::after {
+  display: block;
+}
+
+/* ### sidebar menu ### */
+.sidebar__menu {
+  padding: 1rem 0 0rem;
+  list-style-type: none;
+}
+.sidebar__menu > li {
+  display: block;
+}
+
+/* ### user profile block ### */
+.user-profile {
+  padding: 0.5rem 6rem 0.5rem 2rem;
+  color: rgba(56, 56, 56, 0.7);
+  position: relative;
+  display: block;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+.user-profile__image {
+  margin-right: 1rem;
+  height: 3.625rem;
+  width: 3.625rem;
+  min-height: 3.625rem;
+  min-width: 3.625rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 1.25rem;
+  background: #535e95;
+}
+.user-profile__title {
+  font-size: 0.875rem;
+}
+.user-profile__title > small {
+  display: block;
+  font-size: 0.875rem;
+}
+.user-profile__image.user-profile__image--red {
+  background: #955386;
+}
+.user-profile__image.user-profile__image--green {
+  background: #538995;
+}
+
+.user-profile__buttons {
+  padding: 0.5rem;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.user-profile__button {
+  margin: 0 0.25rem;
+  padding: 1rem;
+  border: none;
+  font-size: 1.5rem;
+  border-radius: 50%;
+  line-height: 1.5rem;
+  color: #707070;
+  background: transparent;
+  border: medium none;
+}
+.user-profile__button.active {
+  background: #707070;
+  color: #fff;
+  border: medium none;
+}
+
+/* Tablet Portrait size to standard 960 (devices and browsers) */
+@media only screen and (max-width: 1200px) {
+}
+
+/* All Mobile Sizes (devices and browser) */
+@media only screen and (max-width: 992px) {
+}
+
+/* All Mobile Sizes (devices and browser) */
+@media only screen and (max-width: 767px) {
+}
+
+/* All Mobile Sizes (devices and browser) */
+@media only screen and (max-width: 480px) {
+}

@@ -1,0 +1,42 @@
+.feedback-section { padding-left: 9.5rem; padding-right: 9.5rem; display: flex; flex-direction: column; position: relative; height: 100%; }
+.feedback-section__header { padding: 0; }
+.feedback-section__title { padding: 0rem 3rem 0 0; font-family: 'Avenir Next Bold', sans-serif;  font-size: 1.625rem; text-decoration: none; color: #000000; text-transform: uppercase; }
+.feedback-section__title-pic { margin: 0; }
+.feedback-section__close { position: absolute; right: 0.5rem; top: 0.5rem; display: block; height: 3rem; width: 3rem; text-align: center; line-height: 3.4rem; text-decoration: none; font-size: 1.25rem; border-radius: 50%; color: #fff; background: #000000; box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.35); }
+.feedback-section__body { margin-bottom: 2rem; position: relative; width: 100%; height: 100%; padding: 2.5rem; max-height: 100%; overflow: auto; background: #fff; border-radius: 0.625rem; }
+.feedback-section__select { padding: 2rem 0; list-style-type: none; }
+.feedback-section__select > li { margin-right: 1.5rem; display: inline-block; }
+.feedback-section .form-control { padding: 1.5rem; background: #fff; border: 1px solid #000000; font-size: 1.5rem; }
+.feedback-section .custom-radio .custom-radio__icon { border: 1px solid #000; }
+.feedback-section .btn { min-width: 14rem; }
+
+.feedback-section__footer { padding: 1rem 1rem 1rem 2.5rem; display: flex; justify-content: space-between; border-radius: 0.625rem; background: #F5EB5C; }
+.feedback-section__footer-title { padding: 1.5rem 0; font-size: 1.25rem; font-family: 'Avenir Next Bold', sans-serif; }
+.feedback-section__footer .btn { padding: 1rem 1.5rem; min-width: 0; font-size: 1.25rem; border: none; background: #fff; }
+
+
+.banner-section { margin: 0 auto; position: relative; max-width: 41rem; border-bottom: 1rem solid #F5EB5C; width: 100%; height: 100%; max-height: 100%; overflow: auto; background: #fff; border-radius: 0.625rem; }
+.banner-section__header { padding: 2rem 0; }
+.banner-section__body { padding: 2rem 3.75rem 3.75rem; }
+.banner-section__close { position: absolute; right: 0.5rem; top: 0.5rem; display: block; height: 3rem; width: 3rem; text-align: center; line-height: 3.4rem; text-decoration: none; font-size: 1.25rem; border-radius: 50%; color: #fff; background: #000000; box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.35); }
+
+.prize-btn { display: flex; justify-content: space-between; text-decoration: none; border: 2px solid #000000; border-radius: 3rem 1rem 1rem 3rem; background: #fff112; }
+.prize-btn__number { margin: -4px; text-align: center; border-radius: 50%; height: 5.375rem; width: 5.375rem; font-size: 3.8125rem; color: #fff112; font-family: 'Avenir Next Bold', sans-serif; border: 2px solid #000000; background: #000000; }
+.prize-btn__number > span { border: 2px solid #F5EB5C; line-height: 5.375rem; height: 100%; width: 100%; display: block; border-radius: 50%; }
+.prize-btn__title { display: flex; align-items: center; font-family: 'Avenir Next Bold', sans-serif; color: #000000; text-align: center; font-size: 1.375rem; text-transform: uppercase; }
+.prize-btn__subtitle { padding: 0.5rem 2rem 0; min-width: 17rem; display: flex; flex-direction: column; justify-content: center; border-radius: 1rem; text-transform: uppercase; font-family: 'Avenir Next Bold', sans-serif;  text-align: center; font-size: 1.375rem; color: #000000; background: #fff; }
+.prize-btn__subtitle > span { display: block; }
+.prize-btn__subtitle > small { font-size: 0.9375rem; display: block; }
+
+/* Desktop */
+@media only screen and (max-width: 991px) {
+    .feedback-section { padding: 0;  }
+    .feedback-section__body { padding: 2rem; }
+    .feedback-section__select > li { margin-right: 1rem; }
+    .feedback-section .form-control { padding: 1rem; font-size: 1.25rem; }
+    .feedback-section__footer { padding: 1rem; }
+    .feedback-section__footer .btn { min-width: 12.5rem; }
+    .banner-section__body { padding: 2rem 1rem 3.75rem; }
+    .prize-btn__subtitle { padding-left: 1rem; padding-right: 1rem; min-width: 15rem; }
+}
+

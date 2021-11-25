@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1, user-scalable=no"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Dashboard Login</title>
+
+    <!-- Font Icon -->
+    <link
+      rel="stylesheet"
+      href="fonts/material-icon/css/material-design-iconic-font.min.css"
+    />
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/bgvideo.css" />
+  </head>
+
+  <body>
+    <div class="bgVideoContainer">
+      <video autoplay muted loop>
+        <source src="video/bg.mp4" type="video/mp4" />
+      </video>
+    </div>
+
+    <div class="main">
+      <!-- Sing in  Form -->
+      <section class="sign-in">
+        <div class="container">
+          <div class="signin-content">
+            <div class="signin-image">
+              <figure style="height: 100%">
+                <img
+                  src="images/logo.png"
+                  alt="djvelogo"
+                  style="margin: 50% 0px"
+                />
+              </figure>
+              <!--<a href="#" class="signup-image-link">Create an account</a>-->
+            </div>
+
+            <div class="signin-form" style="margin: 20px 20px; width: 70%">
+              <h2 class="form-title" style="font-weight: 600; width: 30px">
+                Dashboard Login
+              </h2>
+              <form class="register-form" id="login-form" method="post">
+                <div
+                  class="form-group"
+                  style="
+                    background-color: #00000000;
+                    border-radius: 10px;
+                    color: #ffffff !important;
+                  "
+                >
+                  <input
+                    type="email"
+                    name="login-email"
+                    id="login-email"
+                    placeholder="Your Email Id"
+                    style="
+                      border-bottom: none;
+                      border: solid 1px #979494;
+                      color: #ffffff;
+                    "
+                  />
+                </div>
+                <div
+                  class="form-group"
+                  style="
+                    background-color: #00000000;
+                    border-radius: 10px;
+                    color: #ffffff !important;
+                  "
+                >
+                  <input
+                    type="password"
+                    name="login-password"
+                    id="login-password"
+                    placeholder="Password"
+                    style="
+                      border-bottom: none;
+                      border: solid 1px #979494;
+                      color: #ffffff;
+                    "
+                  />
+                </div>
+                <div class="form-group">
+                  <span id="error" style="display: none">* error</span>
+                </div>
+                <div class="form-group form-button">
+                  <input
+                    type="submit"
+                    name="signin"
+                    id="signin"
+                    class="form-submit"
+                    value="Log in"
+                  />
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- JS -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+
+    <!--firebase-->
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-analytics.js"></script>
+
+    <script>
+      const firebaseConfig = {
+        apiKey: "AIzaSyCs6NzzHFwuOywcjKb6weU2tnblFOJYQJQ",
+        authDomain: "optum-cdcd7.firebaseapp.com",
+        databaseURL: "https://optum-cdcd7-default-rtdb.firebaseio.com",
+        projectId: "optum-cdcd7",
+        storageBucket: "optum-cdcd7.appspot.com",
+        messagingSenderId: "33244416026",
+        appId: "1:33244416026:web:cd039c460016444059a9a3",
+        measurementId: "G-ZR8NLSNB91",
+      };
+      firebase.initializeApp(firebaseConfig);
+      const auth = firebase.auth();
+    </script>
+    <script src="js/auth.js"></script>
+  </body>
+</html>

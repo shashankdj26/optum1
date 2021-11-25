@@ -1,0 +1,89 @@
+.videoPlayerCover {
+    position: absolute!important;
+    /* transition: 0.4s; */
+}
+
+.blackTransparentColor{
+    background: rgba(0, 0, 0, 0.418);
+}
+
+.lid {
+    background: black;
+    position: absolute;
+    width: 100%;
+    height: 45%;
+    opacity: 1;
+    pointer-events: none;
+}
+
+.upperLid {
+    top: 0;
+    background: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(8,8,8,1) 20%, rgba(0,0,0,1) 100%);
+}
+
+.lowerLid {
+    bottom: 0;
+    background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(8,8,8,1) 20%, rgba(0,0,0,1) 100%);
+}
+
+.animateLid{
+    height: 0%;
+    opacity: 0.8;
+    transition: 8s;
+}
+
+.animateLidClose{
+    height: 35%;
+    transition: 4s;
+}
+
+.animateLid-0{
+    height: 0%;
+    opacity: 0;
+    animation: unset;
+}
+
+.fakePlaybutton {
+    width: 9vh;
+    height: 9vh;
+    background: url('./assets/PlayButton.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    animation: play-button-ripple 0.7s linear infinite;
+    border-radius: 50%;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.fakePlaybutton-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes play-button-ripple {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.3), 0 0 0 0.8em rgba(255, 255, 255, 0.3), 0 0 0 1.6em rgba(255, 255, 255, 0.3);
+    }
+    100% {
+        box-shadow: 0 0 0 0.8em rgba(255, 255, 255, 0.3), 0 0 0 1.6em rgba(255, 255, 255, 0.3), 0 0 0 2.4em rgba(255, 255, 255, 0);
+    }
+}
+
+.inlineVideoControlsContainer{
+    height: 100%;
+    background: white;
+    width: 0;
+}
+
+.inlineVideoControlsContainer img{
+    bottom: 0;
+}
+
+.inlineVideoControlsIcon{
+    max-width: 1rem;
+}

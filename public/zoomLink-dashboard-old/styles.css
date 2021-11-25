@@ -1,0 +1,138 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+.main__container {
+  height: 100vh;
+  width: 100%;
+  /* background: url(./bg.png); */
+  background-color: #d4a847;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#agenda {
+  display: none;
+}
+#time {
+  display: none;
+}
+.form__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: fit-content;
+  min-height: 50vh;
+  width: 40%;
+  padding: 4rem 3rem;
+}
+.form__container div {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+.input {
+  height: 50px;
+  width: 100%;
+  padding: 0rem 1rem;
+  /* border: 1px solid #000; */
+  outline: 0;
+  border: 0;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.4);
+  border-top: 1px solid rgba(0, 0, 0, 0.4);
+}
+button {
+  height: 50px;
+  width: 30%;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  /* border: 1px solid #000; */
+  outline: 0;
+  border: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.4);
+  background-color: #d4a847;
+  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.4);
+  font-size: 1rem;
+  padding: 0rem 1rem;
+  color: #fff;
+  transition: 0.15s ease;
+}
+.logo {
+  position: fixed;
+  left: 0;
+  top: 0;
+  margin: 2%;
+  width: 15vw;
+}
+.right {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 30vw;
+}
+button:hover {
+  transform: scale(1.07);
+}
+.show {
+  display: flex;
+  flex-direction: row !important;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+.show label {
+  margin-right: 2rem;
+  font-size: 1rem;
+  font-weight: bold;
+}
+.show input {
+  height: 20px;
+  width: 20px;
+  cursor: pointer;
+  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.4);
+}
+div.show ~ div label {
+  margin-bottom: 0.5rem;
+}
+.form__container {
+  background-color: #fff;
+  border-radius: 1rem;
+  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.4);
+}
+@media only screen and (max-width: 768px) {
+  .logo,
+  .right {
+    z-index: -1;
+  }
+  .form__container {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+  }
+  button {
+    /* width: 30%; */
+    width: 10rem;
+    padding: 0.5rem 1rem;
+    height: 7rem;
+  }
+}
+span {
+  color: red;
+  margin-bottom: 0.5rem;
+}
+.d-none {
+  display: none !important;
+}

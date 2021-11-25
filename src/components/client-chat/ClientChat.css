@@ -1,0 +1,14 @@
+/* @import url("/assets/css/chat.css"); */
+
+.centerX
+{
+    display: block;
+    text-align: center;
+    margin-top: 30%;
+    overflow: hidden;
+    background: transparent;
+}
+body
+{
+    overflow: hidden;
+}

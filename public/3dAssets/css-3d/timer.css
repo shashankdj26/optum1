@@ -1,0 +1,55 @@
+#timer_container>#time {
+    margin: 0;
+    color: #fff;
+    position: relative;
+    font-family: arial;
+    font-size: 50px;
+    font-weight: bold;
+    top: 26%;
+    left: 5%;
+    text-align: center;
+}
+
+#timer_container {
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    /* top: 45%; */
+    /* left: 45%; */
+    margin: 0 auto;
+    transform-origin: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#timer_container .tictic {
+    display: block;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    width: 6px;
+    height: 10px;
+    background-color: rgba(225, 225, 225, .5);
+}
+
+.timerContainerParent {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: auto;
+    height: auto;
+    background: linear-gradient(180deg, rgb(255 255 255 / 19%) 0%, rgb(150 150 150 / 0%) 100%);
+    backdrop-filter: blur(34px);
+    -webkit-backdrop-filter: blur(34px);
+    font-size: 1.8rem;
+    padding: 1rem 1rem;
+    margin: 1rem;
+    /* padding-top: 1.4rem; */
+    border-radius: 0.5rem;
+}
+
+.timerText{
+    text-align: center;
+    margin-bottom: 0.5rem;
+}

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DashBoard</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+
+      * {
+        font-family: "Open Sans", sans-serif;
+        margin: 0;
+        padding: 0;
+        transition: 0.4s ease;
+      }
+
+      input::-webkit-outer-spin-button,
+      input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+
+      input[type="number"] {
+        -moz-appearance: textfield;
+      }
+
+      .logout-btn {
+        position: fixed;
+        z-index: 100000;
+        top: 7%;
+        left: 5%;
+        background-color: white;
+      }
+
+      .myBtn {
+        cursor: pointer;
+        background-color: #2193b0 !important;
+        height: 50px;
+        width: 30%;
+        border-radius: 5px;
+        font-size: 15px;
+        color: white;
+        box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.3);
+        max-width: 100px;
+        border: none;
+        outline: 0;
+      }
+
+      .myBtn:focus {
+        box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.3);
+      }
+
+      .input:focus {
+        box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.3);
+      }
+
+      .mian_login_cont {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100vh;
+        background: linear-gradient(to right, #2193b0, #6dd5ed);
+      }
+
+      .center_login_cont {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 70%;
+        width: 50%;
+        box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.3);
+        display: flex;
+        border-radius: 10px;
+        background: linear-gradient(
+          to right bottom,
+          rgba(255, 255, 255, 0.7),
+          rgba(255, 255, 255, 0.3)
+        );
+        border-top: 1px solid rgba(255, 255, 255, 0.9);
+        border-right: 1px solid rgba(255, 255, 255, 0.4);
+      }
+
+      .right_part_cont {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex: 1;
+      }
+
+      .left_part_cont {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex: 1;
+        max-height: 10%;
+        position: relative;
+      }
+
+      .form {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        height: 40%;
+        width: 100%;
+      }
+
+      .input {
+        height: 50px;
+        width: 60%;
+        outline: 0;
+        border-radius: 5px;
+        border: none;
+        padding-left: 15px;
+        border-top: 1px solid rgba(0, 0, 0, 0.3);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+        box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.3);
+        font-size: 15px;
+      }
+
+      .iframe {
+        width: 100%;
+        height: 100vh;
+        border: none;
+      }
+
+      .zoom-div {
+        height: 100vh;
+      }
+
+      .img {
+        max-width: 450px;
+        text-align: center;
+      }
+
+      @media only screen and (max-width: 1200px) {
+        .center_login_cont {
+          width: 70%;
+        }
+      }
+
+      @media only screen and (max-width: 700px) {
+        .center_login_cont {
+          width: 80%;
+        }
+
+        .input {
+          height: 35px;
+        }
+
+        .myBtn {
+          height: 35px;
+        }
+      }
+
+      @media only screen and (max-width: 600px) {
+        .center_login_cont {
+          width: 90%;
+        }
+
+        .input {
+          width: 70%;
+        }
+
+        .img {
+          max-width: 300px;
+        }
+      }
+
+      @media only screen and (max-width: 500px) {
+        .center_login_cont {
+          width: 90%;
+        }
+
+        .input {
+          width: 80%;
+        }
+      }
+
+      @media only screen and (max-width: 330px) {
+        .img {
+          max-width: 200px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="mian_login_cont">
+      <div class="center_login_cont">
+        <img src="./zoom.png" alt="" class="img" />
+
+        <form action="" class="form">
+          <input
+            class="input"
+            placeholder="NEW MEETING ID"
+            id="meetID"
+            type="number"
+            autocomplete="off"
+            pattern="/^-?\d+\.?\d*$/"
+            onKeyPress="if(this.value.length==11) return false;"
+          />
+          <input
+            placeholder="NEW PASSWORD"
+            id="pass"
+            type="text"
+            class="input"
+          />
+          <button class="myBtn" id="submit-btn">Update</button>
+        </form>
+      </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-firestore.js"></script>
+    <script type="text/javascript" language="javascript" async>
+      let firebaseConfig = {
+        apiKey: "AIzaSyCs6NzzHFwuOywcjKb6weU2tnblFOJYQJQ",
+        authDomain: "optum-cdcd7.firebaseapp.com",
+        databaseURL: "https://optum-cdcd7-default-rtdb.firebaseio.com",
+        projectId: "optum-cdcd7",
+        storageBucket: "optum-cdcd7.appspot.com",
+        messagingSenderId: "33244416026",
+        appId: "1:33244416026:web:cd039c460016444059a9a3",
+        measurementId: "G-ZR8NLSNB91",
+      };
+
+      firebase.initializeApp(firebaseConfig);
+      const firestore = firebase.firestore();
+      const app = firestore.collection("meetingDetails");
+
+      const setData = (event) => {
+        event.preventDefault();
+        const newMeetingID = document.getElementById("meetID").value;
+        const newPassword = document.getElementById("pass").value;
+        app
+          .doc("meeting")
+          .update({ meetID: newMeetingID, pwd: newPassword })
+          .then(() => {
+            console.log("updated");
+            document.getElementById("meetID").value = "";
+            document.getElementById("pass").value = "";
+          })
+          .catch(() => {
+            console.log("error");
+          });
+      };
+      document.getElementById("submit-btn").addEventListener("click", (e) => {
+        setData(e);
+      });
+    </script>
+  </body>
+</html>

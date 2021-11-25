@@ -1,0 +1,32 @@
+@font-face {
+  font-family: "icomoon";
+  src: url("lounge-peter/icomoon.eot?rsi7qy");
+  src: url("lounge-peter/icomoon.eot?rsi7qy#iefix") format("embedded-opentype"),
+    url("lounge-peter/icomoon.ttf?rsi7qy") format("truetype"),
+    url("lounge-peter/icomoon.woff?rsi7qy") format("woff"),
+    url("lounge-peter/icomoon.svg?rsi7qy#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: "icomoon" !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-lounge-peter:before {
+  content: "\1f383";
+  color: #fff;
+}

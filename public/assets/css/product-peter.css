@@ -1,0 +1,35 @@
+@font-face {
+  font-family: "icomoon";
+  src: url("product-peter/icomoon.eot?opb1p1");
+  src: url("product-peter/icomoon.eot?opb1p1#iefix") format("embedded-opentype"),
+    url("product-peter/icomoon.ttf?opb1p1") format("truetype"),
+    url("product-peter/icomoon.woff?opb1p1") format("woff"),
+    url("product-peter/icomoon.svg?opb1p1#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: "icomoon" !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-product-peter:before {
+  content: "\1f41c";
+  color: #fff;
+}
+.icon-folder-download:before {
+  content: "\e933";
+}

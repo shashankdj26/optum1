@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="icon" type="image/png" href="/favicons/favicon.jpg">
+  <title>Digital Rack</title>
+</head>
+
+<body class="bg-light">
+  <main role="main">
+
+    <section class="jumbotron text-center" style="background-color: #E19C2F;">
+      <div class="container">
+        <h1 class="jumbotron-heading" id="heading" style="color:white; text-transform: uppercase;">RESOURCES</h1>
+      </div>
+    </section>
+
+    <div class="album py-5 bg-light">
+      <div class="container">
+
+        <div class="row mainContainer" style="justify-content: center;">
+          <!-- hear everything will be rendered -->
+        </div>
+        <!-- <a class="btn btn-primary btn-lg actionButton" style="width: 100%;" download target="_blank"
+        href="https://storage.googleapis.com/virtual-event-273009.appspot.com/sanofi/Day1_allFiles.zip">Download All</a> -->
+      </div>
+    </div>
+
+    <div class="modal fade" id="vimeo-Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg" role="document" style="max-width: 900px;max-height: 900px;margin: 0 auto;">
+        <div class="modal-content modal-lg" style="max-width:1000px">
+          <div class="modal-header">
+            <!-- <h5 class="modal-title" id="exampleModalLongTitle">Vimeo Video</h5> -->
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            
+              <iframe id="videoPlayerIframe" style="width: 100%;" src="" width="840" height="460" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+              
+          </div>
+          
+          <!-- <div class="modal-footer">
+            <a type="button" class="btn btn-primary" href="" target="_blank" download="Sanofi.mp4">Download</a>
+          </div> -->
+
+        </div>
+      </div>
+    </div>
+
+
+    <div class="modal fade" id="youTubeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            
+            <style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style>
+            <div class='embed-container'><iframe id="youtube-iframe-for-modal" src='' frameborder='0' allowfullscreen></iframe></div>
+    
+          </div>
+           
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+
+    <script src="download.min.js"></script>
+    <script src="FileSaver.min.js"></script>
+    
+  <!-- Firebase Init -->
+  <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-analytics.js"></script>
+  
+  <script src="digitalRackDetails.js"></script>
+  <!-- <script src="main.js"></script> -->
+  <script src="/assets/js/libraryAnalytics.js"></script>
+  <script src="elementMount.js"></script>
+
+</body>
+
+</html>

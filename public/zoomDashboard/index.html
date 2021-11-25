@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zoom Links dashboard</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body onload="getter()">
+    <div class="main">
+      <div class="inner">
+        <h1>Audi Zoom Link</h1>
+        <label for="AudiZoomLink">zoom link</label>
+        <input type="text" id="AudiZoomLink" />
+        <button id="AudiZoomLink-button">audi zoom link update</button>
+        <!-- <h1>Breakout Rooms</h1>
+        <div id="cont-workshop-1">
+          <input type="text" id="workshop-1" />
+        </div>
+        <div id="cont-workshop-2">
+          <input type="text" id="workshop-2" />
+        </div>
+        <div id="cont-workshop-3">
+          <input type="text" id="workshop-3" />
+        </div>
+        <div id="cont-workshop-4">
+          <input type="text" id="workshop-4" />
+        </div>
+        <div id="cont-workshop-5">
+          <input type="text" id="workshop-5" />
+        </div>
+        <div id="cont-workshop-6">
+          <input type="text" id="workshop-6" />
+        </div>
+        <div id="cont-workshop-7">
+          <input type="text" id="workshop-7" />
+        </div> -->
+      </div>
+
+      <div class="inner">
+        <h1>Breakout Room Link</h1>
+
+        <div class="inner-container">
+          <label for="SA_FNQ">SA & FNQ</label>
+          <input type="text" id="SA_FNQ" />
+          <button id="SA_FNQ-button">SA_FNQ Update</button>
+        </div>
+
+        <div class="inner-container">
+          <label for="NZ">NZ</label>
+          <input type="text" id="NZ" />
+          <button id="NZ-button">NZ Update</button>
+        </div>
+
+        <div class="inner-container">
+          <label for="WA">WA</label>
+          <input type="text" id="WA" />
+          <button id="WA-button">WA Update</button>
+        </div>
+
+        <div class="inner-container">
+          <label for="QLD">QLD</label>
+          <input type="text" id="QLD" />
+          <button id="QLD-button">QLD Update</button>
+        </div>
+
+        <div class="inner-container">
+          <label for="VIC_TAS">VIC_TAS</label>
+          <input type="text" id="VIC_TAS" />
+          <button id="VIC_TAS-button">VIC_TAS Update</button>
+        </div>
+
+        <div class="inner-container">
+          <label for="NSW_ACT">NSW_ACT</label>
+          <input type="text" id="NSW_ACT" />
+          <button id="NSW_ACT-button">NSW_ACT Update</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.6.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-firestore.js"></script>
+    <script>
+      var firebaseConfig = {
+        apiKey: "AIzaSyCs6NzzHFwuOywcjKb6weU2tnblFOJYQJQ",
+        authDomain: "optum-cdcd7.firebaseapp.com",
+        databaseURL: "https://optum-cdcd7-default-rtdb.firebaseio.com",
+        projectId: "optum-cdcd7",
+        storageBucket: "optum-cdcd7.appspot.com",
+        messagingSenderId: "33244416026",
+        appId: "1:33244416026:web:cd039c460016444059a9a3",
+        measurementId: "G-ZR8NLSNB91",
+      };
+      const app = firebase.initializeApp(firebaseConfig);
+    </script>
+    <script src="./app.js" defer></script>
+  </body>
+</html>

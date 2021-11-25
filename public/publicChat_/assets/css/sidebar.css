@@ -1,0 +1,39 @@
+.sidebar { width: 32.5rem; height: 100%; background: #242222; }
+.sidebar__user { padding: 0; margin-bottom: 0.3125rem; font-weight: 600; background: #000000; color: #ffffff; }
+.sidebar__user .user-block { padding: 1.875rem 2.1875rem; }
+.sidebar__link { padding: 1.25rem 2.1875rem; display: block; text-transform: uppercase; text-decoration: none; font-size: 0.8rem; font-weight: 600; margin-bottom: 0.3125rem; background: #000000; color: #ffffff; }
+.sidebar__link:hover { background: rgba(232, 225, 225, 0.3); }
+
+.sidebar__header { }
+.sidebar__body { padding: 0; color: #ffffff; height: 100%; }
+.sidebar__body .user-block__pic { width: 2rem; position: static; }
+.sidebar__body .user-block__name { font-size: 0.65rem; }
+.sidebar__body .user-block__online, .sidebar__body .user-block__dnd { top: 30%; right: 3.75rem; height: 1rem; width: 1rem; }
+.sidebar__body .user-block { padding-right: 4.6875rem; }
+
+.user-block-list { padding: 1.25rem 0; height: 100%; overflow: hidden; }
+.user-block-list > div { overflow: auto; height: 100%; }
+.user-block { padding: 0.3125rem 2.1875rem; display: flex; align-items: center; position: relative; }
+.user-block:hover { background: rgba(232, 225, 225, 0.3); }
+.user-block__pic { margin-right: 0.625rem; width: 2.5rem; position: relative; }
+.user-block__online { display: block; position: absolute; right: 0; bottom: 0; height: 0.75rem; width: 0.75rem; border-radius: 50%; background: #18BC10; }
+.user-block__dnd { display: block; position: absolute; right: 0; bottom: 0; height: 0.75rem; width: 0.75rem; border-radius: 50%; background: #f00; }
+.user-block__name { font-size: 0.75rem; }
+
+.search-block { padding: 0.625rem 1.875rem; position: relative; }
+.search-block__form { position: relative; }
+.search-block__btn { position: absolute; left: 0.3125rem; top: 50%; margin-top: -0.625rem; border-radius: 0.625rem; height: 1.25rem; line-height: 1.5rem; width: 1.25rem; background: none; border: medium none; }
+.search-block__input { padding: 0.3125rem 0.625rem 0.3125rem 1.5625rem; height: 2rem; width: 100%; border-radius: 15px; border: medium none; font-size: 0.8rem; }
+.search-block__input:focus { outline: none; }
+
+/* Tablet */
+@media only screen and (max-width: 991px) {
+
+}
+
+/* mobile */
+@media only screen and (max-width: 767px) {
+    
+}
+
+

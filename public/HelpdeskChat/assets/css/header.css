@@ -1,0 +1,12 @@
+.header { padding: 1.4375rem 1.9375rem 0.875rem; position: relative; background: #0A3B77; display: flex; justify-content: space-between; }
+.header__logo { width: 6.375rem; }
+.header__close { color: #ffffff; font-size: 1.3rem; text-decoration: none; display: flex; align-items: center; justify-content: center; position: absolute; right: 0; top: 0; height: 100%; width: 6.6875rem; line-height: 100%; background: rgba(0, 0, 0, 0.3); }
+
+/* Tablet */
+@media only screen and (min-width: 767px) {
+
+}
+
+/* Desktop */
+@media only screen and (min-width: 991px) {}
+

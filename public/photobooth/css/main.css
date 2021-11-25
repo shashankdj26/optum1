@@ -1,0 +1,321 @@
+body {
+  background-color: black;
+  margin: 0px;
+  padding: 0px;
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  height: 100%;
+  width: auto;
+  overflow: hidden;
+  /* position: absolute; */
+}
+
+#arrowBG {
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  position: absolute;
+  display: flex;
+  align-items: center;
+}
+
+#photogalleryBG {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  pointer-events: none;
+}
+
+#pgBtn {
+  background-image: url(../img/photogallery.png);
+  pointer-events: all;
+  position: absolute;
+  right: 2%;
+  /* transform: translateY(-50%); */
+  top: 6%;
+  width: 165px;
+  height: 75px;
+  cursor: pointer;
+  opacity: 0.9;
+  transition: 700ms ease-in-out;
+  border: none;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+#pgBtn:hover {
+  opacity: 1;
+}
+
+.pgBtnOpen {
+  width: 2.5rem !important;
+  height: 2rem !important;
+  right: 1vw !important;
+  top: 0.3rem !important;
+  background-image: url(../img/close.png) !important;
+  transition: 1160ms ease-in-out !important;
+  z-index: 1;
+}
+.photobooth1-container {
+  background-color: #fff;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.photobooth1-header {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  background: #000;
+  height: 5.5vh;
+}
+
+#photogallery {
+  pointer-events: all;
+  position: absolute;
+  height: 100vh;
+  width: 30vw;
+  right: calc(-40vw);
+  /* top: 4.5vh; */
+  border: none;
+  transition: 1000ms ease-in-out;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.12), rgba(0, 0, 0, 0.12)),
+    radial-gradient(
+      123.61% 123.61% at 50% 50%,
+      rgba(255, 255, 255, 0.369) 0%,
+      rgba(0, 0, 0, 0.41) 92.49%
+    );
+  background-color: azure;
+  backdrop-filter: blur(44px);
+  border-radius: 5px;
+}
+.openIframe {
+  right: 0% !important;
+}
+
+#arrowLeft {
+  left: 0%;
+  transform: rotateZ(180deg);
+}
+.arrow {
+  height: 20%;
+  pointer-events: all;
+  cursor: pointer;
+  position: absolute;
+  opacity: 0.9;
+  padding: 2%;
+}
+.arrow:hover {
+  opacity: 1;
+}
+#arrowRight {
+  right: 0%;
+}
+.takePhoto {
+  background-color: brown;
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  margin-top: -370px;
+  margin-left: 50%;
+}
+#blackFlash {
+  display: none;
+  pointer-events: none;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.25);
+  transition: 0.5s;
+  z-index: 3;
+}
+.blacked {
+  background: rgb(0, 0, 0, 0) !important;
+}
+#flash {
+  display: none;
+  pointer-events: none;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 1);
+  transition: 2s;
+  z-index: 3;
+}
+#buttons {
+  display: none;
+  width: 100%;
+  height: 100%;
+}
+.button-area {
+  position: absolute;
+  height: 8%;
+  bottom: 0px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.button-area img {
+  max-width: 80% !important;
+}
+.button-bg-img {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  height: 80px;
+}
+
+.retake-button {
+  cursor: pointer;
+  /* background-image: url('img/Retake.png'); */
+  width: 200px;
+  margin: 0px 10px;
+}
+
+.capture-button {
+  cursor: pointer;
+  /* background-image: url('img/capture.png'); */
+  margin: 0 10px;
+  width: 50px;
+}
+
+.save-button {
+  cursor: pointer;
+  /* background-image: url('img/Save.png'); */
+  width: 200px;
+  margin: 0 10px;
+}
+
+.photo-frame-area {
+  width: calc(100vh * 1.77 - 0vh * 1.77);
+  height: calc(100vh - 0vh);
+  background: #c4c4c4;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  position: absolute;
+  top: 0;
+}
+
+.photo {
+  width: auto;
+  height: 100%;
+}
+
+@media only screen and (min-width: 992px) {
+  .capture-button {
+    width: 100px;
+  }
+}
+#share-options {
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(0.5rem);
+  z-index: 111;
+  left: 0;
+  top: 0;
+  animation: drop-animation 0.4s ease-in;
+  transform-origin: top;
+}
+#closeSharePopUp {
+  background-image: url(../img/close.png);
+  width: 2.5rem !important;
+  height: 2rem !important;
+  right: 1vw !important;
+  top: 0.3rem !important;
+  background-image: url(../img/close.png) !important;
+  transition: 1160ms ease-in-out !important;
+  z-index: 1;
+  pointer-events: all;
+  position: absolute;
+  right: 2%;
+  top: 6%;
+  width: 165px;
+  height: 75px;
+  cursor: pointer;
+  opacity: 0.9;
+  transition: 700ms ease-in-out;
+  border: none;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.inner-share {
+  position: absolute;
+  left: 50%;
+  top: 2rem;
+  transform: translateX(-50%);
+  padding: 0.5rem 1rem;
+  background-color: #fff;
+  border-radius: 500px;
+}
+.inner-share a {
+  text-decoration: none;
+  font-size: 3rem;
+  margin: 1rem;
+}
+@keyframes drop-animation {
+  0% {
+    transform: scaleY(0);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}
+/* 
+  @media only screen and (max-width: 600px) {
+    .photo-frame-area{
+      height:  100vh;
+      overflow: hidden;
+    }
+    body{
+      height: 100vh;
+      overflow: hidden;
+    }
+    .photo{
+      height: 100vh;
+    }
+    
+  }
+
+
+@media only screen and (min-width: 600px) {
+.photo-frame-area{
+  margin-top: 20vh
+}
+}
+
+
+@media only screen and (min-width: 768px) {
+    .button-area {
+        height: 450px;
+    }
+
+}
+
+
+@media only screen and (min-width: 992px) {
+
+}
+
+
+@media only screen and (min-width: 1200px) {
+
+.button-area {
+        height: 350px;
+    }
+  .photo-frame-area{
+    margin-top: 0px
+  }
+
+} */

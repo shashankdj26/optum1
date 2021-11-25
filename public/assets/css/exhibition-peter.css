@@ -1,0 +1,33 @@
+@font-face {
+  font-family: "icomoon";
+  src: url("exhibition-peter/icomoon.eot?7z4gmg");
+  src: url("exhibition-peter/icomoon.eot?7z4gmg#iefix")
+      format("embedded-opentype"),
+    url("exhibition-peter/icomoon.ttf?7z4gmg") format("truetype"),
+    url("exhibition-peter/icomoon.woff?7z4gmg") format("woff"),
+    url("exhibition-peter/icomoon.svg?7z4gmg#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: "icomoon" !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-exhibition-peter:before {
+  content: "\1f3ad";
+  color: #fff;
+}
