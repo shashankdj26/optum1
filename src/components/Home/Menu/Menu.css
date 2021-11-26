@@ -3,7 +3,8 @@
   left: 0;
   bottom: 0;
   width: 100%;
-  background: #323466;
+  /* background: #323466; */
+  background: linear-gradient(179.99deg, #ffffff 12.97%, #ffdec6 99.99%);
 }
 /* @media only screen and (max-width: 700px) {
   .footerBox {
@@ -23,7 +24,8 @@
   position: relative;
   display: flex;
   list-style-type: none;
-  background: #323466;
+  /* background: #323466; */
+  background: linear-gradient(179.99deg, #ffffff 12.97%, #ffdec6 99.99%);
   z-index: 3;
   overflow: auto;
 }
@@ -48,7 +50,7 @@
   color: rgba(255, 255, 255, 1);
 }
 .desktop__logo {
-  /* padding: 2rem 1rem; */
+  padding: 2rem 1rem;
   opacity: 1;
   display: none;
 }
@@ -58,23 +60,34 @@
 }
 .bottom-icons-nav.bottom-icons-nav--withtext > li > a {
   padding: 0.934rem 1rem;
-  color: #fff;
+  color: #000;
 }
 .bottom-icons-nav.bottom-icons-nav--withtext > li > a > i {
   margin-bottom: 0.75rem;
   display: inline-block;
+  /* color: #000; */
 }
 .bottom-icons-nav.bottom-icons-nav--withtext > li > a.active {
-  background: #f291bc;
+  background: #f57f28;
   color: #fff !important;
 }
+
+.bottom-icons-nav.bottom-icons-nav--withtext > li > a > i::before {
+  color: #000 !important;
+}
+
 .bottom-icons-nav.bottom-icons-nav--withtext > li > a.active > i::before {
-  color: white !important;
+  color: #fff !important;
 }
 .bottom-icons-nav.bottom-icons-nav--withtext > li > a > span {
   display: block;
   font-size: 0.75rem;
   line-height: 0.85rem;
+  color: #000;
+}
+
+.bottom-icons-nav.bottom-icons-nav--withtext > li > a.active > span {
+  color: #fff !important;
 }
 
 .has-notification > i {

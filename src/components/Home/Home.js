@@ -17,6 +17,7 @@ import Lottie from "react-lottie-player";
 import { AiFillHeart, AiFillLike } from "react-icons/ai";
 import { FaHandPaper } from "react-icons/fa";
 import clapSound from "./clapping.mp3";
+import Intro from "../auth/login/Intro";
 
 //#endregion
 //#region Const import
@@ -120,6 +121,7 @@ class Home extends Component {
       showHelpdeskChat: false,
       showLeaderboard: false,
       showLeaderboardButton: true,
+      showIntro: this.props.canShowIntro,
 
       showSurveyPopup: false,
       surveyDetails: null,
@@ -974,6 +976,15 @@ class Home extends Component {
       .update({ count: firebaseApp.firestore.FieldValue.increment(1) });
   };
 
+  closeIntro = () => {
+    this.setState((prevState) => ({
+      UI: {
+        ...prevState.UI,
+        showIntro: false,
+      },
+    }));
+    sessionStorage.setItem("IntoPlayed", "true");
+  };
   // getActiveSubMenuItems() {
   //     var activeMenuItems = this.getActiveMenuItems();
   //     for(var i = 0; i < activeMenuItems.length; i++)
@@ -987,17 +998,20 @@ class Home extends Component {
     // console.log(liveCountData, "/////////////////////");
     return (
       <>
-        {this.state.UI.activeMenu && (
+        {this.state.UI.showIntro && <Intro close={this.closeIntro}></Intro>}
+        {!this.state.UI.showIntro && (
           <>
-            {false &&
-              this.state.UI.activeMenu.id !== menuItemsId.Audi &&
-              this.state.UI.activeMenu.id !== menuItemsId.bdr && (
-                <>
-                  <div className="indicatorSpace">
-                    {internetStatus && (
-                      <SpeedTest currentStatus={internetStatus}></SpeedTest>
-                    )}
-                    {/* {liveCountData && (
+            {this.state.UI.activeMenu && (
+              <>
+                {false &&
+                  this.state.UI.activeMenu.id !== menuItemsId.Audi &&
+                  this.state.UI.activeMenu.id !== menuItemsId.bdr && (
+                    <>
+                      <div className="indicatorSpace">
+                        {internetStatus && (
+                          <SpeedTest currentStatus={internetStatus}></SpeedTest>
+                        )}
+                        {/* {liveCountData && (
                     <>
                       <LiveCount
                         data={liveCountData}
@@ -1005,210 +1019,214 @@ class Home extends Component {
                       ></LiveCount>
                     </>
                   )} */}
-                  </div>
-                </>
-              )}
-          </>
-        )}
-        {
-          <ChatNotification
-            canBeVisible={!this.state.UI.showGlobalChat}
-            userEmail={this.context.email}
-          ></ChatNotification>
-        }
-
-        {this.state.TwilioVideoCall.showVideoCall &&
-          this.context &&
-          this.state.TwilioVideoCall.room && (
-            <MultiVideoCall
-              userName={
-                this.context.displayName ?? this.context.email.split("@")[0]
-              }
-              room={this.state.TwilioVideoCall.room}
-              onCallDisconnect={this.clearTwilioVideoCallRoom}
-              isOfficial={this.state.TwilioVideoCall.room.isAdmin}
-              stallId={this.state.TwilioVideoCall.stallId}
-              slotReset={this.currentSlotRest}
-              showPopup={this.showMeetingRoomPopup}
-              showBusyPopup={this.showMeetingRoomBusyPopup}
-              // timerAnalytics={this.askExpertTimerAnalytics}
-            ></MultiVideoCall>
-          )}
-        {this.state.UI.showStallChat && (
-          <>
-            <div className="stallChatContainer">
-              <img
-                src={ImageString.CLOSEBUTTON}
-                className={`closeButton-mediaModal  closeButton-mediaModal-right-corner ${
-                  isIOS ? "ios-btn-right ipad-stall-chat" : ""
-                }`}
-                // stallchat-cont
-                alt="MediaModalCLoseButton"
-                onClick={this.handleStallChatHotspotClose}
-                // style={{
-                //   right: "auto",
-                // }}
-              ></img>
-              <iframe
-                src={`${StaticLinks.stallChat}?${this.state.stallChat.id}`}
-                title="StallChatFrame"
-              ></iframe>
-              <div
-                className={`blocker ${
-                  this.state.UI.fadeIntroImage ? "d-none" : ""
-                }`}
-                style={{ zIndex: "-1" }}
-              >
-                <div className="lds-dual-ring"></div>
-              </div>
-            </div>
-          </>
-        )}
-        <div className="wrapper">
-          <section
-            className={`loggedin-page has-right-menu min-height-full min-height-full image-bg ${
-              isIOS ? "ios-page" : ""
-            } ${isIPad13 ? "on-ipad" : ""} ${
-              window.parent.ios_V
-                ? window.parent.ios_V === 15
-                  ? "ios-15"
-                  : ""
-                : ""
-            } ${
-              window.parent.ios_V
-                ? window.parent.ios_V === 15 && !isMobileSafari
-                  ? "ios-15-ch"
-                  : ""
-                : ""
-            } ${
-              window.parent.ios_V2
-                ? window.Number(window.parent.ios_V2) >= window.Number("14.2")
-                  ? "ios-14-2"
-                  : ""
-                : ""
-            }
-            
-            `}
-          >
-            <CustomNotification firestore={firestore}></CustomNotification>
-            {false && <ZoomLnk firestore={firestore} />}
-            {this.state.UI.showMediaModal && (
-              <>
-                <article
-                  className={`img-bg videoBox h-100 zIndex-16`}
-                  id="play"
-                >
-                  <div className="media-modal">
-                    {this.state.MediaModalInfo.type ===
-                      HotspotType.videoPlayer && (
-                      <VideoPlayer
-                        videoData={this.state.MediaModalInfo.link}
-                        close={() => this.closeMediaModal()}
-                      ></VideoPlayer>
-                    )}
-                    {this.state.MediaModalInfo.type ===
-                      HotspotType.pdfPlayer && (
-                      <PdfPlayer
-                        data={this.state.MediaModalInfo.link}
-                        close={() => this.closeMediaModal()}
-                      ></PdfPlayer>
-                    )}
-                    {this.state.MediaModalInfo.type === HotspotType.pdf && (
-                      <iframe
-                        title={"pdf"}
-                        className="media-modal-content"
-                        src={this.state.MediaModalInfo.link}
-                      ></iframe>
-                    )}
-                    {this.state.MediaModalInfo.type === HotspotType.iframe && (
-                      <iframe
-                        title={"iframe"}
-                        className="media-modal-content-iframe holds-the-iframe"
-                        src={this.state.MediaModalInfo.link}
-                        allow="camera; microphone"
-                        // src=""
-                      ></iframe>
-                    )}
-                    {this.state.MediaModalInfo.type === HotspotType.video && (
-                      <div className="media-modal-content media-modal-contenet-depth mobile-video">
-                        <ReactPlayer
-                          config={{
-                            youtube: {
-                              playerVars: { showinfo: 1 },
-                            },
-                          }}
-                          playsinline={true}
-                          playing={true}
-                          volume={1}
-                          loop={true}
-                          url={this.state.MediaModalInfo.link}
-                          controls={true}
-                          width="100%"
-                          height="100%"
-                          style={{
-                            zIndex: 3,
-                            position: "relative",
-                          }}
-                        />
-                        <div className="blocker">
-                          <div className="lds-dual-ring"></div>
-                        </div>
                       </div>
-                    )}
-                    {this.state.MediaModalInfo.type === HotspotType.image && (
-                      <img
-                        title={"image"}
-                        className="media-modal-content-image"
-                        src={this.state.MediaModalInfo.link}
-                        alt="mediaModalImage"
-                      ></img>
-                    )}
-
-                    {this.state.MediaModalInfo.type !==
-                      HotspotType.videoPlayer &&
-                      this.state.MediaModalInfo.type !==
-                        HotspotType.pdfPlayer && (
-                        <img
-                          src={ImageString.CLOSEBUTTON}
-                          className="closeButton-mediaModal"
-                          alt="MediaModalCLoseButton"
-                          onClick={this.closeMediaModal}
-                        ></img>
-                      )}
-                  </div>
-                </article>
+                    </>
+                  )}
               </>
             )}
-            {this.state.UI.activeMenu.id === menuItemsId.bdr && (
-              <>
-                <img
-                  src={ImageString.G_BACKBUTTON}
-                  alt="backButtonToLobby"
-                  className="globalBackButton"
-                  onClick={(e) =>
-                    this.handleClick(e, menuItems[menuItemsIndex.Lobby])
+            {
+              <ChatNotification
+                canBeVisible={!this.state.UI.showGlobalChat}
+                userEmail={this.context.email}
+              ></ChatNotification>
+            }
+
+            {this.state.TwilioVideoCall.showVideoCall &&
+              this.context &&
+              this.state.TwilioVideoCall.room && (
+                <MultiVideoCall
+                  userName={
+                    this.context.displayName ?? this.context.email.split("@")[0]
                   }
-                ></img>
-                <iframe
-                  className="media-modal-content-iframe"
-                  src={`/zoom/CDN/meeting.html?name=${
-                    this.props.displayName
-                      ? this.props.displayName.toLowerCase()
-                      : this.context.email.split("@")[0].toLowerCase()
-                  }&mn=${this.props.mn}&email=${this.context.email}&pwd=${
-                    this.props.pwd
-                  }&role=0&lang=en-US&signature=${
-                    this.props.signature
-                  }&apiKey=${this.props.apiKey}`}
-                  style={{
-                    // position: "fixed",
-                    // width: "100%",
-                    height: "100vh",
-                    // border: 0,
-                    // zIndex: 1000,
-                  }}
-                />
-                {/* <button
+                  room={this.state.TwilioVideoCall.room}
+                  onCallDisconnect={this.clearTwilioVideoCallRoom}
+                  isOfficial={this.state.TwilioVideoCall.room.isAdmin}
+                  stallId={this.state.TwilioVideoCall.stallId}
+                  slotReset={this.currentSlotRest}
+                  showPopup={this.showMeetingRoomPopup}
+                  showBusyPopup={this.showMeetingRoomBusyPopup}
+                  // timerAnalytics={this.askExpertTimerAnalytics}
+                ></MultiVideoCall>
+              )}
+            {this.state.UI.showStallChat && (
+              <>
+                <div className="stallChatContainer">
+                  <img
+                    src={ImageString.CLOSEBUTTON}
+                    className={`closeButton-mediaModal  closeButton-mediaModal-right-corner ${
+                      isIOS ? "ios-btn-right ipad-stall-chat" : ""
+                    }`}
+                    // stallchat-cont
+                    alt="MediaModalCLoseButton"
+                    onClick={this.handleStallChatHotspotClose}
+                    // style={{
+                    //   right: "auto",
+                    // }}
+                  ></img>
+                  <iframe
+                    src={`${StaticLinks.stallChat}?${this.state.stallChat.id}`}
+                    title="StallChatFrame"
+                  ></iframe>
+                  <div
+                    className={`blocker ${
+                      this.state.UI.fadeIntroImage ? "d-none" : ""
+                    }`}
+                    style={{ zIndex: "-1" }}
+                  >
+                    <div className="lds-dual-ring"></div>
+                  </div>
+                </div>
+              </>
+            )}
+            <div className="wrapper">
+              <section
+                className={`loggedin-page has-right-menu min-height-full min-height-full image-bg ${
+                  isIOS ? "ios-page" : ""
+                } ${isIPad13 ? "on-ipad" : ""} ${
+                  window.parent.ios_V
+                    ? window.parent.ios_V === 15
+                      ? "ios-15"
+                      : ""
+                    : ""
+                } ${
+                  window.parent.ios_V
+                    ? window.parent.ios_V === 15 && !isMobileSafari
+                      ? "ios-15-ch"
+                      : ""
+                    : ""
+                } ${
+                  window.parent.ios_V2
+                    ? window.Number(window.parent.ios_V2) >=
+                      window.Number("14.2")
+                      ? "ios-14-2"
+                      : ""
+                    : ""
+                }
+            
+            `}
+              >
+                <CustomNotification firestore={firestore}></CustomNotification>
+                {false && <ZoomLnk firestore={firestore} />}
+                {this.state.UI.showMediaModal && (
+                  <>
+                    <article
+                      className={`img-bg videoBox h-100 zIndex-16`}
+                      id="play"
+                    >
+                      <div className="media-modal">
+                        {this.state.MediaModalInfo.type ===
+                          HotspotType.videoPlayer && (
+                          <VideoPlayer
+                            videoData={this.state.MediaModalInfo.link}
+                            close={() => this.closeMediaModal()}
+                          ></VideoPlayer>
+                        )}
+                        {this.state.MediaModalInfo.type ===
+                          HotspotType.pdfPlayer && (
+                          <PdfPlayer
+                            data={this.state.MediaModalInfo.link}
+                            close={() => this.closeMediaModal()}
+                          ></PdfPlayer>
+                        )}
+                        {this.state.MediaModalInfo.type === HotspotType.pdf && (
+                          <iframe
+                            title={"pdf"}
+                            className="media-modal-content"
+                            src={this.state.MediaModalInfo.link}
+                          ></iframe>
+                        )}
+                        {this.state.MediaModalInfo.type ===
+                          HotspotType.iframe && (
+                          <iframe
+                            title={"iframe"}
+                            className="media-modal-content-iframe holds-the-iframe"
+                            src={this.state.MediaModalInfo.link}
+                            allow="camera; microphone"
+                            // src=""
+                          ></iframe>
+                        )}
+                        {this.state.MediaModalInfo.type ===
+                          HotspotType.video && (
+                          <div className="media-modal-content media-modal-contenet-depth mobile-video">
+                            <ReactPlayer
+                              config={{
+                                youtube: {
+                                  playerVars: { showinfo: 1 },
+                                },
+                              }}
+                              playsinline={true}
+                              playing={true}
+                              volume={1}
+                              loop={true}
+                              url={this.state.MediaModalInfo.link}
+                              controls={true}
+                              width="100%"
+                              height="100%"
+                              style={{
+                                zIndex: 3,
+                                position: "relative",
+                              }}
+                            />
+                            <div className="blocker">
+                              <div className="lds-dual-ring"></div>
+                            </div>
+                          </div>
+                        )}
+                        {this.state.MediaModalInfo.type ===
+                          HotspotType.image && (
+                          <img
+                            title={"image"}
+                            className="media-modal-content-image"
+                            src={this.state.MediaModalInfo.link}
+                            alt="mediaModalImage"
+                          ></img>
+                        )}
+
+                        {this.state.MediaModalInfo.type !==
+                          HotspotType.videoPlayer &&
+                          this.state.MediaModalInfo.type !==
+                            HotspotType.pdfPlayer && (
+                            <img
+                              src={ImageString.CLOSEBUTTON}
+                              className="closeButton-mediaModal"
+                              alt="MediaModalCLoseButton"
+                              onClick={this.closeMediaModal}
+                            ></img>
+                          )}
+                      </div>
+                    </article>
+                  </>
+                )}
+                {this.state.UI.activeMenu.id === menuItemsId.bdr && (
+                  <>
+                    <img
+                      src={ImageString.G_BACKBUTTON}
+                      alt="backButtonToLobby"
+                      className="globalBackButton"
+                      onClick={(e) =>
+                        this.handleClick(e, menuItems[menuItemsIndex.Lobby])
+                      }
+                    ></img>
+                    <iframe
+                      className="media-modal-content-iframe"
+                      src={`/zoom/CDN/meeting.html?name=${
+                        this.props.displayName
+                          ? this.props.displayName.toLowerCase()
+                          : this.context.email.split("@")[0].toLowerCase()
+                      }&mn=${this.props.mn}&email=${this.context.email}&pwd=${
+                        this.props.pwd
+                      }&role=0&lang=en-US&signature=${
+                        this.props.signature
+                      }&apiKey=${this.props.apiKey}`}
+                      style={{
+                        // position: "fixed",
+                        // width: "100%",
+                        height: "100vh",
+                        // border: 0,
+                        // zIndex: 1000,
+                      }}
+                    />
+                    {/* <button
                   onClick={(e) => {
                     this.handleClick(e, menuItems[menuItemsIndex.Lobby]);
                   }}
@@ -1228,131 +1246,141 @@ class Home extends Component {
                 >
                   Leave
                 </button> */}
-              </>
-            )}
+                  </>
+                )}
 
-            {this.state.UI.activeMenu.id === menuItemsId.Audi && (
-              <Lottie
-                style={{
-                  position: "fixed",
-                  zIndex: 111,
-                  left: 0,
-                  right: 0,
-                  height: "100vh",
-                  width: "100%",
-                  pointerEvents: "none",
-                  visibility: this.state.playlikeLottie ? "visible" : "hidden",
-                }}
-                path={"/like-anim/Likes.json"}
-                play={this.state.playlikeLottie}
-                loop={true}
-                onLoopComplete={() => {
-                  this.setState({ playlikeLottie: false });
-                }}
-                onLoad={() => {
-                  console.log("ready to play");
-                }}
-              />
-            )}
-            {this.state.UI.activeMenu.id === menuItemsId.Audi && (
-              <Lottie
-                style={{
-                  position: "fixed",
-                  zIndex: 111,
-                  left: 0,
-                  right: 0,
-                  height: "100vh",
-                  width: "100%",
-                  pointerEvents: "none",
-                  visibility: this.state.playheartLottie ? "visible" : "hidden",
-                }}
-                path={"/heart-anim/Heart.json"}
-                play={this.state.playheartLottie}
-                loop={true}
-                onLoopComplete={() => {
-                  this.setState({ playheartLottie: false });
-                }}
-                onLoad={() => {
-                  console.log("ready to play");
-                }}
-              />
-            )}
-            {this.state.UI.activeMenu.id === menuItemsId.Audi && (
-              <Lottie
-                style={{
-                  position: "fixed",
-                  zIndex: 111,
-                  left: 0,
-                  right: 0,
-                  height: "100vh",
-                  width: "100%",
-                  pointerEvents: "none",
-                  visibility: this.state.playClapLottie ? "visible" : "hidden",
-                }}
-                path={"/clap-anim/Clap.json"}
-                play={this.state.playClapLottie}
-                loop={true}
-                onLoopComplete={() => {
-                  this.setState({ playClapLottie: false });
-                }}
-                onLoad={() => {
-                  console.log("ready to play");
-                }}
-              />
-            )}
+                {this.state.UI.activeMenu.id === menuItemsId.Audi && (
+                  <Lottie
+                    style={{
+                      position: "fixed",
+                      zIndex: 111,
+                      left: 0,
+                      right: 0,
+                      height: "100vh",
+                      width: "100%",
+                      pointerEvents: "none",
+                      visibility: this.state.playlikeLottie
+                        ? "visible"
+                        : "hidden",
+                    }}
+                    path={"/like-anim/Likes.json"}
+                    play={this.state.playlikeLottie}
+                    loop={true}
+                    onLoopComplete={() => {
+                      this.setState({ playlikeLottie: false });
+                    }}
+                    onLoad={() => {
+                      console.log("ready to play");
+                    }}
+                  />
+                )}
+                {this.state.UI.activeMenu.id === menuItemsId.Audi && (
+                  <Lottie
+                    style={{
+                      position: "fixed",
+                      zIndex: 111,
+                      left: 0,
+                      right: 0,
+                      height: "100vh",
+                      width: "100%",
+                      pointerEvents: "none",
+                      visibility: this.state.playheartLottie
+                        ? "visible"
+                        : "hidden",
+                    }}
+                    path={"/heart-anim/Heart.json"}
+                    play={this.state.playheartLottie}
+                    loop={true}
+                    onLoopComplete={() => {
+                      this.setState({ playheartLottie: false });
+                    }}
+                    onLoad={() => {
+                      console.log("ready to play");
+                    }}
+                  />
+                )}
+                {this.state.UI.activeMenu.id === menuItemsId.Audi && (
+                  <Lottie
+                    style={{
+                      position: "fixed",
+                      zIndex: 111,
+                      left: 0,
+                      right: 0,
+                      height: "100vh",
+                      width: "100%",
+                      pointerEvents: "none",
+                      visibility: this.state.playClapLottie
+                        ? "visible"
+                        : "hidden",
+                    }}
+                    path={"/clap-anim/Clap.json"}
+                    play={this.state.playClapLottie}
+                    loop={true}
+                    onLoopComplete={() => {
+                      this.setState({ playClapLottie: false });
+                    }}
+                    onLoad={() => {
+                      console.log("ready to play");
+                    }}
+                  />
+                )}
 
-            {this.state.UI.activeMenu.id === menuItemsId.Lobby && (
-              <>
-                <Scene
-                  ShowMediaModal={this.showMediaModal}
-                  initialVideo={VideoString.LOBBYLOOP}
-                  firstVideoFrame={ImageString.LOBBYLOOP}
-                  // initialHotspot={this.getActiveHotspots()}
-                  isImageScene={isIOS}
-                  initalImage={ImageString.LOBBYLOOP}
-                  initialHotspot={LobbyHotspots}
-                  brandingLinks={this.state.backendControl.brandingLinks}
-                  globalBackButton={false}
-                  changeComponenet={this.handleClick}
-                  ratio={videoRatios}
-                  customHotspotFun={this.handleCustomHotspotClick}
-                  // for tut to work also pass name
-                  sceneName="Lobby"
-                  showTut={true}
-                  infoBackUpdate={this.addLocationAnalytics}
-                  tutComponent={LobbyTut}
-                  showingTutorialEvent={this.handleSceneTutorial} //for handling transition pass start and end
-                  changeInternalStateHandler={this.handleLobbyInternalState}
-                  checkBeforeTransitionFun={this.handleVideoRoomSelection}
-                  //Analytics
-                  addHotspotAnalytics={this.handleHotspotAnalytics}
-                  addAnalytics={(value) =>
-                    this.addComponentAnalytics(AnalyticsLocations.Lobby, value)
-                  }
-                  //
-                  handleStallCallHotspot={this.handleStallCallHotspot}
-                  handleStallChatHotspot={this.handleStallChatHotspot}
-                  addCustomHotspotAnalytics={this.addCustomHotspotAnalytics}
-                ></Scene>
-                {this.state.UI.showHelpdeskChat && (
+                {this.state.UI.activeMenu.id === menuItemsId.Lobby && (
                   <>
-                    {this.context.email && this.state.HelpdeskChat.showChat && (
+                    <Scene
+                      ShowMediaModal={this.showMediaModal}
+                      initialVideo={VideoString.LOBBYLOOP}
+                      firstVideoFrame={ImageString.LOBBYLOOP}
+                      // initialHotspot={this.getActiveHotspots()}
+                      isImageScene={isIOS}
+                      initalImage={ImageString.LOBBYLOOP}
+                      initialHotspot={LobbyHotspots}
+                      brandingLinks={this.state.backendControl.brandingLinks}
+                      globalBackButton={false}
+                      changeComponenet={this.handleClick}
+                      ratio={videoRatios}
+                      customHotspotFun={this.handleCustomHotspotClick}
+                      // for tut to work also pass name
+                      sceneName="Lobby"
+                      showTut={true}
+                      infoBackUpdate={this.addLocationAnalytics}
+                      tutComponent={LobbyTut}
+                      showingTutorialEvent={this.handleSceneTutorial} //for handling transition pass start and end
+                      changeInternalStateHandler={this.handleLobbyInternalState}
+                      checkBeforeTransitionFun={this.handleVideoRoomSelection}
+                      //Analytics
+                      addHotspotAnalytics={this.handleHotspotAnalytics}
+                      addAnalytics={(value) =>
+                        this.addComponentAnalytics(
+                          AnalyticsLocations.Lobby,
+                          value
+                        )
+                      }
+                      //
+                      handleStallCallHotspot={this.handleStallCallHotspot}
+                      handleStallChatHotspot={this.handleStallChatHotspot}
+                      addCustomHotspotAnalytics={this.addCustomHotspotAnalytics}
+                    ></Scene>
+                    {this.state.UI.showHelpdeskChat && (
                       <>
-                        {/* <NotLive continue={this.handleHelpdeskChatClose}></NotLive> */}
-                        <ClientChat
-                          channel={this.context.email}
-                          user={{
-                            id: this.context.email,
-                            name: this.context.displayName,
-                          }}
-                          closeChat={this.handleHelpdeskChatClose}
-                          visibility={true}
-                        ></ClientChat>
-                      </>
-                    )}
-                    {this.state.HelpdeskChat.showButton && (
-                      <>
-                        {/* <a data-tip data-for="chatbotInfo" >
+                        {this.context.email &&
+                          this.state.HelpdeskChat.showChat && (
+                            <>
+                              {/* <NotLive continue={this.handleHelpdeskChatClose}></NotLive> */}
+                              <ClientChat
+                                channel={this.context.email}
+                                user={{
+                                  id: this.context.email,
+                                  name: this.context.displayName,
+                                }}
+                                closeChat={this.handleHelpdeskChatClose}
+                                visibility={true}
+                              ></ClientChat>
+                            </>
+                          )}
+                        {this.state.HelpdeskChat.showButton && (
+                          <>
+                            {/* <a data-tip data-for="chatbotInfo" >
                                                     <img
                                                         className={`helpdeskchatbtn`}
                                                         src="assets/images/chatbot.png"
@@ -1363,277 +1391,294 @@ class Home extends Component {
                                                 <ReactTooltip id='chatbotInfo' >
                                                     <span>How may I help you ?</span>
                                                 </ReactTooltip> */}
+                          </>
+                        )}
                       </>
                     )}
                   </>
                 )}
-              </>
-            )}
-            {this.state.UI.activeMenu.id === menuItemsId.Audi && (
-              <>
-                <AudiScene
-                  changeComponenet={this.handleClick}
-                  ShowMediaModal={this.showMediaModal}
-                  initialVideo={AudiData.introVideo}
-                  globalBackButton={true}
-                  AudiZoomLink={AudiZoomLink.link}
-                  showZoom={false}
-                  showCover={false}
-                  link={this.state.audiLnk}
-                  framePlacementStyle={AudiData.placementStyle}
-                  hiddeMute={false}
-                  //For Tutorial
-                  sceneName="audi"
-                  showTut={isMobileOnly ? false : true}
-                  tutComponent={AudiTut}
-                  subMenus={this.state.UI.activeSubMenu}
-                  //Analytics
-                  addAnalytics={(value) => {
-                    this.addComponentAnalytics(AnalyticsLocations.Audi, value);
-                  }}
-                ></AudiScene>
-
-                <div
-                  className={`audiButtonContainer ${
-                    this.state.UI.hideCommentsBtn ? "commentSection-out" : ""
-                  }`}
-                >
-                  <div
-                    className="audiChatButton"
-                    onClick={async (e) => {
-                      if (e) {
-                        e.preventDefault();
-                      }
-                      this.setState({ playlikeLottie: true });
-                      this.updatesLikeClapsHearts("totalLikes");
-
-                      await addRealtimeHotspotAnalytics(this.context, "likes");
-                    }}
-                    style={{
-                      // background:
-                      //   "linear-gradient(0deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)), linear-gradient(180deg, rgba(255, 255, 255, 0.4) 0%, rgba(150, 150, 150, 0.4) 100%)",
-                      backdropFilter: "blur(34px)",
-                      // borderBottom: "0.5px solid #000000",
-                    }}
-                  >
-                    <div
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
+                {this.state.UI.activeMenu.id === menuItemsId.Audi && (
+                  <>
+                    <AudiScene
+                      changeComponenet={this.handleClick}
+                      ShowMediaModal={this.showMediaModal}
+                      initialVideo={AudiData.introVideo}
+                      globalBackButton={true}
+                      AudiZoomLink={AudiZoomLink.link}
+                      showZoom={false}
+                      showCover={false}
+                      link={this.state.audiLnk}
+                      framePlacementStyle={AudiData.placementStyle}
+                      hiddeMute={false}
+                      //For Tutorial
+                      sceneName="audi"
+                      showTut={isMobileOnly ? false : true}
+                      tutComponent={AudiTut}
+                      subMenus={this.state.UI.activeSubMenu}
+                      //Analytics
+                      addAnalytics={(value) => {
+                        this.addComponentAnalytics(
+                          AnalyticsLocations.Audi,
+                          value
+                        );
                       }}
+                    ></AudiScene>
+
+                    <div
+                      className={`audiButtonContainer ${
+                        this.state.UI.hideCommentsBtn
+                          ? "commentSection-out"
+                          : ""
+                      }`}
                     >
-                      <AiFillLike
-                        className="likeButton"
-                        style={{ color: "#fff" }}
-                      />
-                      {/* <p style={{ color: "#fff", marginLeft: "0.3rem" }}>
+                      <div
+                        className="audiChatButton"
+                        onClick={async (e) => {
+                          if (e) {
+                            e.preventDefault();
+                          }
+                          this.setState({ playlikeLottie: true });
+                          this.updatesLikeClapsHearts("totalLikes");
+
+                          await addRealtimeHotspotAnalytics(
+                            this.context,
+                            "likes"
+                          );
+                        }}
+                        style={{
+                          // background:
+                          //   "linear-gradient(0deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)), linear-gradient(180deg, rgba(255, 255, 255, 0.4) 0%, rgba(150, 150, 150, 0.4) 100%)",
+                          backdropFilter: "blur(34px)",
+                          // borderBottom: "0.5px solid #000000",
+                        }}
+                      >
+                        <div
+                          style={{
+                            display: "flex",
+                            alignItems: "center",
+                          }}
+                        >
+                          <AiFillLike
+                            className="likeButton"
+                            style={{ color: "#fff" }}
+                          />
+                          {/* <p style={{ color: "#fff", marginLeft: "0.3rem" }}>
                             {this.state.likeCount}
                           </p> */}
-                    </div>
-                  </div>
-                  <div
-                    className="audiChatButton"
-                    onClick={async (e) => {
-                      if (e) {
-                        e.preventDefault();
-                      }
-                      console.log("in");
-                      this.setState({ playheartLottie: true }, () => {
-                        console.log(this.state.playheartLottie);
-                      });
-                      this.updatesLikeClapsHearts("totalHearts");
-                      await addRealtimeHotspotAnalytics(this.context, "hearts");
-                    }}
-                    style={{
-                      // background:
-                      //   "linear-gradient(0deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)), linear-gradient(180deg, rgba(255, 255, 255, 0.4) 0%, rgba(150, 150, 150, 0.4) 100%)",
-                      backdropFilter: "blur(34px)",
-                      // borderBottom: "0.5px solid #000000",
-                    }}
-                  >
-                    <div
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                      }}
-                    >
-                      <AiFillHeart
-                        className="heartButton"
-                        style={{ color: "#fff" }}
-                      />
-                      {/* <p style={{ color: "#fff", marginLeft: "0.3rem" }}>
+                        </div>
+                      </div>
+                      <div
+                        className="audiChatButton"
+                        onClick={async (e) => {
+                          if (e) {
+                            e.preventDefault();
+                          }
+                          console.log("in");
+                          this.setState({ playheartLottie: true }, () => {
+                            console.log(this.state.playheartLottie);
+                          });
+                          this.updatesLikeClapsHearts("totalHearts");
+                          await addRealtimeHotspotAnalytics(
+                            this.context,
+                            "hearts"
+                          );
+                        }}
+                        style={{
+                          // background:
+                          //   "linear-gradient(0deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)), linear-gradient(180deg, rgba(255, 255, 255, 0.4) 0%, rgba(150, 150, 150, 0.4) 100%)",
+                          backdropFilter: "blur(34px)",
+                          // borderBottom: "0.5px solid #000000",
+                        }}
+                      >
+                        <div
+                          style={{
+                            display: "flex",
+                            alignItems: "center",
+                          }}
+                        >
+                          <AiFillHeart
+                            className="heartButton"
+                            style={{ color: "#fff" }}
+                          />
+                          {/* <p style={{ color: "#fff", marginLeft: "0.3rem" }}>
                             {this.state.heartCount}
                           </p> */}
-                    </div>
-                  </div>
-                  <div
-                    className="audiChatButton"
-                    onClick={async (e) => {
-                      if (e) {
-                        e.preventDefault();
-                      }
-                      this.setState({ playClapLottie: true });
-                      this.updatesLikeClapsHearts("totalClaps");
-                      if (this.clapref.current) {
-                        this.clapref.current.audioEl.current.play();
-                        setTimeout(() => {
-                          if (this.clapref.current) {
-                            this.clapref.current.audioEl.current.pause();
-                            this.clapref.current.audioEl.current.load();
-                          }
-                        }, 5000);
-                      }
-                      await addRealtimeHotspotAnalytics(this.context, "clap");
-                    }}
-                    style={{
-                      // background:
-                      //   "linear-gradient(0deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)), linear-gradient(180deg, rgba(255, 255, 255, 0.4) 0%, rgba(150, 150, 150, 0.4) 100%)",
-                      backdropFilter: "blur(34px)",
-                      // borderBottom: "0.5px solid #000000",
-                    }}
-                  >
-                    <div
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                      }}
-                    >
-                      <div className="clap">
-                        <FaHandPaper className="lower__hand clapButton" />
+                        </div>
                       </div>
-                      {/* <p style={{ color: "#fff", marginLeft: "0.3rem" }}>
+                      <div
+                        className="audiChatButton"
+                        onClick={async (e) => {
+                          if (e) {
+                            e.preventDefault();
+                          }
+                          this.setState({ playClapLottie: true });
+                          this.updatesLikeClapsHearts("totalClaps");
+                          if (this.clapref.current) {
+                            this.clapref.current.audioEl.current.play();
+                            setTimeout(() => {
+                              if (this.clapref.current) {
+                                this.clapref.current.audioEl.current.pause();
+                                this.clapref.current.audioEl.current.load();
+                              }
+                            }, 5000);
+                          }
+                          await addRealtimeHotspotAnalytics(
+                            this.context,
+                            "clap"
+                          );
+                        }}
+                        style={{
+                          // background:
+                          //   "linear-gradient(0deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)), linear-gradient(180deg, rgba(255, 255, 255, 0.4) 0%, rgba(150, 150, 150, 0.4) 100%)",
+                          backdropFilter: "blur(34px)",
+                          // borderBottom: "0.5px solid #000000",
+                        }}
+                      >
+                        <div
+                          style={{
+                            display: "flex",
+                            alignItems: "center",
+                          }}
+                        >
+                          <div className="clap">
+                            <FaHandPaper className="lower__hand clapButton" />
+                          </div>
+                          {/* <p style={{ color: "#fff", marginLeft: "0.3rem" }}>
                             {this.state.clapCount}
                           </p> */}
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                </div>
-              </>
-            )}
-            {this.state.UI.activeMenu.id === menuItemsId.Networking && (
-              <>
-                <Scene
-                  ShowMediaModal={this.showMediaModal}
-                  initialVideo={VideoString.NETWORKING_LOOP}
-                  isImageScene={isIOS}
-                  initalImage={ImageString.NetworkingLoung}
-                  firstVideoFrame={ImageString.NetworkingLoung}
-                  initialHotspot={NetworkingHotspot}
-                  globalBackButton={true}
-                  changeComponenet={this.handleClick}
-                  ratio={videoRatios}
-                  // for tut to work also pass name
-                  sceneName="Networking"
-                  showTut={true}
-                  tutComponent={NetworkingTut}
-                  showingTutorialEvent={this.handleSceneTutorial} //for handling transition pass start and end
-                  //  changeInternalStateHandler={this.handleLobbyInternalState}
-                  //Analytics
-                  addAnalytics={(value) =>
-                    this.addComponentAnalytics(
-                      AnalyticsLocations.Networking,
-                      value
-                    )
-                  }
-                ></Scene>
-              </>
-            )}
-            {this.state.UI.activeMenu.id === menuItemsId.rescen && (
-              <>
-                <Scene
-                  ShowMediaModal={this.showMediaModal}
-                  initialVideo={VideoString.RESOURCE_LOOP}
-                  firstVideoFrame={ImageString.ResourceCenter}
-                  isImageScene={isIOS}
-                  initalImage={ImageString.ResourceCenter}
-                  initialHotspot={ResourceCenterStalls}
-                  globalBackButton={true}
-                  changeComponenet={this.handleClick}
-                  ratio={videoRatios}
-                  // for tut to work also pass name
-                  sceneName="rescen"
-                  showTut={false}
-                  tutComponent={NetworkingTut}
-                  showingTutorialEvent={this.handleSceneTutorial} //for handling transition pass start and end
-                  //  changeInternalStateHandler={this.handleLobbyInternalState}
-                  //Analytics
-                  addHotspotAnalytics={this.handleHotspotAnalytics}
-                  addCustomHotspotAnalytics={this.addCustomHotspotAnalytics}
-                  addAnalytics={(value) =>
-                    this.addComponentAnalytics(AnalyticsLocations.Rencen, value)
-                  }
-                  handleStallCallHotspot={this.handleStallCallHotspot}
-                  handleStallChatHotspot={this.handleStallChatHotspot}
-                ></Scene>
-              </>
-            )}
-            {this.state.UI.activeMenu.id === menuItemsId.exibooth && (
-              <>
-                <Scene
-                  ShowMediaModal={this.showMediaModal}
-                  initialVideo={VideoString.EXHIBITION_LOOP}
-                  firstVideoFrame={ImageString.Exhibition}
-                  isImageScene={isIOS}
-                  initalImage={ImageString.Exhibition}
-                  initialHotspot={this.state.BreakoutRoomsHotspot}
-                  globalBackButton={true}
-                  changeComponenet={this.handleClick}
-                  ratio={videoRatios}
-                  // for tut to work also pass name
-                  sceneName="Exibitionbooth"
-                  showTut={false}
-                  tutComponent={NetworkingTut}
-                  showingTutorialEvent={this.handleSceneTutorial} //for handling transition pass start and end
-                  //  changeInternalStateHandler={this.handleLobbyInternalState}
-                  //Analytics
-                  addHotspotAnalytics={this.handleHotspotAnalytics}
-                  addCustomHotspotAnalytics={this.addCustomHotspotAnalytics}
-                  addAnalytics={(value) =>
-                    this.addComponentAnalytics(
-                      AnalyticsLocations.ExiBooth,
-                      value
-                    )
-                  }
-                  handleStallCallHotspot={this.handleStallCallHotspot}
-                  handleStallChatHotspot={this.handleStallChatHotspot}
-                ></Scene>
-              </>
-            )}
+                  </>
+                )}
+                {this.state.UI.activeMenu.id === menuItemsId.Networking && (
+                  <>
+                    <Scene
+                      ShowMediaModal={this.showMediaModal}
+                      initialVideo={VideoString.NETWORKING_LOOP}
+                      isImageScene={isIOS}
+                      initalImage={ImageString.NetworkingLoung}
+                      firstVideoFrame={ImageString.NetworkingLoung}
+                      initialHotspot={NetworkingHotspot}
+                      globalBackButton={true}
+                      changeComponenet={this.handleClick}
+                      ratio={videoRatios}
+                      // for tut to work also pass name
+                      sceneName="Networking"
+                      showTut={true}
+                      tutComponent={NetworkingTut}
+                      showingTutorialEvent={this.handleSceneTutorial} //for handling transition pass start and end
+                      //  changeInternalStateHandler={this.handleLobbyInternalState}
+                      //Analytics
+                      addAnalytics={(value) =>
+                        this.addComponentAnalytics(
+                          AnalyticsLocations.Networking,
+                          value
+                        )
+                      }
+                    ></Scene>
+                  </>
+                )}
+                {this.state.UI.activeMenu.id === menuItemsId.rescen && (
+                  <>
+                    <Scene
+                      ShowMediaModal={this.showMediaModal}
+                      initialVideo={VideoString.RESOURCE_LOOP}
+                      firstVideoFrame={ImageString.ResourceCenter}
+                      isImageScene={isIOS}
+                      initalImage={ImageString.ResourceCenter}
+                      initialHotspot={ResourceCenterStalls}
+                      globalBackButton={true}
+                      changeComponenet={this.handleClick}
+                      ratio={videoRatios}
+                      // for tut to work also pass name
+                      sceneName="rescen"
+                      showTut={false}
+                      tutComponent={NetworkingTut}
+                      showingTutorialEvent={this.handleSceneTutorial} //for handling transition pass start and end
+                      //  changeInternalStateHandler={this.handleLobbyInternalState}
+                      //Analytics
+                      addHotspotAnalytics={this.handleHotspotAnalytics}
+                      addCustomHotspotAnalytics={this.addCustomHotspotAnalytics}
+                      addAnalytics={(value) =>
+                        this.addComponentAnalytics(
+                          AnalyticsLocations.Rencen,
+                          value
+                        )
+                      }
+                      handleStallCallHotspot={this.handleStallCallHotspot}
+                      handleStallChatHotspot={this.handleStallChatHotspot}
+                    ></Scene>
+                  </>
+                )}
+                {this.state.UI.activeMenu.id === menuItemsId.exibooth && (
+                  <>
+                    <Scene
+                      ShowMediaModal={this.showMediaModal}
+                      initialVideo={VideoString.EXHIBITION_LOOP}
+                      firstVideoFrame={ImageString.Exhibition}
+                      isImageScene={isIOS}
+                      initalImage={ImageString.Exhibition}
+                      initialHotspot={this.state.BreakoutRoomsHotspot}
+                      globalBackButton={true}
+                      changeComponenet={this.handleClick}
+                      ratio={videoRatios}
+                      // for tut to work also pass name
+                      sceneName="Exibitionbooth"
+                      showTut={false}
+                      tutComponent={NetworkingTut}
+                      showingTutorialEvent={this.handleSceneTutorial} //for handling transition pass start and end
+                      //  changeInternalStateHandler={this.handleLobbyInternalState}
+                      //Analytics
+                      addHotspotAnalytics={this.handleHotspotAnalytics}
+                      addCustomHotspotAnalytics={this.addCustomHotspotAnalytics}
+                      addAnalytics={(value) =>
+                        this.addComponentAnalytics(
+                          AnalyticsLocations.ExiBooth,
+                          value
+                        )
+                      }
+                      handleStallCallHotspot={this.handleStallCallHotspot}
+                      handleStallChatHotspot={this.handleStallChatHotspot}
+                    ></Scene>
+                  </>
+                )}
 
-            {this.state.UI.activeMenu.id === menuItemsId.ProductReview && (
-              <>
-                <Scene
-                  ShowMediaModal={this.showMediaModal}
-                  initialVideo={VideoString.PRODUCT_REVIEW_LOOP}
-                  firstVideoFrame={ImageString.ProductReview}
-                  isImageScene={isIOS}
-                  initalImage={ImageString.ProductReview}
-                  initialHotspot={ProductReviewHotspots}
-                  globalBackButton={true}
-                  changeComponenet={this.handleClick}
-                  ratio={videoRatios}
-                  stallsBackUpdate={this.addLocationAnalytics}
-                  // for tut to work also pass name
-                  sceneName="ProductReviewbooth"
-                  showTut={false}
-                  tutComponent={NetworkingTut}
-                  showingTutorialEvent={this.handleSceneTutorial} //for handling transition pass start and end
-                  //  changeInternalStateHandler={this.handleLobbyInternalState}
-                  //Analytics
-                  addHotspotAnalytics={this.handleHotspotAnalytics}
-                  addCustomHotspotAnalytics={this.addCustomHotspotAnalytics}
-                  addAnalytics={(value) =>
-                    this.addComponentAnalytics(
-                      AnalyticsLocations.ProductReviewBooth,
-                      value
-                    )
-                  }
-                  handleStallCallHotspot={this.handleStallCallHotspot}
-                  handleStallChatHotspot={this.handleStallChatHotspot}
-                ></Scene>
-              </>
-            )}
+                {this.state.UI.activeMenu.id === menuItemsId.ProductReview && (
+                  <>
+                    <Scene
+                      ShowMediaModal={this.showMediaModal}
+                      initialVideo={VideoString.PRODUCT_REVIEW_LOOP}
+                      firstVideoFrame={ImageString.ProductReview}
+                      isImageScene={isIOS}
+                      initalImage={ImageString.ProductReview}
+                      initialHotspot={ProductReviewHotspots}
+                      globalBackButton={true}
+                      changeComponenet={this.handleClick}
+                      ratio={videoRatios}
+                      stallsBackUpdate={this.addLocationAnalytics}
+                      // for tut to work also pass name
+                      sceneName="ProductReviewbooth"
+                      showTut={false}
+                      tutComponent={NetworkingTut}
+                      showingTutorialEvent={this.handleSceneTutorial} //for handling transition pass start and end
+                      //  changeInternalStateHandler={this.handleLobbyInternalState}
+                      //Analytics
+                      addHotspotAnalytics={this.handleHotspotAnalytics}
+                      addCustomHotspotAnalytics={this.addCustomHotspotAnalytics}
+                      addAnalytics={(value) =>
+                        this.addComponentAnalytics(
+                          AnalyticsLocations.ProductReviewBooth,
+                          value
+                        )
+                      }
+                      handleStallCallHotspot={this.handleStallCallHotspot}
+                      handleStallChatHotspot={this.handleStallChatHotspot}
+                    ></Scene>
+                  </>
+                )}
 
-            {/* {
+                {/* {
                             this.state.UI.activeMenu.id === menuItemsId.bdr && this.state.DBRVideoCall.room &&
                             <>
                                 <AudiScene
@@ -1672,7 +1717,7 @@ class Home extends Component {
                                 ></AudiScene>
                             </>
                         } */}
-            {/* {this.state.UI.activeMenu.id === menuItemsId.bdr &&
+                {/* {this.state.UI.activeMenu.id === menuItemsId.bdr &&
               this.state.DBRVideoCall.room && (
                 <>
                   <DBRScene
@@ -1714,21 +1759,22 @@ class Home extends Component {
                   ></DBRScene>
                 </>
               )} */}
-            {this.state.UI.overlayMenu && (
-              <>
-                {this.state.UI.overlayMenu.id === menuItemsId.TeamBuilding && (
+                {this.state.UI.overlayMenu && (
                   <>
-                    <Connect
-                      close={this.hideOverlayMenu}
-                      addAnalytics={(value) =>
-                        this.addComponentAnalytics(
-                          AnalyticsLocations.Teambuilding,
-                          value
-                        )
-                      }
-                    ></Connect>
+                    {this.state.UI.overlayMenu.id ===
+                      menuItemsId.TeamBuilding && (
+                      <>
+                        <Connect
+                          close={this.hideOverlayMenu}
+                          addAnalytics={(value) =>
+                            this.addComponentAnalytics(
+                              AnalyticsLocations.Teambuilding,
+                              value
+                            )
+                          }
+                        ></Connect>
 
-                    {/* <ListContainer
+                        {/* <ListContainer
                       data={TeamsData}
                       hideOverlayMenu={this.hideOverlayMenu}
                       handleTeamOptionSelection={this.handleTeamOptionSelection}
@@ -1737,33 +1783,33 @@ class Home extends Component {
                       //     this.addComponentAnalytics(AnalyticsLocations.Teambuilding, value);
                       // }}
                     ></ListContainer> */}
+                      </>
+                    )}
                   </>
                 )}
-              </>
-            )}
-            {this.state.UI.showSurveyPopup && this.state.UI.surveyDetails && (
-              <>
-                <ListContainer
-                  data={this.state.UI.surveyDetails}
-                  hideOverlayMenu={() => {
-                    this.setState((state) => ({
-                      UI: {
-                        ...state.UI,
-                        showSurveyPopup: false,
-                        surveyDetails: null,
-                      },
-                    }));
-                  }}
-                  handleTeamOptionSelection={(event, option) => {
-                    this.showMediaModal(HotspotType.iframe, option.link);
-                  }}
-                ></ListContainer>
-              </>
-            )}
-            {this.state.UI.activeMenu.id === menuItemsId.Networking &&
-              this.state.UI.activeSubMenu && (
-                <>
-                  {/* {
+                {this.state.UI.showSurveyPopup && this.state.UI.surveyDetails && (
+                  <>
+                    <ListContainer
+                      data={this.state.UI.surveyDetails}
+                      hideOverlayMenu={() => {
+                        this.setState((state) => ({
+                          UI: {
+                            ...state.UI,
+                            showSurveyPopup: false,
+                            surveyDetails: null,
+                          },
+                        }));
+                      }}
+                      handleTeamOptionSelection={(event, option) => {
+                        this.showMediaModal(HotspotType.iframe, option.link);
+                      }}
+                    ></ListContainer>
+                  </>
+                )}
+                {this.state.UI.activeMenu.id === menuItemsId.Networking &&
+                  this.state.UI.activeSubMenu && (
+                    <>
+                      {/* {
                                     this.state.UI.activeSubMenu.id === NetworkingSubmenuId.Speaker &&
                                     <article className={`img-bg videoBox h-100 zIndex50`} id="play">
                                         <div className="media-modal">
@@ -1782,30 +1828,123 @@ class Home extends Component {
                                     this.state.UI.activeSubMenu.id === NetworkingSubmenuId.Connect &&
                                     <Connect close={this.closeSubMenu}></Connect>
                                 } */}
-                  {this.state.UI.activeSubMenu.id ===
-                    NetworkingSubmenuId.Chat && (
-                    // <div className="scrollableIframeParent">
-                    //     <iframe className="publicChatBox" src="/Chat/index.html" title="chatFrame"></iframe>
-                    // </div>
+                      {this.state.UI.activeSubMenu.id ===
+                        NetworkingSubmenuId.Chat && (
+                        // <div className="scrollableIframeParent">
+                        //     <iframe className="publicChatBox" src="/Chat/index.html" title="chatFrame"></iframe>
+                        // </div>
+                        <div
+                          // style={
+                          //   isIOS ? { width: "36vw", marginBottom: "3rem" } : {}
+                          // }
+                          className={`stallChatContainer stallChatContainer-global ${
+                            isIOS ? "ipad-launge-chat" : ""
+                          }`}
+                        >
+                          <img
+                            src={ImageString.CLOSEBUTTON}
+                            className="closeButton-mediaModal closeButton-mediaModal-corner"
+                            alt="MediaModalCLoseButton"
+                            onClick={this.closeSubMenu}
+                            // style={{
+                            //   right: "auto",
+                            // }}
+                          ></img>
+                          <iframe
+                            src={`${StaticLinks.publicChat}`}
+                            title="publicChat"
+                          ></iframe>
+                          <div
+                            className={`blocker ${
+                              this.state.UI.fadeIntroImage ? "d-none" : ""
+                            }`}
+                            style={{ zIndex: "-1" }}
+                          >
+                            <div className="lds-dual-ring"></div>
+                          </div>
+                        </div>
+                      )}
+                    </>
+                  )}
+                {this.state.UI.activeSubMenu &&
+                  this.state.UI.activeMenu.id === menuItemsId.bdr && (
+                    <>
+                      {this.state.UI.activeSubMenu.id ===
+                        SubMenuId.GoToStage && (
+                        <>
+                          <div className="lobbyTutContainer">
+                            <div className="tutCardContainer tutCardContainer-sm pd-b-2">
+                              <div className="tutCardContainer-header  bg-red">
+                                <div>Webex Call</div>
+                              </div>
+                              <div className="tutCardContainer-body">
+                                Please click on the join button to enter the
+                                Webex call.
+                              </div>
+                              <div className="text-center">
+                                <button
+                                  className="tutCardButton btn  btn-yellow mg-t30"
+                                  onClick={(e) => this.closeSubMenu(e)}
+                                >
+                                  CANCEL
+                                </button>
+                                <button
+                                  className="tutCardButton btn  btn-yellow mg-t30"
+                                  onClick={(e) =>
+                                    this.openDBRZoomLink(this.state.zoomlink, e)
+                                  }
+                                  style={{ marginLeft: "1rem" }}
+                                >
+                                  JOIN
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </>
+                      )}
+                    </>
+                  )}
+                {false &&
+                  !this.state.UI.showGlobalChat &&
+                  this.state.UI.activeMenu.id !== menuItemsId.bdr && (
                     <div
-                      // style={
-                      //   isIOS ? { width: "36vw", marginBottom: "3rem" } : {}
-                      // }
-                      className={`stallChatContainer stallChatContainer-global ${
-                        isIOS ? "ipad-launge-chat" : ""
+                      className={`chatButton ${isIOS ? "ios-chatButton" : ""}`}
+                      style={{ paddingLeft: "22px", paddingRight: "17px" }}
+                      onClick={() =>
+                        this.setState((prev) => ({
+                          UI: {
+                            ...prev.UI,
+                            showGlobalChat: true,
+                          },
+                        }))
+                      }
+                    >
+                      Need Help?
+                    </div>
+                  )}
+                {this.state.UI.showGlobalChat &&
+                  this.state.UI.activeMenu.id !== menuItemsId.bdr && (
+                    <div
+                      // style={isIOS ? { marginBottom: "3rem" } : {}}
+                      className={`stallChatContainer stallChatContainer-right-global ${
+                        isIOS ? "stallchat-ipad" : ""
                       }`}
                     >
                       <img
                         src={ImageString.CLOSEBUTTON}
-                        className="closeButton-mediaModal closeButton-mediaModal-corner"
+                        className="closeButton-mediaModal closeButton-mediaModal-right-corner"
                         alt="MediaModalCLoseButton"
-                        onClick={this.closeSubMenu}
-                        // style={{
-                        //   right: "auto",
-                        // }}
+                        onClick={() =>
+                          this.setState((prev) => ({
+                            UI: {
+                              ...prev.UI,
+                              showGlobalChat: false,
+                            },
+                          }))
+                        }
                       ></img>
                       <iframe
-                        src={`${StaticLinks.publicChat}`}
+                        src={`${StaticLinks.stallChat}`}
                         title="publicChat"
                       ></iframe>
                       <div
@@ -1818,287 +1957,205 @@ class Home extends Component {
                       </div>
                     </div>
                   )}
-                </>
-              )}
-            {this.state.UI.activeSubMenu &&
-              this.state.UI.activeMenu.id === menuItemsId.bdr && (
-                <>
-                  {this.state.UI.activeSubMenu.id === SubMenuId.GoToStage && (
-                    <>
-                      <div className="lobbyTutContainer">
-                        <div className="tutCardContainer tutCardContainer-sm pd-b-2">
-                          <div className="tutCardContainer-header  bg-red">
-                            <div>Webex Call</div>
-                          </div>
-                          <div className="tutCardContainer-body">
-                            Please click on the join button to enter the Webex
-                            call.
-                          </div>
-                          <div className="text-center">
-                            <button
-                              className="tutCardButton btn  btn-yellow mg-t30"
-                              onClick={(e) => this.closeSubMenu(e)}
-                            >
-                              CANCEL
-                            </button>
-                            <button
-                              className="tutCardButton btn  btn-yellow mg-t30"
-                              onClick={(e) =>
-                                this.openDBRZoomLink(this.state.zoomlink, e)
-                              }
-                              style={{ marginLeft: "1rem" }}
-                            >
-                              JOIN
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    </>
+
+                {false &&
+                  this.state.UI.showLeaderboardButton &&
+                  this.state.UI.activeMenu.id === menuItemsId.Lobby &&
+                  !this.state.UI.showHelpdeskChat &&
+                  !this.state.UI.overlayMenu && (
+                    <div
+                      className="leaderboardButton m"
+                      onClick={this.handleLeaderboardButton}
+                    >
+                      <div className="leaderboardIcon"></div>Leaderboard
+                    </div>
                   )}
-                </>
-              )}
-            {false &&
-              !this.state.UI.showGlobalChat &&
-              this.state.UI.activeMenu.id !== menuItemsId.bdr && (
-                <div
-                  className={`chatButton ${isIOS ? "ios-chatButton" : ""}`}
-                  style={{ paddingLeft: "22px", paddingRight: "17px" }}
-                  onClick={() =>
-                    this.setState((prev) => ({
-                      UI: {
-                        ...prev.UI,
-                        showGlobalChat: true,
-                      },
-                    }))
-                  }
-                >
-                  Need Help?
-                </div>
-              )}
-            {this.state.UI.showGlobalChat &&
-              this.state.UI.activeMenu.id !== menuItemsId.bdr && (
-                <div
-                  // style={isIOS ? { marginBottom: "3rem" } : {}}
-                  className={`stallChatContainer stallChatContainer-right-global ${
-                    isIOS ? "stallchat-ipad" : ""
-                  }`}
-                >
-                  <img
-                    src={ImageString.CLOSEBUTTON}
-                    className="closeButton-mediaModal closeButton-mediaModal-right-corner"
-                    alt="MediaModalCLoseButton"
-                    onClick={() =>
-                      this.setState((prev) => ({
-                        UI: {
-                          ...prev.UI,
-                          showGlobalChat: false,
-                        },
-                      }))
-                    }
-                  ></img>
-                  <iframe
-                    src={`${StaticLinks.stallChat}`}
-                    title="publicChat"
-                  ></iframe>
-                  <div
-                    className={`blocker ${
-                      this.state.UI.fadeIntroImage ? "d-none" : ""
-                    }`}
-                    style={{ zIndex: "-1" }}
-                  >
-                    <div className="lds-dual-ring"></div>
-                  </div>
-                </div>
-              )}
+                {this.state.UI.showLeaderboardButton &&
+                  this.canShowLeaderboardInNet() && (
+                    <div
+                      className="leaderboardButton ma"
+                      onClick={this.handleLeaderboardButton}
+                    >
+                      <div className="leaderboardIcon"></div>Leaderboard
+                    </div>
+                  )}
+                {this.state.UI.showLeaderboard && (
+                  <Leaderboard
+                    close={this.handleLeaderboardClose}
+                  ></Leaderboard>
+                )}
 
-            {false &&
-              this.state.UI.showLeaderboardButton &&
-              this.state.UI.activeMenu.id === menuItemsId.Lobby &&
-              !this.state.UI.showHelpdeskChat &&
-              !this.state.UI.overlayMenu && (
-                <div
-                  className="leaderboardButton m"
-                  onClick={this.handleLeaderboardButton}
-                >
-                  <div className="leaderboardIcon"></div>Leaderboard
-                </div>
-              )}
-            {this.state.UI.showLeaderboardButton &&
-              this.canShowLeaderboardInNet() && (
-                <div
-                  className="leaderboardButton ma"
-                  onClick={this.handleLeaderboardButton}
-                >
-                  <div className="leaderboardIcon"></div>Leaderboard
-                </div>
-              )}
-            {this.state.UI.showLeaderboard && (
-              <Leaderboard close={this.handleLeaderboardClose}></Leaderboard>
-            )}
+                {
+                  <footer className={`footerBox ${isIOS ? "footer-ios" : ""}`}>
+                    {this.state.UI.overlayMenu && (
+                      <>
+                        {this.state.UI.overlayMenu.id ===
+                          menuItemsId.MyProfile && (
+                          <div>
+                            <MyProfile
+                              close={this.hideOverlayMenu}
+                              ShowMediaModal={this.handleMedialModalFromOverlay}
+                            ></MyProfile>
+                          </div>
+                        )}
+                      </>
+                    )}
+                    {this.state.UI.activeMenu &&
+                      !this.state.UI.activeMenu.subMenus && (
+                        <Menu
+                          // items={this.getActiveMenuItems(this.state.backendControl)} // {this.state.UI.menuItems}
+                          items={this.state.UI.menuItems}
+                          mainMenuState={
+                            this.state.UI.overlayMenu
+                              ? this.state.UI.overlayMenu.id
+                              : this.state.UI.activeMenu.id
+                          }
+                          onMenuItemClick={this.handleClick}
+                          canInteract={this.state.UI.isInteractable}
+                        ></Menu>
+                      )}
+                    {this.state.UI.activeMenu.subMenus && (
+                      <Menu
+                        items={this.state.UI.activeMenu.subMenus}
+                        mainMenuState={
+                          this.state.UI.activeSubMenu
+                            ? this.state.UI.activeSubMenu.id
+                            : -1
+                        }
+                        onMenuItemClick={this.handleSubmenuItemClick}
+                        canInteract={this.state.UI.isInteractable}
+                        backButton={true}
+                        onBackButtonClick={(e) =>
+                          this.handleClick(e, menuItems[menuItemsIndex.Lobby])
+                        }
+                      ></Menu>
+                    )}
+                    {this.state.UI.activeSubMenu &&
+                      this.state.UI.activeMenu.id === menuItemsId.Audi && (
+                        <>
+                          {this.state.UI.activeSubMenu.id === SubMenuId.QNA && (
+                            <div
+                              className={`submenu-container active expended`}
+                            >
+                              <QNA
+                                headerName={"Q&A"}
+                                onHeadingClick={this.closeSubMenu}
+                                QNACollection={"qnaAudi"}
+                                QNAReplyCollection={"qnaAudiReply"}
+                                canReply={false}
+                                moderated={true}
+                              ></QNA>
+                            </div>
+                          )}
+                        </>
+                      )}
 
-            {
-              <footer className={`footerBox ${isIOS ? "footer-ios" : ""}`}>
-                {this.state.UI.overlayMenu && (
-                  <>
-                    {this.state.UI.overlayMenu.id === menuItemsId.MyProfile && (
-                      <div>
-                        <MyProfile
-                          close={this.hideOverlayMenu}
-                          ShowMediaModal={this.handleMedialModalFromOverlay}
-                        ></MyProfile>
+                    {this.state.UI.activeMenu.id === menuItemsId.Audi && (
+                      <div
+                        className={`submenu-container active expended ${
+                          this.state.UI.activeSubMenu
+                            ? this.state.UI.activeSubMenu.id === SubMenuId.POll
+                              ? ""
+                              : "d-none"
+                            : "d-none"
+                        }`}
+                      >
+                        <PublicPoll
+                          onHeadingClick={this.closeSubMenu}
+                          PollAdmin_Col={"pollAdmin"}
+                          PollAdmin_Doc={"adminAccess"}
+                          Poll_Doc={"poll"}
+                          forceOpen={() =>
+                            this.handlePollforceOpen(
+                              menuItemsIndex.Audi,
+                              SubMenuId.POll
+                            )
+                          }
+                        ></PublicPoll>
                       </div>
                     )}
-                  </>
-                )}
-                {this.state.UI.activeMenu &&
-                  !this.state.UI.activeMenu.subMenus && (
-                    <Menu
-                      // items={this.getActiveMenuItems(this.state.backendControl)} // {this.state.UI.menuItems}
-                      items={this.state.UI.menuItems}
-                      mainMenuState={
-                        this.state.UI.overlayMenu
-                          ? this.state.UI.overlayMenu.id
-                          : this.state.UI.activeMenu.id
-                      }
-                      onMenuItemClick={this.handleClick}
-                      canInteract={this.state.UI.isInteractable}
-                    ></Menu>
-                  )}
-                {this.state.UI.activeMenu.subMenus && (
-                  <Menu
-                    items={this.state.UI.activeMenu.subMenus}
-                    mainMenuState={
-                      this.state.UI.activeSubMenu
-                        ? this.state.UI.activeSubMenu.id
-                        : -1
-                    }
-                    onMenuItemClick={this.handleSubmenuItemClick}
-                    canInteract={this.state.UI.isInteractable}
-                    backButton={true}
-                    onBackButtonClick={(e) =>
-                      this.handleClick(e, menuItems[menuItemsIndex.Lobby])
-                    }
-                  ></Menu>
-                )}
-                {this.state.UI.activeSubMenu &&
-                  this.state.UI.activeMenu.id === menuItemsId.Audi && (
-                    <>
-                      {this.state.UI.activeSubMenu.id === SubMenuId.QNA && (
-                        <div className={`submenu-container active expended`}>
-                          <QNA
-                            headerName={"Comments"}
-                            onHeadingClick={this.closeSubMenu}
-                            QNACollection={"qnaAudi"}
-                            QNAReplyCollection={"qnaAudiReply"}
-                            canReply={false}
-                            moderated={true}
-                          ></QNA>
-                        </div>
+
+                    {this.state.UI.activeSubMenu &&
+                      this.state.UI.activeMenu.id === menuItemsId.bdr && (
+                        <>
+                          {this.state.UI.activeSubMenu.id === SubMenuId.QNA && (
+                            <div
+                              className={`submenu-container active expended`}
+                            >
+                              <QNA
+                                headerName={"Q&A"}
+                                onHeadingClick={this.closeSubMenu}
+                                QNACollection={"qna-dbr"}
+                                QNAReplyCollection={"qnaReply-dbr"}
+                                canReply={true}
+                                moderated={true}
+                              ></QNA>
+                            </div>
+                          )}
+                        </>
                       )}
-                    </>
-                  )}
 
-                {this.state.UI.activeMenu.id === menuItemsId.Audi && (
-                  <div
-                    className={`submenu-container active expended ${
-                      this.state.UI.activeSubMenu
-                        ? this.state.UI.activeSubMenu.id === SubMenuId.POll
-                          ? ""
-                          : "d-none"
-                        : "d-none"
-                    }`}
-                  >
-                    <PublicPoll
-                      onHeadingClick={this.closeSubMenu}
-                      PollAdmin_Col={"pollAdmin"}
-                      PollAdmin_Doc={"adminAccess"}
-                      Poll_Doc={"poll"}
-                      forceOpen={() =>
-                        this.handlePollforceOpen(
-                          menuItemsIndex.Audi,
-                          SubMenuId.POll
-                        )
-                      }
-                    ></PublicPoll>
-                  </div>
-                )}
-
-                {this.state.UI.activeSubMenu &&
-                  this.state.UI.activeMenu.id === menuItemsId.bdr && (
-                    <>
-                      {this.state.UI.activeSubMenu.id === SubMenuId.QNA && (
-                        <div className={`submenu-container active expended`}>
-                          <QNA
-                            headerName={"Q&A"}
+                    {this.state.UI.activeMenu.id === menuItemsId.dbr && (
+                      <>
+                        <div
+                          className={`submenu-container active expended ${
+                            this.state.UI.activeSubMenu
+                              ? this.state.UI.activeSubMenu.id ===
+                                SubMenuId.POll
+                                ? ""
+                                : "d-none"
+                              : "d-none"
+                          }`}
+                        >
+                          <PublicPoll
                             onHeadingClick={this.closeSubMenu}
-                            QNACollection={"qna-dbr"}
-                            QNAReplyCollection={"qnaReply-dbr"}
-                            canReply={true}
-                            moderated={true}
-                          ></QNA>
+                            PollAdmin_Col={"pollAdmin-dbr"}
+                            PollAdmin_Doc={"adminAccess"}
+                            Poll_Doc={"poll-dbr"}
+                            forceOpen={() =>
+                              this.handlePollforceOpen(
+                                menuItemsIndex.bdr,
+                                SubMenuId.POll
+                              )
+                            }
+                          ></PublicPoll>
                         </div>
-                      )}
-                    </>
-                  )}
+                      </>
+                    )}
+                  </footer>
+                }
+              </section>
+            </div>
+            {false &&
+              this.checkIfAudioCanPlayUnderMediaModal() &&
+              this.state.UI.activeMenu.id !== menuItemsId.bdr &&
+              this.state.UI.activeMenu.id !== menuItemsId.Audi &&
+              this.state.UI.activeMenu.id !== menuItemsId.zoomMeeting &&
+              !this.state.TwilioVideoCall.showVideoCall && (
+                <ReactAudioPlayer
+                  src="/3dAssets/music/ambientMusic.mp3"
+                  autoPlay
+                  volume={0.1}
+                  loop={true}
+                  preload="auto"
+                  ref={this.currentAudioRef}
+                />
+              )}
 
-                {this.state.UI.activeMenu.id === menuItemsId.dbr && (
-                  <>
-                    <div
-                      className={`submenu-container active expended ${
-                        this.state.UI.activeSubMenu
-                          ? this.state.UI.activeSubMenu.id === SubMenuId.POll
-                            ? ""
-                            : "d-none"
-                          : "d-none"
-                      }`}
-                    >
-                      <PublicPoll
-                        onHeadingClick={this.closeSubMenu}
-                        PollAdmin_Col={"pollAdmin-dbr"}
-                        PollAdmin_Doc={"adminAccess"}
-                        Poll_Doc={"poll-dbr"}
-                        forceOpen={() =>
-                          this.handlePollforceOpen(
-                            menuItemsIndex.bdr,
-                            SubMenuId.POll
-                          )
-                        }
-                      ></PublicPoll>
-                    </div>
-                  </>
-                )}
-              </footer>
-            }
-          </section>
-        </div>
-        {false &&
-          this.checkIfAudioCanPlayUnderMediaModal() &&
-          this.state.UI.activeMenu.id !== menuItemsId.bdr &&
-          this.state.UI.activeMenu.id !== menuItemsId.Audi &&
-          this.state.UI.activeMenu.id !== menuItemsId.zoomMeeting &&
-          !this.state.TwilioVideoCall.showVideoCall && (
-            <ReactAudioPlayer
-              src="/3dAssets/music/ambientMusic.mp3"
-              autoPlay
-              volume={0.1}
-              loop={true}
-              preload="auto"
-              ref={this.currentAudioRef}
-            />
-          )}
-
-        {this.state.UI.activeMenu.id === menuItemsId.Audi && (
-          <ReactAudioPlayer
-            src={clapSound}
-            autoPlay={false}
-            volume={0.5}
-            loop={false}
-            preload="auto"
-            onEnded={() => {
-              this.clapref.current.audioEl.current.load();
-            }}
-            ref={this.clapref}
-          />
+            {this.state.UI.activeMenu.id === menuItemsId.Audi && (
+              <ReactAudioPlayer
+                src={clapSound}
+                autoPlay={false}
+                volume={0.5}
+                loop={false}
+                preload="auto"
+                onEnded={() => {
+                  this.clapref.current.audioEl.current.load();
+                }}
+                ref={this.clapref}
+              />
+            )}
+          </>
         )}
       </>
     );

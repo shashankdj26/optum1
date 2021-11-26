@@ -5,9 +5,10 @@ import {
 } from "../firebase/firebase";
 import "./Connect.css";
 const HeaderBackground = {
-  background: "url(/assets/images/background.png)",
-  backgroundPosition: "center",
-  backgroundSize: "contain",
+  // background: "url(/assets/images/background.png)",
+  // backgroundPosition: "center",
+  // backgroundSize: "contain",
+  backgroundColor: "#fff",
 };
 const LogoLeft = {
   background: "url(/assets/images/R1Logo.png)",

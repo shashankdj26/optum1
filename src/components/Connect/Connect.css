@@ -4,8 +4,9 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: #272727;
+  background: #fff;
   z-index: 50;
+  border-right: 1px solid #ccc;
 }
 /* Header */
 .connectHeader {
@@ -19,8 +20,13 @@
 }
 
 .connectHeader div {
-  width: 5rem;
-  height: 5rem;
+  width: 3.5rem;
+  height: 3.5rem;
+}
+
+.connectHeader .logo-left {
+  width: 9rem;
+  height: 8rem;
 }
 
 .logo-right {
@@ -39,7 +45,7 @@
 .connect-closeButton:hover {
   transform: scale(1);
   opacity: 1;
-  box-shadow: 0px 4px 24px #4951ec;
+  box-shadow: 0px 3px 5px #f57f28;
 }
 /* Header-end */
 
@@ -60,7 +66,7 @@
   width: fit-content;
   border-radius: 0.2rem;
   margin: 1rem;
-  box-shadow: 0px 0px 1rem rgba(0, 0, 0, 0.596);
+  box-shadow: 0px 1px 0.7rem rgb(0 0 0 / 60%);
   transition: 0.25s;
 }
 
@@ -70,7 +76,7 @@
 }
 
 .connect-card-head {
-  background: #e9e9e9;
+  background: #fff0e5;
   display: flex;
   align-items: center;
   padding: 1rem;
@@ -101,13 +107,13 @@
   text-transform: uppercase;
   font-size: 1rem;
   font-weight: 500;
-  color: #717171;
+  color: #0b294c;
 }
 
 .connect-card-email {
   font-size: 1.15rem;
   font-weight: 500;
-  color: #717171;
+  color: #0b294c;
   margin-top: 0.8rem;
 }
 
@@ -121,8 +127,8 @@
 }
 
 .connect-card-button {
-  background-color: #4951ec;
-  color: black;
+  background-color: #f57f28;
+  color: #fff;
   padding: 0.8rem 2rem;
   border-radius: 0.25rem;
   margin-top: 4%;
@@ -135,12 +141,12 @@
 }
 
 .connect-card-button:hover {
-  background-color: black;
-  color: #4951ec;
+  background-color: #fff;
+  color: #f57f28;
   box-shadow: 0px 0px 0.15rem #ffbc048e;
   opacity: 1;
   transform: scale(1);
-  border: 0.05rem solid #4951ec;
+  border: 0.05rem solid #f57f28;
   cursor: pointer;
 }
 /* Connect Card - End */

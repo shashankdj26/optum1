@@ -196,11 +196,11 @@
 }
 .second-level-nav .second-level-nav__title {
   padding: 0.8rem 0rem;
-  border-bottom: 1px solid #fff;
+  border-bottom: 1px solid #f57f28;
   position: relative;
   margin: 0 1.75rem;
   position: relative;
-  color: #fff;
+  color: #f57f28;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -255,22 +255,22 @@
 }
 .qa-section__block {
   padding: 1rem;
-  background: rgba(54, 55, 55, 0.31);
-  border: 1px solid #656565;
-  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.45);
+  background: #fff0e5;
+  /* border: 1px solid #656565; */
+  box-shadow: 0px 3px 4px rgb(0 0 0 / 45%);
   border-radius: 10px;
 }
 .qa-section__title {
   font-family: "Calibri-Bold";
   font-size: 1rem;
-  color: #fff;
+  color: #000;
 }
 .qa-section__date {
-  color: #6d6d6d;
+  color: #000;
   font-size: 0.75rem;
 }
 .qa-section__ques {
-  color: #a3a3a3;
+  color: #0b294c;
   font-size: 1rem;
 }
 .qa-section__reply {
@@ -306,7 +306,7 @@
 }
 .poll-section__title {
   font-size: 1.25rem;
-  color: #fff;
+  color: #000;
 }
 .poll-section__date {
   color: #6d6d6d;
@@ -338,8 +338,14 @@
   border: medium none;
 }
 .poll-btn.btn-primary {
-  background: #e19c2f;
+  background: #f57f28;
   color: #fff;
+}
+
+.poll-btn.btn-primary:hover {
+  background: #fff;
+  color: #f57f28;
+  border: 1.5px solid #f57f28;
 }
 
 .profile-details {
@@ -381,7 +387,7 @@
 .poll-custom-radio input[type="radio"]:checked ~ i:before,
 .custom-radio input[type="checkbox"]:checked ~ i:before {
   content: "\e90c";
-  background: #e19c2f;
+  background: #f57f28;
   border-radius: 50%;
 }
 
@@ -449,13 +455,13 @@
 .form-control-qna {
   padding: 1rem;
   font-size: 1rem;
-  color: #fff;
+  color: #f57f28;
   display: block;
   width: 100%;
   border: medium none;
-  border: 0.5px solid rgba(255, 255, 255, 0.5);
+  border: 0.5px solid rgb(245 127 40 / 80%);
   border-radius: 10px;
-  background: #000000;
+  background: #fff;
 }
 .form-control-qna:focus {
   outline: none;
@@ -549,10 +555,11 @@
     margin-right: -30.075rem;
     height: 100%;
     transition: all 0.3s;
-    background: #000;
+    background: #fff;
   } /*width: 18.875rem by kamal sir*/
   .submenu-container.active {
     margin-right: 0;
+    border-right: 1px solid #ccc;
   }
 
   .second-level-nav {
@@ -602,4 +609,18 @@
     margin-bottom: 6rem;
     right: 7rem;
   }
+}
+
+::-webkit-input-placeholder {
+  /* Edge */
+  color: #f57f28 !important;
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #f57f28 !important;
+}
+
+::placeholder {
+  color: #f57f28 !important;
 }

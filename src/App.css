@@ -7,13 +7,13 @@
 /* Handle */
 
 ::-webkit-scrollbar-thumb {
-  background: #f291bc;
+  background: #f57f28;
 }
 
 /* Handle on hover */
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #f291bc;
+  background: #f57f28;
   cursor: pointer;
 }
 

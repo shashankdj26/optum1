@@ -584,14 +584,14 @@ html {
 }
 
 .btn.btn-yellow {
-  background: #323466;
+  background: #f57f28;
   color: #ffffff;
   border-color: #fff;
 }
 .btn.btn-yellow:hover {
-  background: #000000;
-  color: #ffffff;
-  border-color: #f291bc;
+  background: #fff;
+  color: #f57f28;
+  border-color: #f57f28;
 }
 
 .btn.btn-success {
@@ -687,7 +687,7 @@ html {
   color: black !important;
 }
 .whiteText {
-  color: #000 !important;
+  color: #fff !important;
 }
 .whiteBG {
   background: white !important;

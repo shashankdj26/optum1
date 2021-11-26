@@ -11,12 +11,13 @@ const states = {
 };
 
 const HeaderBackground = {
-  background: "url(/assets/images/MainEventLogo.png)",
+  backgroundImage: `url("/assets/images/MainEventLogo.png")`,
   backgroundPosition: "center",
-  backgroundSize: "contain",
   backgroundRepeat: "no-repeat",
-  backgroundColor: "#F291BC",
-  marginTop: "0",
+  backgroundSize: "initial",
+  marginTop: "0px",
+  backgroundColor: "#fff",
+  padding: "1rem",
 };
 
 const TutCard = [
@@ -94,21 +95,13 @@ class LobbyTut extends Component {
                       ,{" "}
                     </h3> */}
                     {/* </strong> */}
-                    <strong>
-                      Welcome to the Dream Team Pyjama Party - Summer 21
-                      Conference!
-                    </strong>
+                    <strong style={{ color: "#F57F28" }}>Welcome.</strong>
                     <br></br>
                     <br></br>
-                    While we can’t be together in person this year, we have
-                    tried to bring the things you love about conference to life
-                    in your home.
-                    <br></br>
-                    We hope you find the sessions insightful and prepare you all
-                    for the busy Christmas ahead.
-                    <br></br>
-                    Make sure you follow your agenda so you don’t miss out.
-                    <br></br>
+                    Get prepared to foray into the world of Beauty. A new way
+                    and a whole new day dedicated to experience the virtual
+                    event. Meet our leaders and interact with us through various
+                    workshops, talks and discussions while having a lot of fun.
                   </div>
                   <div
                     // className="tutCardContainer-body-textContainer"
@@ -128,7 +121,7 @@ class LobbyTut extends Component {
           {this.state.currentState === states.tutCard && (
             <div className="tutCardContainer tutCardContainer-sm">
               <div className="tutCardContainer-header">
-                <div className="blackText">Tutorial</div>
+                <div className="whiteText">Tutorial</div>
               </div>
               <div class="bottom-shade"></div>
               <div className="tutCardContainer-body">

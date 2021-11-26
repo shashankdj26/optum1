@@ -8,6 +8,7 @@
   height: 100vh;
   border-radius: 0.5rem;
   background: #fff;
+  border-right: 1px solid #ccc;
 }
 .user-profile__header {
   padding: 1rem;
