@@ -594,6 +594,10 @@ html {
   border-color: #f57f28;
 }
 
+.btn.btn-yellow:focus-visible {
+  outline: 1px solid #f57f28;
+}
+
 .btn.btn-success {
   background: linear-gradient(181.26deg, #1fa199 19.13%, #118881 98.93%);
   border-color: #2aab7d;
@@ -677,7 +681,7 @@ html {
 }
 
 .invi {
-  opacity: 0 !important;
+  opacity: 1 !important;
 }
 .bgno-rep {
   background-repeat: no-repeat;

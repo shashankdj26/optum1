@@ -12,7 +12,8 @@
   display: block;
   align-items: center;
   transition: all 0.3s;
-  background: #000;
+  background: #fff;
+  border: 1px solid #ccc;
 }
 .submenu-container.expended {
   overflow: hidden;
@@ -455,7 +456,7 @@
 .form-control-qna {
   padding: 1rem;
   font-size: 1rem;
-  color: #f57f28;
+  color: #000;
   display: block;
   width: 100%;
   border: medium none;
@@ -613,14 +614,14 @@
 
 ::-webkit-input-placeholder {
   /* Edge */
-  color: #f57f28 !important;
+  color: #000 !important;
 }
 
 :-ms-input-placeholder {
   /* Internet Explorer 10-11 */
-  color: #f57f28 !important;
+  color: #000 !important;
 }
 
 ::placeholder {
-  color: #f57f28 !important;
+  color: #000 !important;
 }

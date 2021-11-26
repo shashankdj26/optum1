@@ -58,6 +58,7 @@ class Application extends Component {
     apiSecret: "vUvAeJiTw8UgyEGAXq30Gcd39JAKnmtw5MWz",
     signature: "",
     displayName: "",
+    canShowIntro: false,
     isSpeaker: false,
     isEventLive: false,
     doneEventLiveCheck: false,
@@ -154,6 +155,18 @@ class Application extends Component {
           elem.msRequestFullscreen();
         }
       });
+    }
+
+    if (isMobileOnly) {
+      this.setState({
+        canShowIntro: false,
+      });
+    } else {
+      if (!sessionStorage.getItem("IntoPlayed")) {
+        this.setState({
+          canShowIntro: true,
+        });
+      }
     }
 
     setInterval(() => {
@@ -365,6 +378,7 @@ class Application extends Component {
               displayName={this.state.displayName}
               liveCountData={this.state.liveCountData}
               internetStatus={this.state.internetSpeed}
+              canShowIntro={this.state.canShowIntro}
             ></Home>
           </div>
         ) : (

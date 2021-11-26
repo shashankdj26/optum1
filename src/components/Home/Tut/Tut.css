@@ -54,6 +54,7 @@
   color: #fff;
   font-weight: bold;
   font-size: 1.5rem;
+  position: relative;
   /* border-bottom: 1px solid #ccc; */
 }
 
@@ -70,8 +71,11 @@
 }
 
 .tutCardContainer-header img {
-  width: 5rem;
+  width: 61%;
   height: auto;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .noLeftPadding {
@@ -96,13 +100,18 @@
   line-height: unset;
   font-weight: 600;
   margin-bottom: 1rem;
+  color: #fff;
+  background: #f57f28;
+  border-radius: 0.4rem;
 }
 
 .tutCardButton:hover {
   opacity: 1;
   transform: scale(1);
-  box-shadow: 0px 4px 11px #f291bc;
-  border: 1px solid #f291bc;
+  box-shadow: 0px 3px 8px #f57f28;
+  border: 1px solid #f57f28;
+  color: #f57f28;
+  background-color: #fff;
 }
 
 .coloredHover:hover {
@@ -254,7 +263,7 @@
 
 @media only screen and (max-height: 700px) {
   .tutCardContainer-body-textContainer {
-    max-height: 26vh;
+    max-height: 28vh;
     overflow: auto;
     justify-content: unset;
   }
@@ -291,7 +300,7 @@
   .tutCardContainer {
     max-height: 85vh;
 
-    width: 70%;
+    width: unset;
   }
 
   .tutCardContainer-headerImg {
@@ -300,5 +309,18 @@
 
   .mg-top-lobby {
     margin-top: 0 !important;
+  }
+
+  .main-tut {
+    margin-top: 0.8rem !important;
+    margin-bottom: 0;
+  }
+
+  .main-width {
+    width: 55% !important;
+  }
+
+  .tutCardContainer-header img {
+    max-width: 15rem;
   }
 }

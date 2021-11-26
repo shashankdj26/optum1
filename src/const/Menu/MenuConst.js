@@ -7,21 +7,23 @@ export const menuItemsId = {
   exibooth: 6,
   ProductReview: 7,
   TeamBuilding: 8,
-  MyProfile: 9,
+  Photobooth: 9,
+  MyProfile: 10,
   // zoomMeeting: 8,
 };
 
 export const menuItemsIndex = {
   Lobby: 0,
   Audi: 1,
-  rescen: 2,
+  TeamBuilding: 2,
   exibooth: 3,
   Networking: 4,
   bdr: 5,
   ProductReview: 6,
-  TeamBuilding: 7,
-  MyProfile: 8,
-  zoomMeeting: 9,
+  rescen: 7,
+  Photobooth: 8,
+  MyProfile: 9,
+  zoomMeeting: 10,
 };
 
 export const SubMenuId = {
@@ -54,19 +56,15 @@ export const menuItems = [
     name: "Auditorium",
     class: "icon-peter-audi",
     subMenus: [
-      { id: SubMenuId.QNA, name: "Comments", class: "icon-peter-comment2" },
-      { id: SubMenuId.POll, name: "Poll", class: "icon-Poll" },
+      { id: SubMenuId.QNA, name: "Q&A", class: "icon-optum-audi-qna" },
+      { id: SubMenuId.POll, name: "Poll", class: "icon-optum-audi-poll" },
     ],
   },
   {
-    id: menuItemsId.rescen,
-    name: "Resource Centre",
+    id: menuItemsId.TeamBuilding,
+    name: "Meet Our Leaders",
 
-    class: "icon-ResourceCenter",
-    subMenus: [
-      // { id: SubMenuId.Call, name: "Video Call", class: "icon-video" },
-      // { id: SubMenuId.Chat, name: "Chat", class: "icon-chat" },
-    ],
+    class: "icon-DBR",
   },
 
   {
@@ -122,15 +120,26 @@ export const menuItems = [
       // { id: SubMenuId.QNA, name: "Video Call", class: "icon-video" },
     ],
   },
-  {
-    id: menuItemsId.TeamBuilding,
-    name: "Team Building Zone",
 
-    class: "icon-DBR",
+  {
+    id: menuItemsId.rescen,
+    name: "Explore Optum",
+
+    class: "icon-ResourceCenter",
+    subMenus: [
+      // { id: SubMenuId.Call, name: "Video Call", class: "icon-video" },
+      // { id: SubMenuId.Chat, name: "Chat", class: "icon-chat" },
+    ],
+  },
+  {
+    id: menuItemsId.Photobooth,
+    name: "Photobooth",
+
+    class: "icon-optum-photobooth",
   },
   {
     id: menuItemsId.MyProfile,
-    name: "Profile",
+    name: "My Profile",
     class: "icon-Profile",
   },
 ];

@@ -1,4 +1,5 @@
 // eslint-disable-next-line no-unused-vars
+import { relativeTimeRounding } from "moment";
 import React, { Component } from "react";
 import { ImageString } from "../../../const/assets/ImageString";
 import { UserContext } from "../../auth/providers";
@@ -11,13 +12,14 @@ const states = {
 };
 
 const HeaderBackground = {
-  backgroundImage: `url("/assets/images/MainEventLogo.png")`,
-  backgroundPosition: "center",
-  backgroundRepeat: "no-repeat",
-  backgroundSize: "initial",
+  // backgroundImage: `url("/assets/images/MainEventLogo.png")`,
+  // backgroundPosition: "center",
+  // backgroundRepeat: "no-repeat",
+  // backgroundSize: "initial",
   marginTop: "0px",
   backgroundColor: "#fff",
   padding: "1rem",
+  position: "relative",
 };
 
 const TutCard = [
@@ -65,7 +67,7 @@ class LobbyTut extends Component {
         <div className="lobbyTutContainer">
           {this.state.currentState === states.introCard && (
             <>
-              <div className="tutCardContainer width-cal">
+              <div className="tutCardContainer width-cal main-width">
                 <div
                   className="tutCardContainer-header tutCardContainer-headerImg ptb-extra justify-content-between "
                   style={HeaderBackground}
@@ -75,13 +77,16 @@ class LobbyTut extends Component {
                     alt="logo1"
                     className="invi"
                   ></img>
-                  <img
+                  {/* <img
                     src={ImageString.LOGOKOA}
                     alt="logo2"
                     className="invi"
-                  ></img>
+                  ></img> */}
                 </div>
-                <div className="tutCardContainer-body tutCardContainer-body-extraPd">
+                <div
+                  className="tutCardContainer-body tutCardContainer-body-extraPd"
+                  style={{ background: "#F5F4F4" }}
+                >
                   <div
                     className="tutCardContainer-body-textContainer"
                     style={{ textAlign: "left" }}
@@ -108,7 +113,7 @@ class LobbyTut extends Component {
                     style={{ textAlign: "center" }}
                   >
                     <button
-                      className="tutCardButton btn  btn-yellow mg-t30"
+                      className="tutCardButton btn  btn-yellow mg-t30 main-tut"
                       onClick={(e) => this.showNextCard(e)}
                     >
                       LET’S START
@@ -146,7 +151,7 @@ class LobbyTut extends Component {
             </div>
           )}
           {this.state.currentState === states.leaderboard && (
-            <div className="tutCardContainer width-cal">
+            <div className="tutCardContainer width-cal main-width">
               <div
                 className="tutCardContainer-header ptb-extra justify-content-between bottom-border"
                 style={HeaderBackground}

@@ -99,7 +99,10 @@ export default class AudiTut extends Component {
         )}
         {this.state.currentState === state.zoomLink && (
           <div className="lobbyTutContainer">
-            <div className="tutCardContainer tutCardContainer-sm">
+            <div
+              className="tutCardContainer tutCardContainer-sm"
+              style={{ background: "#F5F4F4" }}
+            >
               <div className="tutCardContainer-header">
                 <div>Redirect</div>
               </div>

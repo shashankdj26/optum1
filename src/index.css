@@ -1,18 +1,29 @@
 @font-face {
-  font-family: Helvetica;
-  src: url(./peter-fonts/Helvetica.ttf);
+  font-family: FrutigerLTStd;
+  src: url(./optumFonts/FrutigerLTStd-Black.otf);
+}
+
+@font-face {
+  font-family: MyriadPro;
+  src: url(./optumFonts/MyriadPro-Regular.otf);
 }
 
 body {
   margin: 0;
-  font-family: Helvetica, Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI",
-    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
-    "Helvetica Neue", sans-serif;
+  font-family: MyriadPro, FrutigerLTStd, Roboto, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
+    "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+* {
+  font-family: MyriadPro, FrutigerLTStd, Roboto, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
+    "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+}
+
 code {
-  font-family: Helvetica, Roboto, source-code-pro, Menlo, Monaco, Consolas,
-    "Courier New", monospace;
+  font-family: MyriadPro, FrutigerLTStd, Roboto, source-code-pro, Menlo, Monaco,
+    Consolas, "Courier New", monospace;
 }

@@ -271,3 +271,9 @@
     width: 100% !important;
   }
 }
+
+@media (max-width: 991px) {
+  .ios-media-modal-content-iframe {
+    max-height: calc(100vh - 7rem);
+  }
+}

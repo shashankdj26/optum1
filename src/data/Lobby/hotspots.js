@@ -416,7 +416,7 @@ export let InfoHotspots = {
     // style: {
     //   margin: "5.5% -13.5%",
     // },
-    hotspotType: HotspotType.iframe,
+    hotspotType: HotspotType.pdf,
     buttonType: HotspotButtonType.named,
     // link: StaticLinks.agenda,
     link: "/web/viewer.html?file=%2Fassets%2Fcontent%2Finfo_desk%2FAgenda.pdf",
@@ -451,7 +451,7 @@ export let InfoHotspots = {
     // style: {
     //   margin: "5.6% 5.4%",
     // },
-    hotspotType: HotspotType.iframe,
+    hotspotType: HotspotType.pdf,
     buttonType: HotspotButtonType.named,
     link: "/web/viewer.html?file=%2Fassets%2Fcontent%2Finfo_desk%2FFAQs.pdf",
   },
@@ -1057,8 +1057,12 @@ export let LobbyHotspots = {
       return isMobileOnly ? this.mobile_style : this.desk_style;
     },
 
-    hotspotType: HotspotType.iframe,
-    link: StaticLinks.Photobooth,
+    // hotspotType: HotspotType.iframe,
+    // link: StaticLinks.Photobooth,
+    hotspotType: HotspotType.transition,
+    transitionVideo: null,
+    transitionType: TransitionType.changeOverlayComponent,
+    newItem: menuItems[menuItemsIndex.Photobooth],
   },
   [LobbyHotspotsId.ResourceCenter]: {
     id: LobbyHotspotsId.ResourceCenter,

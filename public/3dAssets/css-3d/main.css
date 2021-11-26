@@ -95,7 +95,7 @@
 
 .backButton:hover {
   opacity: 1;
-  transform: scale(1.1);
+  transform: scale(1.03);
   transition: 0.1s;
 }
 
@@ -182,7 +182,7 @@
 
 .closeButton-mediaModal {
   position: absolute;
-  height: 3.85rem;
+  height: 3.2rem;
   top: 1%;
   /* right: 2%; */
   right: 1rem;
@@ -193,6 +193,22 @@
   border-radius: 50%;
   cursor: pointer;
   z-index: 5;
+}
+
+.UILoader {
+  position: absolute;
+  z-index: 55;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  background: rgba(0, 0, 0, 0.418);
+  justify-content: center;
+  align-items: center;
+}
+
+.UILoader img {
+  width: 5rem;
+  height: 5rem;
 }
 
 .stallchat-cont {
@@ -349,8 +365,8 @@
 }
 
 .infoButton-audi:hover {
-  transform: scale(1.15);
-  box-shadow: 0 0 1.5rem #e19c2f;
+  transform: scale(1.1);
+  box-shadow: 0 0 1.5rem #f57f28;
 }
 
 /* public Chat  */

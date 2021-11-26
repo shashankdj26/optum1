@@ -338,9 +338,14 @@ class Home extends Component {
       }, 500);
     }
 
+    if (item.id === menuItemsId.Photobooth) {
+      this.showMediaModal(HotspotType.iframe, StaticLinks.Photobooth);
+    }
+
     if (
       item.id !== menuItemsId.MyProfile &&
       item.id !== menuItemsId.TeamBuilding &&
+      item.id !== menuItemsId.Photobooth &&
       item.id !== menuItemsId.bdr
     ) {
       this.handleHelpdeskChatClose();
@@ -1139,7 +1144,20 @@ class Home extends Component {
                           HotspotType.iframe && (
                           <iframe
                             title={"iframe"}
-                            className="media-modal-content-iframe holds-the-iframe"
+                            className={`media-modal-content-iframe holds-the-iframe ${
+                              isIOS ? "ios-media-modal-content-iframe" : ""
+                            }`}
+                            style={
+                              this.state.MediaModalInfo.link ===
+                              StaticLinks.Photobooth
+                                ? isMobileOnly
+                                  ? {
+                                      width: "70vw",
+                                      height: "calc(70vw / (16/9))",
+                                    }
+                                  : { width: "80vw", height: "calc(45vw)" }
+                                : {}
+                            }
                             src={this.state.MediaModalInfo.link}
                             allow="camera; microphone"
                             // src=""

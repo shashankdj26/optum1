@@ -3,13 +3,19 @@ import "./Login.css";
 import { ImageString } from "../../../const/assets/ImageString";
 import "./Login.css";
 import { isMobileOnly } from "react-device-detect";
-import headerImg from "./assets/header.png";
-import skipIcon from "./assets/skipIcon.svg";
-import ReactPlayer from "react-player";
-import headerBAckground from "./assets/headingbackground.png";
+
 import Vimeo from "react-vimeo-embed";
 
 const HeaderBackground = {
+  // background: `url(${"/assets/images/head_bg.jpg"})`,
+};
+
+const IntroImg = {
+  width: "10rem",
+  position: "unset",
+  left: "unset",
+  transform: "none",
+
   // background: `url(${"/assets/images/head_bg.jpg"})`,
 };
 export default class Intro extends Component {
@@ -224,15 +230,20 @@ export default class Intro extends Component {
           {!this.state.UI.showTransitionVideo && (
             <div className="lobbyTutContainer">
               <div className="tutCardContainer width-cal botm-brdr">
-                <div className="signinBox__heading__container flx-cntr bg-img">
+                <div className="signinBox__heading__container flx-cntr ">
                   <div
                     className="tutCardContainer-header"
                     style={{
                       ...HeaderBackground,
+                      background: "#fff",
                       // borderBottom: "2px solid #D4A847",
                     }}
                   >
-                    <img src={"/3dAssets/UI/head.png"} alt="logo1" />
+                    <img
+                      src={"/3dAssets/UI/head.png"}
+                      alt="logo1"
+                      style={{ ...IntroImg }}
+                    />
                   </div>
                   <div className="signinBox__heading__gradient"></div>
                 </div>
@@ -262,11 +273,11 @@ export default class Intro extends Component {
                       </h3>
                     </strong>
                     <h2 style={{ textAlign: "center", color: "#F69637" }}>
-                      THE ULTIMATE PITCH 7.0
+                      Optum Event 2021
                     </h2>
                     <br />
                     <button
-                      className="tutCardButton btn  btn-red mg-t30"
+                      className="tutCardButton btn  btn-red "
                       onClick={(e) => this.handleContinue(e)}
                       style={{ textAlign: "center" }}
                     >
@@ -277,7 +288,7 @@ export default class Intro extends Component {
               </div>
             </div>
           )}
-          {this.state.isFirstTime && this.state.UI.showTransitionVideo && (
+          {this.state.UI.showTransitionVideo && (
             <div className="skipContianer-n">
               <div
                 className="skipBtn-n"
