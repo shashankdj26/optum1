@@ -114,7 +114,7 @@ export default class AudiTut extends Component {
                   className="tutCardButton btn  btn-yellow mg-t30"
                   onClick={(e) => this.handleContinue(e)}
                 >
-                  Cancle
+                  Cancel
                 </button>
                 <button
                   className="tutCardButton btn  btn-yellow mg-t30"

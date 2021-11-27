@@ -475,9 +475,9 @@ export let GameHotspot = {
     link: "/InfiniteRunner/index.html",
   },
   cricket: {
-    id: "cricketGame",
+    id: "wordScramble",
     enabled: true,
-    name: "cricket game",
+    name: "wordScramble",
     desk_style: {
       margin: "7% -15%",
     },
@@ -977,7 +977,7 @@ export let LobbyHotspots = {
   },
 
   [LobbyHotspotsId.TeamBuilding]: {
-    id: "TeamBuilding",
+    id: "Meet_our_leaders",
     enabled: true,
     style: {
       margin: "-5.5% -31%",

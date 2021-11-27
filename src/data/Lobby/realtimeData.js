@@ -5,8 +5,9 @@ export const VideoPlayerData = {
     enabled: true,
     type: VideoType.vimeo,
     id: "video-1",
-    link: "https://player.vimeo.com/video/488819682?h=8d8ba243b0",
+    link: "https://player.vimeo.com/video/488819549?h=a9619a1488&title=0&byline=0&portrait=0&autoplay=1&autopause=0&app_id=122963",
     name: "About Optum",
+    thumbnail: "/assets/images/vimeoThumbnail/about_optum.jpg",
     videoCode: "488819682",
     description: "",
   },
@@ -14,8 +15,9 @@ export const VideoPlayerData = {
     enabled: true,
     type: VideoType.vimeo,
     id: "video-2",
-    link: "https://player.vimeo.com/video/488819682?h=8d8ba243b0",
+    link: "https://player.vimeo.com/video/488819682?h=8d8ba243b0&title=0&byline=0&portrait=0&autoplay=1&autopause=0&app_id=122963",
     name: "Women in Leadership",
+    thumbnail: "/assets/images/vimeoThumbnail/women_in_leadership.jpg",
     videoCode: "488819682",
     description: "",
   },
@@ -23,8 +25,9 @@ export const VideoPlayerData = {
     enabled: true,
     type: VideoType.vimeo,
     id: "video-3",
-    link: "https://player.vimeo.com/video/488504488?h=5da77bd890",
+    link: "https://player.vimeo.com/video/488504488?h=5da77bd890&title=0&byline=0&portrait=0&autoplay=1&autopause=0&app_id=122963",
     name: "PH Testimonials",
+    thumbnail: "/assets/images/vimeoThumbnail/ph_testimonials.jpg",
     videoCode: "488504488",
     description: "",
   },
@@ -32,8 +35,9 @@ export const VideoPlayerData = {
     enabled: true,
     type: VideoType.vimeo,
     id: "video-4",
-    link: "https://player.vimeo.com/video/488504175?h=3e1955de48",
+    link: "https://player.vimeo.com/video/488504175?h=3e1955de48&title=0&byline=0&portrait=0&autoplay=1&autopause=0&app_id=122963",
     name: "Meet our employees- Anupam",
+    thumbnail: "/assets/images/vimeoThumbnail/anupam.jpg",
     videoCode: "488504175",
     description: "",
   },
@@ -41,8 +45,9 @@ export const VideoPlayerData = {
     enabled: true,
     type: VideoType.vimeo,
     id: "video-5",
-    link: "https://player.vimeo.com/video/488819582?h=20548dcef3",
+    link: "https://player.vimeo.com/video/488819582?h=20548dcef3&title=0&byline=0&portrait=0&autoplay=1&autopause=0&app_id=122963",
     name: "About Optum & Technology",
+    thumbnail: "/assets/images/vimeoThumbnail/technology.jpg",
     videoCode: "488819582",
     description: "",
   },
@@ -56,6 +61,8 @@ export const CoinDCXVideoPlayer = {
     link: "https://vimeo.com/540585191/39750dded5",
     name: "Beginner's guide to CoinDCX Go App _ Start Investing in Crypto 2021",
     videoCode: "1119010182",
+    thumbnail: "/assets/images/vimeoThumbnail/about_optum.jpg",
+
     description: "",
   },
   DCX_Learn: {
@@ -65,6 +72,8 @@ export const CoinDCXVideoPlayer = {
     link: "https://vimeo.com/540585259/dfa35845fc",
     name: "DCX Learn - A premium blockchain and cryptocurrency education platform",
     videoCode: "1119010054",
+    thumbnail: "/assets/images/vimeoThumbnail/about_optum.jpg",
+
     description: "",
   },
 };
@@ -77,6 +86,8 @@ export const LobbyStall1VideoPlayer = {
     link: "https://vimeo.com/512447911/710d1e22ac",
     name: "Sophos Cyber Security Evolved",
     videoCode: "1061053693",
+    thumbnail: "/assets/images/vimeoThumbnail/about_optum.jpg",
+
     description: "",
   },
   HowSynchronized: {
@@ -86,6 +97,8 @@ export const LobbyStall1VideoPlayer = {
     link: "https://vimeo.com/512447852/789679748e",
     name: "How Synchronized Security Stops Advanced Threats",
     videoCode: "1061053545",
+    thumbnail: "/assets/images/vimeoThumbnail/about_optum.jpg",
+
     description: "",
   },
   Day: {
@@ -95,6 +108,8 @@ export const LobbyStall1VideoPlayer = {
     link: "https://vimeo.com/512450174/d88f28aef7",
     name: "Day-to-day security management with a Sophos cybersecurity system",
     videoCode: "1061058530",
+    thumbnail: "/assets/images/vimeoThumbnail/about_optum.jpg",
+
     description: "",
   },
 };

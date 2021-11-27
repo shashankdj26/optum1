@@ -62,7 +62,7 @@ class VideoPlayer extends Component {
     this.props.close();
   };
 
-  getThumnailUrl = (type, code) => {
+  getThumnailUrl = (type, code, thumb) => {
     if (type === VideoType.youtube) {
       return `https://img.youtube.com/vi/${code}/mqdefault.jpg`;
     } else if (type === VideoType.vimeo) {
@@ -89,7 +89,12 @@ class VideoPlayer extends Component {
       //     console.error(xhr.statusText);
       // };
       // xhr.send(null);
-      return `https://i.vimeocdn.com/video/${code}_240.jpg`;
+
+      if (thumb) {
+        return thumb;
+      } else {
+        return `https://i.vimeocdn.com/video/${code}_240.jpg`;
+      }
     } else {
       return `http://img.youtube.com/vi/${code}/mqdefault.jpg`;
     }
@@ -250,8 +255,10 @@ class VideoPlayer extends Component {
                                 style={{
                                   backgroundImage: `url(${this.getThumnailUrl(
                                     this.props.videoData[id].type,
-                                    this.props.videoData[id].videoCode
+                                    this.props.videoData[id].videoCode,
+                                    null
                                   )})`,
+                                  // backgroundImage: `url(${this.props.videoCode[id].thumbnail})`,
                                   backgroundPosition: "center",
                                 }}
                               ></div>

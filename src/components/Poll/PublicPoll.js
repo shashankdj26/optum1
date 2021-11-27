@@ -316,7 +316,9 @@ class PublicPoll extends Component {
             ) : null}
             {this.state.pollCurrentState === pollStates.waitForLive ? (
               <div className="d-flex h-100 align-items-center justify-content-center">
-                <p className="light-color">Waiting for Poll To GO Live</p>
+                <p className="light-color" style={{ color: "#F57F28" }}>
+                  Waiting for Poll To GO Live
+                </p>
               </div>
             ) : null}
           </div>

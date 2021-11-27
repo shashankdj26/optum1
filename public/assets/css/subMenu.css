@@ -405,12 +405,12 @@
   height: 5px;
   margin: 0.5rem 3rem 0.5rem 0;
   position: relative;
-  background: #3f3f3f;
+  background: #c4c4c4;
 }
 .poll-custom-progress-bar__front {
   position: absolute;
   height: 100%;
-  background: #f291bc;
+  background: #f57f28;
 }
 .poll-custom-progress-bar__percent {
   position: absolute;

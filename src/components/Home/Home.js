@@ -342,6 +342,10 @@ class Home extends Component {
       this.showMediaModal(HotspotType.iframe, StaticLinks.Photobooth);
     }
 
+    if (item.id === menuItemsId.TeamBuilding) {
+      addRealtimeHotspotAnalytics(this.context, "Meet_our_leaders");
+    }
+
     if (
       item.id !== menuItemsId.MyProfile &&
       item.id !== menuItemsId.TeamBuilding &&
@@ -633,6 +637,7 @@ class Home extends Component {
 
   addHotspotAnalytics = (name) => {
     //call some firebase function
+
     addRealtimeHotspotAnalytics(this.context, name);
   };
 
@@ -1787,12 +1792,13 @@ class Home extends Component {
                       <>
                         <Connect
                           close={this.hideOverlayMenu}
-                          addAnalytics={(value) =>
+                          addAnalytics={(value) => {
                             this.addComponentAnalytics(
                               AnalyticsLocations.Teambuilding,
                               value
-                            )
-                          }
+                            );
+                            this.addHotspotAnalytics("Meet_our_leaders");
+                          }}
                         ></Connect>
 
                         {/* <ListContainer
