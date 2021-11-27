@@ -64,7 +64,7 @@ export const menuItems = [
     id: menuItemsId.TeamBuilding,
     name: "Meet Our Leaders",
 
-    class: "icon-DBR",
+    class: "icon-optum-meet-leaders",
   },
 
   {
@@ -125,7 +125,7 @@ export const menuItems = [
     id: menuItemsId.rescen,
     name: "Explore Optum",
 
-    class: "icon-ResourceCenter",
+    class: "icon-optum-explore",
     subMenus: [
       // { id: SubMenuId.Call, name: "Video Call", class: "icon-video" },
       // { id: SubMenuId.Chat, name: "Chat", class: "icon-chat" },

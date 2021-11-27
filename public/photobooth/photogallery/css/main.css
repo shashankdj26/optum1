@@ -98,3 +98,10 @@ body {
   backdrop-filter: blur(0.5rem);
   z-index: 111;
 }
+
+@media only screen and (max-width: 991px) {
+  #header {
+    width: 53%;
+    height: auto;
+  }
+}

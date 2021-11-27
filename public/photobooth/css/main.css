@@ -319,3 +319,20 @@ body {
   }
 
 } */
+
+@media only screen and (max-width: 991px) and (orientation: landscape) {
+  #pgBtn {
+    width: 4.6rem;
+    height: 1.32rem;
+  }
+
+  /* .mb-img {
+    width: 53%;
+    height: auto;
+  } */
+
+  .pgBtnOpen {
+    width: 1.1rem !important;
+    height: 1.1rem !important;
+  }
+}
