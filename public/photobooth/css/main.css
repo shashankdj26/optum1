@@ -335,4 +335,20 @@ body {
     width: 1.1rem !important;
     height: 1.1rem !important;
   }
+
+  /* .capture-button{
+    margin-top: 3.4rem;
+  } */
+
+  .save-button {
+    width: 91px;
+  }
+
+  .retake-button {
+    width: 91px;
+  }
+
+  .mt-mb {
+    bottom: 0.3rem !important;
+  }
 }

@@ -1154,6 +1154,7 @@ class Home extends Component {
                                   ? {
                                       width: "70vw",
                                       height: "calc(70vw / (16/9))",
+                                      marginTop: "1rem",
                                     }
                                   : { width: "80vw", height: "calc(45vw)" }
                                 : {}
@@ -1350,7 +1351,7 @@ class Home extends Component {
                       initialVideo={VideoString.LOBBYLOOP}
                       firstVideoFrame={ImageString.LOBBYLOOP}
                       // initialHotspot={this.getActiveHotspots()}
-                      isImageScene={isIOS}
+                      isImageScene={isIOS || window.parent.isMac15}
                       initalImage={ImageString.LOBBYLOOP}
                       initialHotspot={LobbyHotspots}
                       brandingLinks={this.state.backendControl.brandingLinks}
@@ -1421,6 +1422,8 @@ class Home extends Component {
                       changeComponenet={this.handleClick}
                       ShowMediaModal={this.showMediaModal}
                       initialVideo={AudiData.introVideo}
+                      isImageScene={isIOS || window.parent.isMac15}
+                      initalImage={ImageString.Audi}
                       globalBackButton={true}
                       AudiZoomLink={AudiZoomLink.link}
                       showZoom={false}
@@ -1430,7 +1433,7 @@ class Home extends Component {
                       hiddeMute={false}
                       //For Tutorial
                       sceneName="audi"
-                      showTut={isMobileOnly ? false : true}
+                      showTut={true}
                       tutComponent={AudiTut}
                       subMenus={this.state.UI.activeSubMenu}
                       //Analytics
@@ -1574,7 +1577,7 @@ class Home extends Component {
                     <Scene
                       ShowMediaModal={this.showMediaModal}
                       initialVideo={VideoString.NETWORKING_LOOP}
-                      isImageScene={isIOS}
+                      isImageScene={isIOS || window.parent.isMac15}
                       initalImage={ImageString.NetworkingLoung}
                       firstVideoFrame={ImageString.NetworkingLoung}
                       initialHotspot={NetworkingHotspot}
@@ -1603,7 +1606,7 @@ class Home extends Component {
                       ShowMediaModal={this.showMediaModal}
                       initialVideo={VideoString.RESOURCE_LOOP}
                       firstVideoFrame={ImageString.ResourceCenter}
-                      isImageScene={isIOS}
+                      isImageScene={isIOS || window.parent.isMac15}
                       initalImage={ImageString.ResourceCenter}
                       initialHotspot={ResourceCenterStalls}
                       globalBackButton={true}
@@ -1635,7 +1638,7 @@ class Home extends Component {
                       ShowMediaModal={this.showMediaModal}
                       initialVideo={VideoString.EXHIBITION_LOOP}
                       firstVideoFrame={ImageString.Exhibition}
-                      isImageScene={isIOS}
+                      isImageScene={isIOS || window.parent.isMac15}
                       initalImage={ImageString.Exhibition}
                       initialHotspot={this.state.BreakoutRoomsHotspot}
                       globalBackButton={true}
@@ -1668,7 +1671,7 @@ class Home extends Component {
                       ShowMediaModal={this.showMediaModal}
                       initialVideo={VideoString.PRODUCT_REVIEW_LOOP}
                       firstVideoFrame={ImageString.ProductReview}
-                      isImageScene={isIOS}
+                      isImageScene={isIOS || window.parent.isMac15}
                       initalImage={ImageString.ProductReview}
                       initialHotspot={ProductReviewHotspots}
                       globalBackButton={true}
@@ -2144,8 +2147,7 @@ class Home extends Component {
                 }
               </section>
             </div>
-            {false &&
-              this.checkIfAudioCanPlayUnderMediaModal() &&
+            {this.checkIfAudioCanPlayUnderMediaModal() &&
               this.state.UI.activeMenu.id !== menuItemsId.bdr &&
               this.state.UI.activeMenu.id !== menuItemsId.Audi &&
               this.state.UI.activeMenu.id !== menuItemsId.zoomMeeting &&

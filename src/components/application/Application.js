@@ -140,6 +140,22 @@ class Application extends Component {
     };
     const ver2 = checkVersionV2();
 
+    var checkMacV = () => {
+      const agent = window.navigator.userAgent;
+      if (
+        agent.includes("Mac") ||
+        agent.includes("MAC") ||
+        agent.includes("mac")
+      ) {
+        if (agent.includes("Version/15")) {
+          window.parent.isMac15 = true;
+        } else {
+          window.parent.isMac15 = false;
+        }
+      }
+    };
+    checkMacV();
+
     if (isMobileOnly) {
       document.addEventListener("click", () => {
         // console.log("aaa");

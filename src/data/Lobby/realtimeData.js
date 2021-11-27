@@ -3,47 +3,47 @@ import { VideoType } from "../../const/fixed/Types";
 export const VideoPlayerData = {
   "video-1": {
     enabled: true,
-    type: VideoType.youtube,
+    type: VideoType.vimeo,
     id: "video-1",
-    link: "https://youtu.be/miXhR2F673Q",
-    name: "Acquisition of Energy and Infrastructure Assets - Overview (Part 1) | March 2021",
-    videoCode: "miXhR2F673Q",
+    link: "https://player.vimeo.com/video/488819682?h=8d8ba243b0",
+    name: "About Optum",
+    videoCode: "488819682",
     description: "",
   },
   "video-2": {
     enabled: true,
-    type: VideoType.youtube,
-    id: "video-1",
-    link: "https://youtu.be/izzHAbewPos",
-    name: "Acquisition of Energy and Infrastructure Assets - Key Investor Issues (Part 2) | March 2021",
-    videoCode: "izzHAbewPos",
+    type: VideoType.vimeo,
+    id: "video-2",
+    link: "https://player.vimeo.com/video/488819682?h=8d8ba243b0",
+    name: "Women in Leadership",
+    videoCode: "488819682",
     description: "",
   },
   "video-3": {
     enabled: true,
-    type: VideoType.youtube,
-    id: "video-1",
-    link: "https://youtu.be/mTHkin2ySnw",
-    name: "Alternative Investment Funds (AIFs) in India - Part 1",
-    videoCode: "mTHkin2ySnw",
+    type: VideoType.vimeo,
+    id: "video-3",
+    link: "https://player.vimeo.com/video/488504488?h=5da77bd890",
+    name: "PH Testimonials",
+    videoCode: "488504488",
     description: "",
   },
   "video-4": {
     enabled: true,
-    type: VideoType.youtube,
-    id: "video-1",
-    link: "https://youtu.be/NtNm0d7lpKs",
-    name: "Common Fund Structures - Part 2",
-    videoCode: "NtNm0d7lpKs",
+    type: VideoType.vimeo,
+    id: "video-4",
+    link: "https://player.vimeo.com/video/488504175?h=3e1955de48",
+    name: "Meet our employees- Anupam",
+    videoCode: "488504175",
     description: "",
   },
   "video-5": {
     enabled: true,
-    type: VideoType.youtube,
-    id: "video-1",
-    link: "https://youtu.be/HrbTMHrb6VI",
-    name: "Early Stage Companies – Promoter Perspective",
-    videoCode: "HrbTMHrb6VI",
+    type: VideoType.vimeo,
+    id: "video-5",
+    link: "https://player.vimeo.com/video/488819582?h=20548dcef3",
+    name: "About Optum & Technology",
+    videoCode: "488819582",
     description: "",
   },
 };
@@ -68,7 +68,6 @@ export const CoinDCXVideoPlayer = {
     description: "",
   },
 };
-
 
 export const LobbyStall1VideoPlayer = {
   SophosCyber: {
@@ -101,11 +100,25 @@ export const LobbyStall1VideoPlayer = {
 };
 
 export const LobbyStall1PdfPlayer = {
-  "Brand Deck": {
+  "pdf-1": {
     enabled: true,
-    id: "VCC_Edge_BrandDeck",
-    link: "/web/viewer.html?file=%2Fassets%2Fcontent%2FVCCEdgeBrandDeck.pdf",
-    name: "VCC Edge Brand Deck",
+    id: "Executive_Supplement_Page_(India)_FINAL",
+    link: "/web/viewer.html?file=%2Fassets%2Fcontent%2Foptum-2021%2FExecutive Supplement Page (India) FINAL.pdf",
+    name: "Executive Supplement Page (India) FINAL",
+    description: "",
+  },
+  "pdf-2": {
+    enabled: true,
+    id: "Optum_EL_Sheet_FINAL",
+    link: "/web/viewer.html?file=%2Fassets%2Fcontent%2Foptum-2021%2FOptum EL Sheet FINAL.pdf",
+    name: "Optum EL Sheet FINAL",
+    description: "",
+  },
+  "pdf-3": {
+    enabled: true,
+    id: "Optum_4",
+    link: "/web/viewer.html?file=%2Fassets%2Fcontent%2Foptum-2021%2FOptum-4.pdf",
+    name: "Optum-4",
     description: "",
   },
 };

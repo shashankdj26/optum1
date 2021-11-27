@@ -624,7 +624,7 @@ export let ResourceCenterStalls = {
     },
     hotspotType: HotspotType.video,
     buttonType: HotspotButtonType.default,
-    link: "https://player.vimeo.com/video/540602121",
+    link: "https://www.youtube.com/watch?v=huMorwstIpY",
     customAnalytics: {
       path: "/ResourceCenter_stall",
       id: "video",
@@ -645,9 +645,25 @@ export let ResourceCenterStalls = {
       id: "Video_Resources",
     },
   },
+
+  pdfPlayer: {
+    id: "ResourceCenter_pdfPlayer",
+    enabled: true,
+    name: `Good Reads`,
+    style: {
+      margin: "11% 20%",
+    },
+    hotspotType: HotspotType.pdfPlayer,
+    link: LobbyStall1PdfPlayer,
+    buttonType: HotspotButtonType.named,
+    customAnalytics: {
+      path: "/ResourceCenter_stall",
+      id: "pdf_Resources",
+    },
+  },
   Resources: {
     id: "ResourceCenter_Resources",
-    enabled: true,
+    enabled: false,
     name: "PDF Resources",
     style: {
       margin: "8% 25.25%",

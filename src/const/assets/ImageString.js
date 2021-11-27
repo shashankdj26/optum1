@@ -26,6 +26,8 @@ export const ImageString = {
   Exhibition: ImageRenderedRoot + "Exhibition.jpg",
   NetworkingLoung: ImageRenderedRoot + "NetworkingLoung.jpg",
   ResourceCenter: ImageRenderedRoot + "ResourceCenter.jpg",
+  Audi: ImageRenderedRoot + "audi.jpg",
+
   stall1: ImageRenderedRoot + "stall1.jpg",
   stall2: ImageRenderedRoot + "stall2.jpg",
   stall3: ImageRenderedRoot + "stall3.jpg",

@@ -189,9 +189,12 @@ export default class AudiScene extends Component {
       },
       currentHotspot: this.LobbyHotspots,
     }));
-    this.videoRef.current.load();
-    this.videoRef.current.loop = true;
-    this.videoRef.current.play();
+
+    if (!this.props.isImageScene) {
+      this.videoRef.current.load();
+      this.videoRef.current.loop = true;
+      this.videoRef.current.play();
+    }
     setTimeout(() => {
       this.toggleHUDElement(true, true, false);
     }, 1.25 * 1000);
@@ -404,7 +407,22 @@ export default class AudiScene extends Component {
             ref={this.child3dContainer}
             style={this.state.child3dContainerStyle}
           >
-            {!isMobileOnly && !isIOS && (
+            {this.props.isImageScene && (
+              <img
+                ref={this.videoRef}
+                id="FrameVideo"
+                src={this.props.initalImage}
+                style={{
+                  ...this.state.frameVideoStyle,
+                  height: "100vh",
+                  width: "auto",
+                  maxWidth: "none",
+                }}
+                alt="MainSceneImage"
+              ></img>
+            )}
+
+            {!this.props.isImageScene && !isMobileOnly && !isIOS && (
               <video
                 id="FrameVideo"
                 width="320"

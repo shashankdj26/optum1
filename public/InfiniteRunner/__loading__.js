@@ -185,6 +185,8 @@ pc.script.createLoadingScreen(function (app) {
 
       "#application-splash img {",
       "    width: 12rem;",
+      "    left: 50%;",
+      "    transform: translateX(-15%);",
       "}",
 
       "#progress-bar-container {",
