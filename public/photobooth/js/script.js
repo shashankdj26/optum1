@@ -27,7 +27,7 @@ var ratio = window.devicePixelRatio || 1;
 var Pause;
 var frame = new Image();
 // uncomment if want frame image
-frame.src = "./img/1920x1080.png";
+frame.src = "./img/optumFrame.jpg";
 let midPanel = document.getElementById("body");
 var Retake = document.getElementById("Retake");
 Retake.style.display = "none";
@@ -354,9 +354,9 @@ function paintToCanvas() {
       // ctx.stroke();
       // ctx.drawImage(video, 350 + findExtaW, 147 + findExtaH, reObj.width*1.2, reObj.height*1.2);
       // 515 285
-      var pos_x = 155;
-      var pos_y = 112;
-      radius = 430;
+      var pos_x = 1105;
+      var pos_y = 181;
+      radius = 296;
       ctx.save();
       ctx.beginPath();
       ctx.arc(pos_x + radius, pos_y + radius, radius, 0, Math.PI * 2, true);
