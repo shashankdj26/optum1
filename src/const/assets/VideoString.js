@@ -14,9 +14,11 @@ export const VideoString = {
   LOBBY_TO_NETWORKING: videoRoot + "ToNetworkingLoung.mp4",
 
   LOOBYTOGAMEZONE: videoRoot + "ToGameZone.mp4",
-
+  LOOBYTOPHOTOBOOTH: videoRoot + "toPhotoBooth.mp4",
   SPEAKER_LOOP: videoRoot + "SpeakerLounge.mp4",
   LOBBY_TO_SPEAKER: videoRoot + "ToSpeakerLounge.mp4",
+
+  LOBBY_TO_JURY: videoRoot + "To_Jury.mp4",
 
   RESOURCE_LOOP: videoRoot + "ResourceCenter.mp4",
   LOBBY_TO_RESOURCE: videoRoot + "ToResourceCenter.mp4",

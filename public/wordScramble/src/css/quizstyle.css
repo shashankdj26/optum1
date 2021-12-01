@@ -19,6 +19,8 @@
   box-sizing: border-box;
   /* width: 100px; */
   height: 130px;
+  width: auto;
+  margin: 1rem;
 }
 
 .logo-partnersumit {
@@ -256,7 +258,8 @@ p {
 }
 
 #timer {
-  color: rgb(0, 0, 0);
+  color: #f57f28;
+  font-weight: bold;
   font-size: 38px;
   margin-top: 30px;
   font-family: MyriadPro, Cerapro-Bold;
@@ -350,7 +353,7 @@ p {
   background-color: rgb(255, 255, 255);
   text-align: center;
   font-size: 35px;
-  color: black;
+  color: #f57f28;
   cursor: pointer;
   outline: none;
   font-family: MyriadPro, Cerapro-Bold;
@@ -433,7 +436,7 @@ p {
 
 #puzzlesolution {
   border-width: 0px;
-  border-radius: 10px;
+  border-radius: 1.9rem;
   margin: 5px;
   /* background-color:#14C4ED; */
   width: 110vh;
@@ -446,7 +449,7 @@ p {
   text-align: center;
   font-size: 25px;
   font-weight: bold;
-  color: black;
+  color: #f57f28;
   text-transform: uppercase;
   letter-spacing: 3px;
   resize: none;
@@ -464,7 +467,7 @@ p {
 #answer {
   /* margin-top: 100px; */
   /* font-size: medium; */
-  color: rgb(239, 28, 37);
+  color: #dc3545;
   font-family: MyriadPro, Cerapro-Medium;
 }
 

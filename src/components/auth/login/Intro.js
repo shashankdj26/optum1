@@ -269,12 +269,28 @@ export default class Intro extends Component {
                           textAlign: "center",
                         }}
                       >
-                        Welcome To
+                        Welcome to
                       </h3>
                     </strong>
-                    <h2 style={{ textAlign: "center", color: "#F69637" }}>
-                      Optum Event 2021
+                    <h2
+                      style={{
+                        textAlign: "center",
+                        color: "#525357",
+                        fontWeight: "bold",
+                        fontSize: "2rem",
+                      }}
+                    >
+                      STRATETH<span style={{ color: "#F69637" }}>ON</span>
                     </h2>
+                    <h3
+                      style={{
+                        textAlign: "center",
+                        color: "#525357",
+                        fontSize: "1.5rem",
+                      }}
+                    >
+                      SEASON 3 GRAND FINALE
+                    </h3>
                     <br />
                     <button
                       className="tutCardButton btn  btn-red "

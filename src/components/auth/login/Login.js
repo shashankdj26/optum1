@@ -172,9 +172,9 @@ class Login extends Component {
                     <input
                       type="text"
                       className="form-control"
-                      name="passcode"
-                      value={this.state.passcode}
-                      placeholder="ENTER YOUR PASSCODE"
+                      name="name"
+                      value={this.state.name}
+                      placeholder="ENTER YOUR NAME"
                       onChange={this.onInputChange}
                       required={true}
                     />
@@ -183,13 +183,14 @@ class Login extends Component {
                     <input
                       type="text"
                       className="form-control"
-                      name="name"
-                      value={this.state.name}
-                      placeholder="ENTER YOUR NAME"
+                      name="passcode"
+                      value={this.state.passcode}
+                      placeholder="ENTER YOUR PASSCODE"
                       onChange={this.onInputChange}
                       required={true}
                     />
                   </div>
+
                   {/* <div className="form-group mg-b50">
                                         <input type="text" className="form-control" name="email" value={this.state.email} placeholder="ENTER YOUR EMAIL ID" onChange={this.onInputChange} autoComplete="off"
                                             autoCorrect="off" required={true} />

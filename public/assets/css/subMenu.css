@@ -608,7 +608,11 @@
     height: fit-content;
     width: fit-content;
     margin-bottom: 6rem;
-    right: 7rem;
+    right: 1rem;
+    top: 40vh;
+    flex-direction: column;
+    left: unset;
+    transform: none;
   }
 }
 

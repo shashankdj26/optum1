@@ -5,7 +5,7 @@ import { VideoString } from "../../../const/assets/VideoString";
 import { menuItems, menuItemsIndex } from "../../../const/Menu/MenuConst";
 import { ImageString } from "../../../const/assets/ImageString";
 import "../css/AudiScene.css";
-import { isIOS, isMobileOnly, isSafari } from "react-device-detect";
+import { isIOS, isMobileOnly, isSafari, isTablet } from "react-device-detect";
 import Dailyco from "../../dailyco/dailyco";
 import VedioCall from "../../VedioCall/VedioCall";
 
@@ -407,7 +407,7 @@ export default class AudiScene extends Component {
             ref={this.child3dContainer}
             style={this.state.child3dContainerStyle}
           >
-            {this.props.isImageScene && (
+            {this.props.isImageScene && !isMobileOnly && !isTablet && (
               <img
                 ref={this.videoRef}
                 id="FrameVideo"

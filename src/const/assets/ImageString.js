@@ -22,6 +22,7 @@ export const ImageString = {
   GameZone: ImageRenderedRoot + "GameZone.jpg",
   LobbyStall1: ImageRenderedRoot + "LobbyStall1.jpg",
   WELCOMEBACKGROUND: "assets/images/bg/all-stages.jpg",
+  PHOTOBOOTH: ImageRenderedRoot + "PhotoBooth.jpg",
 
   Exhibition: ImageRenderedRoot + "Exhibition.jpg",
   NetworkingLoung: ImageRenderedRoot + "NetworkingLoung.jpg",

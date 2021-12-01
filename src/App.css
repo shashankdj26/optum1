@@ -151,7 +151,7 @@
   width: 30rem;
 }
 .ios-page #audiVideoFrame {
-  height: 100vh !important;
+  height: calc(100vh - 6rem) !important;
 }
 .ios-page .user-profile {
   top: 0;
@@ -275,5 +275,10 @@
 @media (max-width: 991px) {
   .ios-media-modal-content-iframe {
     max-height: calc(100vh - 5rem);
+  }
+
+  .ios-page .audiButtonContainer {
+    right: 7rem;
+    justify-content: center;
   }
 }

@@ -234,7 +234,9 @@ d-block {
   padding-top: 0;
   padding-bottom: 0;
   background: #f2b411;
-  /* background-image : url(../img/bgland.jpg);  */
+  background-image: url(../img/MainBG.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .wrap-login100 {
@@ -244,7 +246,7 @@ d-block {
   /* background-image: url(../images/bgpot.png); */
   /* border-radius: 10px; */
   overflow: hidden;
-  padding: 20px 35px 33px 35px;
+  /* padding: 20px 35px 33px 35px; */
   box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
   -moz-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
   -webkit-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
@@ -258,7 +260,7 @@ d-block {
   background: #fff;
   background-repeat: repeat-y;
   overflow: visible;
-  padding: 20px 55px 33px 55px;
+  /* padding: 20px 55px 33px 55px; */
   box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
   -moz-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
   -webkit-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
@@ -271,6 +273,7 @@ d-block {
 
 .login100-form {
   width: 100%;
+  padding: 1.4rem;
 }
 
 .login100-form-title-la {
@@ -279,6 +282,13 @@ d-block {
   font-size: 30px;
   color: #333333;
   line-height: 1;
+  background-image: url(../img/headerBG.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  /* margin-bottom: 2rem; */
+
+  display: flex;
+  justify-content: center;
 }
 
 .login100-form-title {
@@ -477,7 +487,7 @@ d-block {
 .login100-form-btn {
   font-family: MyriadPro, FrutigerLTStd;
   font-size: 15px;
-  color: #000000;
+  color: #fff;
   line-height: 1.2;
   text-transform: uppercase;
   display: -webkit-box;
@@ -490,15 +500,16 @@ d-block {
   padding: 0 20px;
   width: 100%;
   height: 60px;
-  background: #f2b411;
+  background: #f57f28;
   transition: 0.15s;
 }
 
 .login100-form-btn:hover {
-  color: #f2b411;
-  background: #000000;
-  transform: scale(1.2);
-  border-radius: 0.2rem;
+  color: #fff;
+  background: #e4823c;
+
+  transform: scale(1.1);
+  /* border-radius: 0.2rem; */
 }
 
 .wrap-login100-form-btn:hover .login100-form-bgbtn {
@@ -602,7 +613,8 @@ d-block {
 
 @media (max-width: 991px) and (orientation: landscape) {
   .pb-mb {
-    padding-bottom: 2rem !important;
+    /* padding-bottom: 2rem !important; */
+    height: 5rem;
   }
 
   .pt-mb {

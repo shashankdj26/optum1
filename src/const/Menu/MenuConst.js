@@ -62,7 +62,7 @@ export const menuItems = [
   },
   {
     id: menuItemsId.TeamBuilding,
-    name: "Meet Our Leaders",
+    name: "Meet The Jury",
 
     class: "icon-optum-meet-leaders",
   },
@@ -123,7 +123,7 @@ export const menuItems = [
 
   {
     id: menuItemsId.rescen,
-    name: "Explore Optum",
+    name: "Discover Optum",
 
     class: "icon-optum-explore",
     subMenus: [
@@ -133,8 +133,7 @@ export const menuItems = [
   },
   {
     id: menuItemsId.Photobooth,
-    name: "Photobooth",
-
+    name: "Selfie Booth",
     class: "icon-optum-photobooth",
   },
   {

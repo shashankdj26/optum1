@@ -1486,7 +1486,7 @@ class Home extends Component {
                         >
                           <AiFillLike
                             className="likeButton"
-                            style={{ color: "#fff" }}
+                            style={{ color: "#17ACEA" }}
                           />
                           {/* <p style={{ color: "#fff", marginLeft: "0.3rem" }}>
                             {this.state.likeCount}
@@ -1524,7 +1524,7 @@ class Home extends Component {
                         >
                           <AiFillHeart
                             className="heartButton"
-                            style={{ color: "#fff" }}
+                            style={{ color: "#F52C4C" }}
                           />
                           {/* <p style={{ color: "#fff", marginLeft: "0.3rem" }}>
                             {this.state.heartCount}
@@ -1567,7 +1567,10 @@ class Home extends Component {
                           }}
                         >
                           <div className="clap">
-                            <FaHandPaper className="lower__hand clapButton" />
+                            <FaHandPaper
+                              className="lower__hand clapButton"
+                              style={{ color: "#FFB966" }}
+                            />
                           </div>
                           {/* <p style={{ color: "#fff", marginLeft: "0.3rem" }}>
                             {this.state.clapCount}
@@ -2180,6 +2183,17 @@ class Home extends Component {
                 }}
                 ref={this.clapref}
               />
+            )}
+            {!(
+              isMobileOnly && this.state.UI.activeMenu.id === menuItemsId.Audi
+            ) && (
+              <div className="leftBottom">
+                {isMobileOnly ? (
+                  <img src="/assets/images/D2C_Mobile.png"></img>
+                ) : (
+                  <img src="/assets/images/D2C.png"></img>
+                )}
+              </div>
             )}
           </>
         )}

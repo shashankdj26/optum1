@@ -405,10 +405,10 @@ export let InfoHotspots = {
     enabled: true,
     name: "Agenda",
     desk_style: {
-      margin: "5.5% -13.5%",
+      margin: "6.8% -13.5%",
     },
     mobile_style: {
-      margin: "4.5% -10.5%",
+      margin: "7.5% -10.5%",
     },
     get style() {
       return isMobileOnly ? this.mobile_style : this.desk_style;
@@ -419,7 +419,7 @@ export let InfoHotspots = {
     hotspotType: HotspotType.pdf,
     buttonType: HotspotButtonType.named,
     // link: StaticLinks.agenda,
-    link: "/web/viewer.html?file=%2Fassets%2Fcontent%2Finfo_desk%2FAgenda.pdf",
+    link: "/web/viewer.html?file=%2Fassets%2Fcontent%2Fdummy.pdf",
     // link: "https://mintinvestmentsummit.com/#responsive",
   },
   helpdesk: {
@@ -440,10 +440,10 @@ export let InfoHotspots = {
     enabled: true,
     name: "FAQs",
     desk_style: {
-      margin: "5.6% 5.4%",
+      margin: "6.8% 5.4%",
     },
     mobile_style: {
-      margin: "4.5% 1.4%",
+      margin: "7.5% 1.4%",
     },
     get style() {
       return isMobileOnly ? this.mobile_style : this.desk_style;
@@ -453,7 +453,30 @@ export let InfoHotspots = {
     // },
     hotspotType: HotspotType.pdf,
     buttonType: HotspotButtonType.named,
-    link: "/web/viewer.html?file=%2Fassets%2Fcontent%2Finfo_desk%2FFAQs.pdf",
+    link: "/web/viewer.html?file=%2Fassets%2Fcontent%2Fdummy.pdf",
+  },
+};
+
+export let BoothZoneHotSpot = {
+  boothPhoto: {
+    id: "photoMosaic",
+    enabled: true,
+    desk_style: {
+      margin: "-3.6% -4%",
+    },
+    mobile_style: {
+      margin: isIOS ? "-2.6% -4%" : "-2.6% -4%",
+    },
+    get style() {
+      return isMobileOnly ? this.mobile_style : this.desk_style;
+    },
+
+    // hotspotType: HotspotType.iframe,
+    // link: StaticLinks.Photobooth,
+    hotspotType: HotspotType.transition,
+    transitionVideo: null,
+    transitionType: TransitionType.changeOverlayComponent,
+    newItem: menuItems[menuItemsIndex.Photobooth],
   },
 };
 
@@ -463,10 +486,10 @@ export let GameHotspot = {
     name: "Game Zone",
     enabled: true,
     desk_style: {
-      margin: "7% 5.8%",
+      margin: "10% -10.2%",
     },
     mobile_style: {
-      margin: "10% 8.5%",
+      margin: "11% -10.5%",
     },
     get style() {
       return isMobileOnly ? this.mobile_style : this.desk_style;
@@ -479,10 +502,10 @@ export let GameHotspot = {
     enabled: true,
     name: "wordScramble",
     desk_style: {
-      margin: "7% -15%",
+      margin: "10% 0%",
     },
     mobile_style: {
-      margin: "10% -13.5%",
+      margin: "11% 0.5%",
     },
     get style() {
       return isMobileOnly ? this.mobile_style : this.desk_style;
@@ -620,7 +643,7 @@ export let ResourceCenterStalls = {
     enabled: true,
     name: `video`,
     style: {
-      margin: "1% 9%",
+      margin: "-14% 28%",
     },
     hotspotType: HotspotType.video,
     buttonType: HotspotButtonType.default,
@@ -635,7 +658,7 @@ export let ResourceCenterStalls = {
     enabled: true,
     name: `Video Resources`,
     style: {
-      margin: "11% -20%",
+      margin: isMobileOnly ? "-2% -5%" : "-2% -5%",
     },
     hotspotType: HotspotType.videoPlayer,
     link: VideoPlayerData,
@@ -651,7 +674,7 @@ export let ResourceCenterStalls = {
     enabled: true,
     name: `Good Reads`,
     style: {
-      margin: "11% 20%",
+      margin: isMobileOnly ? "-3% -15%" : "-3% -14.2%",
     },
     hotspotType: HotspotType.pdfPlayer,
     link: LobbyStall1PdfPlayer,
@@ -681,7 +704,7 @@ export let zoomMeeting = {};
 export let AudiData = {
   introVideo: VideoString.AUDITORIUM,
   link: "https://vimeo.com/event/473964",
-  placementStyle: { margin: "12.6% 33.2%", width: "32%", height: "42.4%" },
+  placementStyle: { margin: "12% 36.8%", width: "25.6%", height: "42.6%" },
 };
 
 export let AudiZoomLink = {
@@ -896,10 +919,10 @@ export let LobbyHotspots = {
     id: LobbyHotspotsId.Audi,
     enabled: true,
     desk_style: {
-      margin: "-2.4% -11%",
+      margin: "-4.4% -3%",
     },
     mobile_style: {
-      margin: "-2.4% -11%",
+      margin: "-3.4% -3%",
     },
     get style() {
       return isMobileOnly ? this.mobile_style : this.desk_style;
@@ -944,7 +967,7 @@ export let LobbyHotspots = {
     id: "GameZone",
     enabled: true,
     style: {
-      margin: "2.6% 18.6%",
+      margin: "0.6% -15.4%",
     },
     hotspotType: HotspotType.transition,
     transitionVideo: VideoString.LOOBYTOGAMEZONE,
@@ -959,10 +982,10 @@ export let LobbyHotspots = {
     id: LobbyHotspotsId.Infodesk,
     enabled: true,
     desk_style: {
-      margin: "9% -4.5%",
+      margin: "12% -2.5%",
     },
     mobile_style: {
-      margin: "9% -4.5%",
+      margin: "13% -2.5%",
     },
     get style() {
       return isMobileOnly ? this.mobile_style : this.desk_style;
@@ -980,9 +1003,10 @@ export let LobbyHotspots = {
     id: "Meet_our_leaders",
     enabled: true,
     style: {
-      margin: "-5.5% -31%",
+      margin: "-1.5% 26%",
     },
     hotspotType: HotspotType.transition,
+    // transitionVideo: VideoString.LOBBY_TO_JURY,
     transitionVideo: null,
     transitionType: TransitionType.changeOverlayComponent,
     newItem: menuItems[menuItemsIndex.TeamBuilding],
@@ -1064,27 +1088,25 @@ export let LobbyHotspots = {
     id: "photoMosaic",
     enabled: true,
     desk_style: {
-      margin: "5.4% 29%",
+      margin: "0.4% 9%",
     },
     mobile_style: {
-      margin: isIOS ? "2.8% 28%" : "5.4% 29%",
+      margin: isIOS ? "1.4% 10%" : "1.4% 10%",
     },
     get style() {
       return isMobileOnly ? this.mobile_style : this.desk_style;
     },
-
-    // hotspotType: HotspotType.iframe,
-    // link: StaticLinks.Photobooth,
     hotspotType: HotspotType.transition,
-    transitionVideo: null,
-    transitionType: TransitionType.changeOverlayComponent,
-    newItem: menuItems[menuItemsIndex.Photobooth],
+    transitionVideo: VideoString.LOOBYTOPHOTOBOOTH,
+    transitionType: TransitionType.withInComponent,
+    newItem: ImageString.PHOTOBOOTH,
+    hotspot: BoothZoneHotSpot,
   },
   [LobbyHotspotsId.ResourceCenter]: {
     id: LobbyHotspotsId.ResourceCenter,
     enabled: true,
     style: {
-      margin: "-2.6% 9%",
+      margin: "-3.6% -34%",
     },
     hotspotType: HotspotType.transition,
     transitionVideo: VideoString.LOBBY_TO_RESOURCE,
