@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./Login.css";
 import { realDB, loadUser, getUserDetails } from "../../firebase/firebase";
 import { ImageString } from "../../../const/assets/ImageString";
-
+import { isMobileOnly } from "react-device-detect";
 class Login extends Component {
   state = {
     email: "",
@@ -144,8 +144,38 @@ class Login extends Component {
       <section className="landing-page min-height-full">
         <aside
           className="landing-pageBox d-flex justify-content-between align-items-start min-height-full image-bg"
-          style={{ backgroundImage: `url(${ImageString.LoginScreen})` }}
-        ></aside>
+          style={
+            !isMobileOnly
+              ? {
+                  backgroundImage: `url(${ImageString.LoginScreen})`,
+                  backgroundPosition: "left top",
+                }
+              : {
+                  backgroundImage: `url(${ImageString.LoginScreen})`,
+                }
+          }
+        >
+          {!isMobileOnly && (
+            <div className="main3DContainer">
+              <div id="child3DContainer">
+                <video
+                  className={`TransitionVideo LoginScreenVideo`}
+                  width="320"
+                  height="240"
+                  loop={true}
+                  preload="auto"
+                  autoPlay={true}
+                  playsInline={true}
+                  ref={this.videoRef}
+                  style={{ opacity: 1, left: "0" }}
+                >
+                  <source src={"/3dAssets/videos/login.mp4"} type="video/mp4" />
+                  Your browser does not support HTML5 video.
+                </video>
+              </div>
+            </div>
+          )}
+        </aside>
         <aside className="signinBox min-height-full">
           {this.props.showLoggingIn && (
             <>

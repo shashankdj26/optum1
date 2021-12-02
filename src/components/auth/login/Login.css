@@ -23,6 +23,7 @@
   flex-direction: column;
   background-color: #fff;
   background: linear-gradient(179.99deg, #ffffff 12.97%, #ffdec6 99.99%);
+  z-index: 10;
 }
 .signinBox__heading {
   padding: 2rem;

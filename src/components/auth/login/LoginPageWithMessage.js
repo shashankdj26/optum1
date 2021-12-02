@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Login.css";
 import { ImageString } from "../../../const/assets/ImageString";
+import { isMobileOnly } from "react-device-detect";
 
 export default function LoginPageWithMessage(props) {
   const { needLoader, msg } = props;
@@ -9,7 +10,16 @@ export default function LoginPageWithMessage(props) {
     <section className="landing-page min-height-full">
       <aside
         className="landing-pageBox d-flex justify-content-between align-items-start min-height-full image-bg"
-        style={{ backgroundImage: `url(${ImageString.LoginScreen})` }}
+        style={
+          !isMobileOnly
+            ? {
+                backgroundImage: `url(${ImageString.LoginScreen})`,
+                backgroundPosition: "left top",
+              }
+            : {
+                backgroundImage: `url(${ImageString.LoginScreen})`,
+              }
+        }
       ></aside>
       <aside className="signinBox min-height-full">
         <div

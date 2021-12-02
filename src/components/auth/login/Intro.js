@@ -163,7 +163,7 @@ export default class Intro extends Component {
         <div className="main3DContainer">
           <div id="child3DContainer">
             <Vimeo
-              video={"https://vimeo.com/641126966/16228f7768"}
+              video={"https://vimeo.com/652433222/68d938731c"}
               className={`IntroTransitionVideo ${
                 this.state.UI.showTransitionVideo
                   ? "fadeInTransitionVideo introVimeo"
