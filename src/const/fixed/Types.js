@@ -31,7 +31,7 @@ export const AnalyticsLocations = {
   Audi: "audi",
   Networking: "networking",
   DBR: "speakers",
-  Rencen: "rencen",
+  Rencen: "Explore Optum",
   ExiBooth: "exibooth",
   ProductReviewBooth: "product_Booth",
 };

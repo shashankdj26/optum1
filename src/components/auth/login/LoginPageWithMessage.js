@@ -32,7 +32,9 @@ export default function LoginPageWithMessage(props) {
               }
             }
           }}
-        ></div>
+        >
+          <div className="left"></div>
+        </div>
         <br></br>
         {/* <div className="signinBox__body pd-t70">
                 </div> */}

@@ -63,7 +63,7 @@ class PdfPlayer extends Component {
                       style={{ height: "25rem" }}
                       src={`${
                         this.state.data[this.state.currentItemId].link
-                      }?#zoom=20&scrollbar=1&toolbar=1&navpanes=1`}
+                      }?#zoom=50&scrollbar=1&toolbar=1&navpanes=1`}
                     ></iframe>
                     {/* <div id="pdf" className="video-player__video mg-b25" style={{ height: '120%' }}>
                                             <object id="pdf_content" width="100%" height="100%" type="application/pdf" trusted="yes" application="yes" title="Assembly" data={`${this.state.data[this.state.currentItemId].link}?#zoom=50&scrollbar=1&toolbar=1&navpanes=1`}>
@@ -79,7 +79,7 @@ class PdfPlayer extends Component {
                   </div>
 
                   <div className="video-player__right">
-                    <h2 className="video-player__title">PDF Catalog</h2>
+                    <h2 className="video-player__title">Good Reads</h2>
 
                     <div className="video-player__list">
                       {this.ids.map((id, index) => (

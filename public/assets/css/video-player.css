@@ -67,7 +67,7 @@
   background: #fff;
 }
 .video-player__item-pic {
-  min-width: 9rem;
+  min-width: 8rem;
   height: 7rem;
   background-size: cover;
   max-width: 11.5rem;
@@ -75,7 +75,7 @@
   max-height: 8rem;
 }
 .video-player__item-pic-contain {
-  min-width: 9rem;
+  min-width: 7rem;
   height: 7rem;
   background-size: cover;
   max-width: 11.5rem;
@@ -89,7 +89,7 @@
 }
 .video-player__item-title {
   margin-bottom: 0.5rem;
-  font-size: 0.85rem;
+  font-size: 1.08rem;
 }
 .video-player__item-text {
   font-size: 0.75rem;

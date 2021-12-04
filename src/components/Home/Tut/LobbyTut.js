@@ -36,7 +36,7 @@ const TutCard = [
   {
     link: "/3dAssets/UI/Tut/Menu.jpg",
     header: "Menu",
-    description: "Use the menu icons for quick navigation",
+    description: "Use the menu icons for quick navigation.",
   },
 ];
 
@@ -100,13 +100,15 @@ class LobbyTut extends Component {
                       ,{" "}
                     </h3> */}
                     {/* </strong> */}
-                    <strong style={{ color: "#F57F28" }}>Welcome.</strong>
+                    <strong style={{ color: "#F57F28" }}>
+                      Welcome to the Grand Finale!
+                    </strong>
                     <br></br>
                     <br></br>
-                    Get prepared to foray into the world of Beauty. A new way
-                    and a whole new day dedicated to experience the virtual
-                    event. Meet our leaders and interact with us through various
-                    workshops, talks and discussions while having a lot of fun.
+                    We are excited to have you with us today. 12 finalist teams
+                    from across 202 colleges, 5 countries, over 16,000
+                    participants have made it here today. Come join us in
+                    cheering them on they realise their true potential.
                   </div>
                   <div
                     // className="tutCardContainer-body-textContainer"

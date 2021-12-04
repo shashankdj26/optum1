@@ -65,6 +65,8 @@
 .connect-card {
   background: #fff;
   width: fit-content;
+  max-width: 25rem;
+  min-width: 25rem;
   border-radius: 0.2rem;
   margin: 1rem;
   box-shadow: 0px 1px 0.7rem rgb(0 0 0 / 60%);

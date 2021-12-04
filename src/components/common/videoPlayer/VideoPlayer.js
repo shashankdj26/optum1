@@ -228,7 +228,7 @@ class VideoPlayer extends Component {
                   </div>
 
                   <div className="video-player__right">
-                    {/* <h2 className="video-player__title">MEET THE DC TEAM</h2> */}
+                    <h2 className="video-player__title">Video Resources</h2>
 
                     <div className="video-player__list">
                       {this.videoIds.map((id, index) => {

@@ -318,14 +318,13 @@ Gamemanager.attributes.add("camera", {
           function (e) {
             console.log("Error!!", e);
           }
-        );
-      let a = e.gameScore;
-      setTimeout(function () {
-        (t.GameUI.enabled = !1),
-          navigator.onLine
-            ? InfinityRunnerLeaderboardInstance.ShowLeaderboard(a)
-            : (e.leaderBoardNoInternet.enabled = !0);
-      }, 2500);
+        ),
+        setTimeout(function () {
+          (t.GameUI.enabled = !1),
+            navigator.onLine
+              ? InfinityRunnerLeaderboardInstance.ShowLeaderboard()
+              : (e.leaderBoardNoInternet.enabled = !0);
+        }, 2500);
     }
   }),
   (Gamemanager.prototype.gameOverByTime = function () {
@@ -349,14 +348,13 @@ Gamemanager.attributes.add("camera", {
         function (e) {
           console.log("Error!!", e);
         }
-      );
-      let a = e.gameScore;
-      setTimeout(function () {
-        (t.GameUI.enabled = !1),
-          navigator.onLine
-            ? InfinityRunnerLeaderboardInstance.ShowLeaderboard(a)
-            : (e.leaderBoardNoInternet.enabled = !0);
-      }, 100);
+      ),
+        setTimeout(function () {
+          (t.GameUI.enabled = !1),
+            navigator.onLine
+              ? InfinityRunnerLeaderboardInstance.ShowLeaderboard()
+              : (e.leaderBoardNoInternet.enabled = !0);
+        }, 100);
     }
   }),
   (Gamemanager.prototype.addScore = function () {
@@ -984,58 +982,57 @@ Leaderboard.attributes.add("gameName", { type: "string" }),
       e.addChild(i),
       i.translateLocal(0, a, 0);
   }),
-  (Leaderboard.prototype.ShowLeaderboard = function (e) {
-    var a = this;
+  (Leaderboard.prototype.ShowLeaderboard = function () {
+    var e = this;
     (this.isShowing = !0), (this.leaderboard.enabled = !0);
-    var r = !1;
-    console.log(e),
-      firebaseControllerInstance.db
-        .collection(a.gameName)
-        .doc(firebaseControllerInstance.user.uid)
-        .get()
-        .then(function (r) {
-          r.exists &&
-            ((a.errorDisplay.enabled = !1),
-            (a.mainDisplay.enabled = !0),
-            (a.personal.element.text = e));
-        })
-        .catch(function (e) {
-          (r = !0),
-            (a.errorDisplay.enabled = !0),
-            (a.mainDisplay.enabled = !1),
-            console.log(e);
-        }),
-      r ||
-        (a.LeaderboardFirebaseListener = firebaseControllerInstance.db
-          .collection(a.gameName)
+    var a = !1;
+    firebaseControllerInstance.db
+      .collection(e.gameName)
+      .doc(firebaseControllerInstance.user.uid)
+      .get()
+      .then(function (a) {
+        a.exists &&
+          ((e.errorDisplay.enabled = !1),
+          (e.mainDisplay.enabled = !0),
+          (e.personal.element.text = a.data().score));
+      })
+      .catch(function (r) {
+        (a = !0),
+          (e.errorDisplay.enabled = !0),
+          (e.mainDisplay.enabled = !1),
+          console.log(r);
+      }),
+      a ||
+        (e.LeaderboardFirebaseListener = firebaseControllerInstance.db
+          .collection(e.gameName)
           .orderBy("score", "desc")
-          .limit(a.listSize)
+          .limit(e.listSize)
           .onSnapshot(
-            function (e) {
-              e.docs;
+            function (a) {
+              a.docs;
               var r = [];
-              e.forEach(function (e) {
+              a.forEach(function (e) {
                 r.push(e.data());
               }),
-                a.clear(),
-                (a.errorDisplay.enabled = !1),
-                (a.mainDisplay.enabled = !0);
+                e.clear(),
+                (e.errorDisplay.enabled = !1),
+                (e.mainDisplay.enabled = !0);
               for (
-                var t = a.firstLeaderPositionY, d = 0;
+                var t = e.firstLeaderPositionY, d = 0;
                 d < Math.min(r.length, 10);
                 d++
               ) {
                 var i = !0;
                 d % 2 == 0 && (i = !1),
                   console.log(r[d]),
-                  a.addEntry(a.mainDisplay, t, r[d].name, r[d].score, i),
-                  (t -= a.leaderPositionGap);
+                  e.addEntry(e.mainDisplay, t, r[d].name, r[d].score, i),
+                  (t -= e.leaderPositionGap);
               }
             },
-            function (e) {
-              (a.errorDisplay.enabled = !0),
-                (a.mainDisplay.enabled = !1),
-                console.log(e);
+            function (a) {
+              (e.errorDisplay.enabled = !0),
+                (e.mainDisplay.enabled = !1),
+                console.log(a);
             }
           ));
   }),
@@ -1057,8 +1054,8 @@ var firebaseControllerInstance,
           e.app.fire("firebaseInit"))
         : (console.log("No user is logged in"),
           firebaseControllerInstance.login(
-            "shubham@digitaljalebi.com",
-            "shubham@digitaljalebi.comtup6"
+            "shubham@dj.com",
+            "shubham@dj.com123456"
           ));
     });
 }),
@@ -1085,8 +1082,8 @@ var firebaseControllerInstance,
       })
       .catch(function (e) {
         var o = e.code,
-          t = e.message;
-        console.log("code: " + o + " & ErrorMsg: " + t);
+          n = e.message;
+        console.log("code: " + o + " & ErrorMsg: " + n);
       });
   }),
   (FirebaseController.prototype.logout = function () {
@@ -1115,19 +1112,20 @@ var firebaseControllerInstance,
         }
       );
   }),
-  (FirebaseController.prototype.setNewScore = function (e, o, t, n, r, i) {
-    if (n) {
+  (FirebaseController.prototype.setNewScore = function (e, o, n, t, r, i) {
+    if (t) {
       var a = {
-          id: n.uid,
-          name: n.displayName
-            ? n.displayName
-            : n.email
-            ? n.email.split("@")[0]
-            : n.uid,
+          id: t.uid,
+          email: t.email,
+          name: t.displayName
+            ? t.displayName
+            : t.email
+            ? t.email.split("@")[0]
+            : t.uid,
           score: o,
-          isShare: t,
+          isShare: n,
         },
-        s = firebaseControllerInstance.db.collection(e).doc(n.uid);
+        s = firebaseControllerInstance.db.collection(e).doc(t.uid);
       return firebaseControllerInstance.db
         .runTransaction(function (e) {
           return e.get(s).then(function (o) {
@@ -1146,21 +1144,21 @@ var firebaseControllerInstance,
     }
     console.log("error  in getting user data!!");
   }),
-  (FirebaseController.prototype.setShare = function (e, o, t, n, r) {
-    t
+  (FirebaseController.prototype.setShare = function (e, o, n, t, r) {
+    n
       ? firebaseControllerInstance.db
           .collection(e)
-          .doc(t.uid)
+          .doc(n.uid)
           .update({ isShare: o })
           .then(function () {
-            n && n();
+            t && t();
           })
           .catch(function (e) {
             r && r(e);
           })
       : console.log("error  in getting user data!!");
   }),
-  (FirebaseController.prototype.getScore = function (e, o, t, n) {
+  (FirebaseController.prototype.getScore = function (e, o, n, t) {
     firebaseControllerInstance.db
       .collection(e)
       .orderBy("score", "desc")
@@ -1173,13 +1171,13 @@ var firebaseControllerInstance,
         e.forEach(function (e) {
           o.push(e.data());
         }),
-          t && t(o);
+          n && n(o);
       })
       .catch(function (e) {
-        n && n(e);
+        t && t(e);
       });
   }),
-  (FirebaseController.prototype.getUserTopScore = function (e, o, t) {
+  (FirebaseController.prototype.getUserTopScore = function (e, o, n) {
     firebaseControllerInstance.db
       .collection(e)
       .doc(firebaseControllerInstance.user.uid)
@@ -1188,6 +1186,6 @@ var firebaseControllerInstance,
         e.exists && o && o(e.data());
       })
       .catch(function (e) {
-        t && t(e);
+        n && n(e);
       });
   });

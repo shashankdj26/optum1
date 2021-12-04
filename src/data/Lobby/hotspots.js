@@ -419,7 +419,7 @@ export let InfoHotspots = {
     hotspotType: HotspotType.pdf,
     buttonType: HotspotButtonType.named,
     // link: StaticLinks.agenda,
-    link: "/web/viewer.html?file=%2Fassets%2Fcontent%2Fdummy.pdf",
+    link: "/web/viewer.html?file=%2Fassets%2Fcontent%2Foptum-2021%2FAgenda.pdf",
     // link: "https://mintinvestmentsummit.com/#responsive",
   },
   helpdesk: {
@@ -662,7 +662,7 @@ export let ResourceCenterStalls = {
     },
     hotspotType: HotspotType.videoPlayer,
     link: VideoPlayerData,
-    buttonType: HotspotButtonType.named,
+    buttonType: HotspotButtonType.default,
     customAnalytics: {
       path: "/ResourceCenter_stall",
       id: "Video_Resources",
@@ -678,7 +678,7 @@ export let ResourceCenterStalls = {
     },
     hotspotType: HotspotType.pdfPlayer,
     link: LobbyStall1PdfPlayer,
-    buttonType: HotspotButtonType.named,
+    buttonType: HotspotButtonType.default,
     customAnalytics: {
       path: "/ResourceCenter_stall",
       id: "pdf_Resources",
