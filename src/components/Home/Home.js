@@ -339,9 +339,17 @@ class Home extends Component {
     }
 
     if (item.id === menuItemsId.Photobooth) {
-      this.showMediaModal(HotspotType.iframe, StaticLinks.Photobooth);
+      this.showMediaModal(HotspotType.iframe, StaticLinks.Photobooth, () => {
+        this.setState((state) => ({
+          UI: {
+            ...state.UI,
+            overlayMenu: null,
+          },
+        }));
+      });
       updateUserLocation(this.context, "Say_Cheese");
       this.setState({ currenLocation: "Say_Cheese" });
+      addRealtimeHotspotAnalytics(this.context, "Say_Cheese");
     }
 
     if (item.id === menuItemsId.TeamBuilding) {
@@ -468,7 +476,11 @@ class Home extends Component {
     }
   };
 
-  showMediaModal = (hotspotType, mediaLink) => {
+  showMediaModal = (hotspotType, mediaLink, closeCallback) => {
+    if (closeCallback) {
+      this.closeMediaModalCallback = closeCallback;
+    }
+
     if (hotspotType === HotspotType.chatbot) {
       window.lastChatBotRef = mediaLink;
       mediaLink.enabled = false;
@@ -494,6 +506,11 @@ class Home extends Component {
   };
 
   closeMediaModal = () => {
+    if (this.closeMediaModalCallback) {
+      this.closeMediaModalCallback();
+      this.closeMediaModalCallback = null;
+    }
+
     var info_arr = ["Agenda", "HelpdeskChat", "FAQs"];
     if (info_arr.includes(this.state.currenLocation)) {
       updateUserLocation(this.context, "Infodesk");
@@ -651,8 +668,9 @@ class Home extends Component {
 
   addHotspotAnalytics = (name) => {
     //call some firebase function
-
-    addRealtimeHotspotAnalytics(this.context, name);
+    if (name != "Meet_our_leaders" && name != "Say_Cheese") {
+      addRealtimeHotspotAnalytics(this.context, name);
+    }
   };
 
   addCustomHotspotAnalytics = (detials) => {
@@ -1819,7 +1837,6 @@ class Home extends Component {
                               AnalyticsLocations.Teambuilding,
                               value
                             );
-                            this.addHotspotAnalytics("Meet_our_leaders");
                           }}
                         ></Connect>
 
