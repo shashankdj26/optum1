@@ -1174,12 +1174,16 @@ export default class Scene extends Component {
             )}
             {this.state.UI.showArrows && this.state.UI.arrowsRequired && (
               <>
-                <Arrows
-                  updateParent={this.updateChild3DContainerStyle}
-                  mainContainer={this.child3dContainer.current}
-                  mediaContainer={this.videoRef.current}
-                  ref={this.arrowRef}
-                ></Arrows>
+                {isMobileOnly ? (
+                  <></>
+                ) : (
+                  <Arrows
+                    updateParent={this.updateChild3DContainerStyle}
+                    mainContainer={this.child3dContainer.current}
+                    mediaContainer={this.videoRef.current}
+                    ref={this.arrowRef}
+                  ></Arrows>
+                )}
               </>
             )}
           </div>
