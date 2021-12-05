@@ -38,6 +38,10 @@ class UserProvider extends Component {
           console.log(userAuth.email, userAuth.displayName);
           await updateUserStatus(Id);
           // window.userData = await getUserDetails(userAuth.email);
+          window.userData = {
+            name: userAuth.displayName,
+            profile_image: "/assets/images/Profile-picture.png",
+          };
           this.setState(
             {
               user: userAuth,
