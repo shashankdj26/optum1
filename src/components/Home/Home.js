@@ -340,6 +340,8 @@ class Home extends Component {
 
     if (item.id === menuItemsId.Photobooth) {
       this.showMediaModal(HotspotType.iframe, StaticLinks.Photobooth);
+      updateUserLocation(this.context, "Say_Cheese");
+      this.setState({ currenLocation: "Say_Cheese" });
     }
 
     if (item.id === menuItemsId.TeamBuilding) {
@@ -453,6 +455,8 @@ class Home extends Component {
 
   hideOverlayMenu = (event) => {
     if (event) event.preventDefault();
+
+    updateUserLocation(this.context, "lobby");
     if (this.state.UI.overlayMenu) {
       this.setState((state) => ({
         UI: { ...state.UI, overlayMenu: null, showAskExpertError: false },
@@ -490,14 +494,19 @@ class Home extends Component {
   };
 
   closeMediaModal = () => {
-    var info_arr = ["Agenda", "HelpdeskChat"];
+    var info_arr = ["Agenda", "HelpdeskChat", "FAQs"];
     if (info_arr.includes(this.state.currenLocation)) {
       updateUserLocation(this.context, "Infodesk");
     }
 
-    var arr = ["Infodesk", "photoMosaic"];
+    var arr = ["Infodesk", "Say_Cheese"];
     if (arr.includes(this.state.currenLocation)) {
       updateUserLocation(this.context, "lobby");
+    }
+
+    var arr = ["runnerGame", "wordScramble"];
+    if (arr.includes(this.state.currenLocation)) {
+      updateUserLocation(this.context, "GameZone");
     }
 
     this.setState((prevState) => ({
@@ -605,13 +614,18 @@ class Home extends Component {
     this.setState({ currenLocation: hotspotDetails.id }, () => {
       var arr = [
         "Infodesk",
-        "photoMosaic",
+        "Say_Cheese",
         "Agenda",
         "HelpdeskChat",
         "Exhibition_MIDC",
         "Exhibition_CoinDCX",
         "Exhibition_stall4",
         "Exhibition_Mint",
+        "FAQs",
+        "photoBooth_zone",
+        "GameZone",
+        "runnerGame",
+        "wordScramble",
       ];
       if (arr.includes(this.state.currenLocation)) {
         updateUserLocation(this.context, hotspotDetails.id);
@@ -1353,6 +1367,10 @@ class Home extends Component {
                   <>
                     <Scene
                       ShowMediaModal={this.showMediaModal}
+                      updateCurrLocation={(val) => {
+                        this.setState({ currenLocation: val });
+                      }}
+                      currLocation={this.state.currLocation}
                       initialVideo={VideoString.LOBBYLOOP}
                       firstVideoFrame={ImageString.LOBBYLOOP}
                       // initialHotspot={this.getActiveHotspots()}
@@ -1796,7 +1814,8 @@ class Home extends Component {
                         <Connect
                           close={this.hideOverlayMenu}
                           addAnalytics={(value) => {
-                            this.addComponentAnalytics(
+                            console.log(value);
+                            this.addLocationAnalytics(
                               AnalyticsLocations.Teambuilding,
                               value
                             );

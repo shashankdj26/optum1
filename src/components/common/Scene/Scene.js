@@ -436,6 +436,12 @@ export default class Scene extends Component {
       this.props.stallsBackUpdate(AnalyticsLocations.ProductReviewBooth, event);
     }
 
+    if (this.props.currLocation && this.props.updateCurrLocation) {
+      if (this.props.currLocation === "Say_Cheese") {
+        this.props.updateCurrLocation("lobby");
+      }
+    }
+
     if (this.props.infoBackUpdate) {
       // console.log("updating info to lobby");
       this.props.infoBackUpdate(AnalyticsLocations.Lobby, event);

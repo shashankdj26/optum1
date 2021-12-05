@@ -146,6 +146,9 @@ class Connect extends Component {
   };
 
   componentDidMount = () => {
+    if (this.props.addAnalytics) {
+      this.props.addAnalytics(true);
+    }
     // attachConnectProfilesListener((err, data) => {
     //   if (err) {
     //     console.log(data);
@@ -160,6 +163,9 @@ class Connect extends Component {
   };
 
   componentWillUnmount = () => {
+    if (this.props.addAnalytics) {
+      this.props.addAnalytics(false);
+    }
     // removeConnectProfilesListener();
   };
 

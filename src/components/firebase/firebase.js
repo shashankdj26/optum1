@@ -570,7 +570,7 @@ export const updateUserStatus = (userId) => {
       if (sessionId == null) {
         sessionId = userId + "_" + new Date().getTime();
       }
-      var userCheck = realDB.ref("loggedInUser_VCC/" + sessionId);
+      var userCheck = realDB.ref("loggedInUser/" + sessionId);
       var details = {};
       if (window.userData) {
         details = {
@@ -608,7 +608,7 @@ export const updateUserLocation = (user, location) => {
       if (sessionId == null) {
         sessionId = userId + "_" + new Date().getTime();
       }
-      var userCheck = realDB.ref("loggedInUser_VCC/" + sessionId);
+      var userCheck = realDB.ref("loggedInUser/" + sessionId);
       let details = {};
       if (window.userData) {
         details = {
@@ -1185,7 +1185,7 @@ const UserState = {
 };
 
 export const liveCountListener = (callback) => {
-  realDB.ref("loggedInUser_VCC").on(
+  realDB.ref("loggedInUser").on(
     "value",
     (query) => {
       if (query.exists() && callback) {

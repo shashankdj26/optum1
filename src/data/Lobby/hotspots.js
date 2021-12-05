@@ -459,7 +459,7 @@ export let InfoHotspots = {
 
 export let BoothZoneHotSpot = {
   boothPhoto: {
-    id: "photoMosaic",
+    id: "photoBooth_zone",
     enabled: true,
     desk_style: {
       margin: "-3.6% -4%",
@@ -1085,7 +1085,7 @@ export let LobbyHotspots = {
   // },
 
   photoMosaic: {
-    id: "photoMosaic",
+    id: "Say_Cheese",
     enabled: true,
     desk_style: {
       margin: "0.4% 9%",

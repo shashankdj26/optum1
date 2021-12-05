@@ -352,7 +352,7 @@
                 key: "componentDidMount",
                 value: function () {
                   var e = this;
-                  P.ref("loggedInUser_VCC").on("value", function (t) {
+                  P.ref("loggedInUser").on("value", function (t) {
                     if (t.exists()) {
                       var n = t.val(),
                         i = {},

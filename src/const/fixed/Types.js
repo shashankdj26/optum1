@@ -28,12 +28,13 @@ export const HotspotButtonType = {
 
 export const AnalyticsLocations = {
   Lobby: "lobby",
-  Audi: "audi",
+  Audi: "Auditorium",
   Networking: "networking",
   DBR: "speakers",
   Rencen: "Explore Optum",
   ExiBooth: "exibooth",
   ProductReviewBooth: "product_Booth",
+  Teambuilding: "Meet_our_leaders",
 };
 
 export const VideoType = {
