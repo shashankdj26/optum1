@@ -405,10 +405,10 @@ export let InfoHotspots = {
     enabled: true,
     name: "Agenda",
     desk_style: {
-      margin: "6.8% -13.5%",
+      margin: "2.4% -15%",
     },
     mobile_style: {
-      margin: "7.5% -10.5%",
+      margin: "3.5% -15.5%",
     },
     get style() {
       return isMobileOnly ? this.mobile_style : this.desk_style;
@@ -417,7 +417,7 @@ export let InfoHotspots = {
     //   margin: "5.5% -13.5%",
     // },
     hotspotType: HotspotType.pdf,
-    buttonType: HotspotButtonType.named,
+    buttonType: HotspotButtonType.default,
     // link: StaticLinks.agenda,
     link: "/web/viewer.html?file=%2Fassets%2Fcontent%2Foptum-2021%2FAgenda.pdf",
     // link: "https://mintinvestmentsummit.com/#responsive",
@@ -440,10 +440,10 @@ export let InfoHotspots = {
     enabled: true,
     name: "FAQs",
     desk_style: {
-      margin: "6.8% 5.4%",
+      margin: "2.4% 7.7%",
     },
     mobile_style: {
-      margin: "7.5% 1.4%",
+      margin: "3.5% 7.4%",
     },
     get style() {
       return isMobileOnly ? this.mobile_style : this.desk_style;
@@ -452,7 +452,7 @@ export let InfoHotspots = {
     //   margin: "5.6% 5.4%",
     // },
     hotspotType: HotspotType.pdf,
-    buttonType: HotspotButtonType.named,
+    buttonType: HotspotButtonType.default,
     link: "/web/viewer.html?file=%2Fassets%2Fcontent%2Fdummy.pdf",
   },
 };
@@ -462,10 +462,10 @@ export let BoothZoneHotSpot = {
     id: "photoBooth_zone",
     enabled: true,
     desk_style: {
-      margin: "-3.6% -4%",
+      margin: "-1.6% -6%",
     },
     mobile_style: {
-      margin: isIOS ? "-2.6% -4%" : "-2.6% -4%",
+      margin: isIOS ? "-1.6% -6%" : "-1.6% -6%",
     },
     get style() {
       return isMobileOnly ? this.mobile_style : this.desk_style;
@@ -486,10 +486,10 @@ export let GameHotspot = {
     name: "Game Zone",
     enabled: true,
     desk_style: {
-      margin: "10% -10.2%",
+      margin: "10.2% -7.2%",
     },
     mobile_style: {
-      margin: "11% -10.5%",
+      margin: "11.6% -7.5%",
     },
     get style() {
       return isMobileOnly ? this.mobile_style : this.desk_style;
@@ -502,10 +502,10 @@ export let GameHotspot = {
     enabled: true,
     name: "wordScramble",
     desk_style: {
-      margin: "10% 0%",
+      margin: "10.2% 2.4%",
     },
     mobile_style: {
-      margin: "11% 0.5%",
+      margin: "11.6% 2.5%",
     },
     get style() {
       return isMobileOnly ? this.mobile_style : this.desk_style;
@@ -658,7 +658,7 @@ export let ResourceCenterStalls = {
     enabled: true,
     name: `Video Resources`,
     style: {
-      margin: isMobileOnly ? "-2% -5%" : "-2% -5%",
+      margin: isMobileOnly ? "-4% -3%" : "-4% -3%",
     },
     hotspotType: HotspotType.videoPlayer,
     link: VideoPlayerData,
@@ -919,7 +919,7 @@ export let LobbyHotspots = {
     id: LobbyHotspotsId.Audi,
     enabled: true,
     desk_style: {
-      margin: "-4.4% -3%",
+      margin: "-5.4% -3.5%",
     },
     mobile_style: {
       margin: "-3.4% -3%",
@@ -967,7 +967,7 @@ export let LobbyHotspots = {
     id: "GameZone",
     enabled: true,
     style: {
-      margin: "0.6% -15.4%",
+      margin: isMobileOnly ? "0.6% -13.4%" : "-0.4% -13.4%",
     },
     hotspotType: HotspotType.transition,
     transitionVideo: VideoString.LOOBYTOGAMEZONE,
@@ -982,10 +982,10 @@ export let LobbyHotspots = {
     id: LobbyHotspotsId.Infodesk,
     enabled: true,
     desk_style: {
-      margin: "12% -2.5%",
+      margin: "10% -2.5%",
     },
     mobile_style: {
-      margin: "13% -2.5%",
+      margin: "11% -2.5%",
     },
     get style() {
       return isMobileOnly ? this.mobile_style : this.desk_style;
@@ -1003,7 +1003,7 @@ export let LobbyHotspots = {
     id: "Meet_our_leaders",
     enabled: true,
     style: {
-      margin: "-1.5% 26%",
+      margin: "-1.5% 23.5%",
     },
     hotspotType: HotspotType.transition,
     // transitionVideo: VideoString.LOBBY_TO_JURY,
@@ -1088,10 +1088,10 @@ export let LobbyHotspots = {
     id: "Say_Cheese",
     enabled: true,
     desk_style: {
-      margin: "0.4% 9%",
+      margin: "0.4% 7.4%",
     },
     mobile_style: {
-      margin: isIOS ? "1.4% 10%" : "1.4% 10%",
+      margin: "1.4% 8%",
     },
     get style() {
       return isMobileOnly ? this.mobile_style : this.desk_style;
@@ -1106,7 +1106,7 @@ export let LobbyHotspots = {
     id: LobbyHotspotsId.ResourceCenter,
     enabled: true,
     style: {
-      margin: "-3.6% -34%",
+      margin: "-2.6% -30%",
     },
     hotspotType: HotspotType.transition,
     transitionVideo: VideoString.LOBBY_TO_RESOURCE,

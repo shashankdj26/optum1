@@ -62,7 +62,7 @@ export const menuItems = [
   },
   {
     id: menuItemsId.TeamBuilding,
-    name: "Meet our Leaders",
+    name: "Meet the JURY",
 
     class: "icon-optum-meet-leaders",
   },
