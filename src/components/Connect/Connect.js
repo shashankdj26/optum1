@@ -35,16 +35,14 @@ const wallData = {
     name: "Mani Chacko",
     designation: "Vice President - OptumRx technology",
     linked_ln_profile: "https://www.linkedin.com/in/mani-chacko-1908a1/",
-    profile_image:
-      "https://d8it4huxumps7.cloudfront.net/files/61a90c95e94cb_mani_chacko_photograph.jpg",
+    profile_image: "/assets/images/connectWall/mani.jpg",
     enabled: true,
   },
   sureshkumar_rajasekar: {
     name: "Sureshkumar Rajasekar",
     designation: "Vice President - Technology, Optum",
     linked_ln_profile: "https://www.linkedin.com/in/rsureshkumar/",
-    profile_image:
-      "https://d8it4huxumps7.cloudfront.net/files/61a72acd1d947_sureshkumar_rajasekhar.jpg",
+    profile_image: "/assets/images/connectWall/suryakumarRajesh.jpg",
     enabled: true,
   },
   nagesh_devarapalli: {
@@ -52,8 +50,7 @@ const wallData = {
     designation:
       "Vice President & Head of Core Infrastructure & Operations Platform, Optum",
     linked_ln_profile: "https://www.linkedin.com/in/dvnagesh/",
-    profile_image:
-      "https://d8it4huxumps7.cloudfront.net/files/61a72aa4c6254_nagesh_devarapalli.jpg",
+    profile_image: "/assets/images/connectWall/nagesh.jpg",
     enabled: true,
   },
   gandhi_sampath: {
@@ -69,8 +66,7 @@ const wallData = {
     name: "Sumek Gopal",
     designation: "Vice President - Talent Acquisition, Optum",
     linked_ln_profile: "https://www.linkedin.com/in/sumekgopal/",
-    profile_image:
-      "https://d8it4huxumps7.cloudfront.net/files/61a72abaea3c3_sumek_gopal_photo.png",
+    profile_image: "/assets/images/connectWall/sumik_gopal.jpg",
     enabled: true,
   },
   alind_sharma: {
@@ -85,8 +81,7 @@ const wallData = {
     name: "Nasir Ahmed",
     designation: "CTO- Enterprise Clinical Platforms, UnitedHealth Group",
     linked_ln_profile: "https://www.linkedin.com/in/nasir-ahmed-3873315/",
-    profile_image:
-      "https://d8it4huxumps7.cloudfront.net/files/61a90c371b521_nasir_ahmed.jpg",
+    profile_image: "/assets/images/connectWall/nasir_ahmed.jpg",
     enabled: true,
   },
   rajesh_kesarla: {
@@ -109,8 +104,7 @@ const wallData = {
     name: "Dr Erlyn Joan L Chua",
     designation: "Vice President - General Management, Optum",
     linked_ln_profile: "https://www.linkedin.com/in/drerlynjoanchua/",
-    profile_image:
-      "https://d8it4huxumps7.cloudfront.net/files/61ab1669d1c62_dr_erlyn_chua.jpg",
+    profile_image: "/assets/images/connectWall/dr_erlyn_joan_l_chua.jpg",
     enabled: true,
   },
   varun_vig: {
@@ -118,16 +112,14 @@ const wallData = {
     designation:
       "Vice President - General Management for Optum Rx RCM, Optum Rx, Clinical Ops, Optum 360",
     linked_ln_profile: "https://www.linkedin.com/in/varun-vig-7415103/",
-    profile_image:
-      "https://d8it4huxumps7.cloudfront.net/files/61ab1659eae9c_varun_vig.png",
+    profile_image: "/assets/images/connectWall/varun_vig.jpg",
     enabled: true,
   },
   rain_tan: {
     name: "Rain Tan",
     designation: "Vice President - Human Capital, Philippines",
     linked_ln_profile: "https://www.linkedin.com/in/raintan/",
-    profile_image:
-      "https://d8it4huxumps7.cloudfront.net/files/61a90c5388f0a_rain_tan_profile_photo.jpg",
+    profile_image: "/assets/images/connectWall/rain_tan.jpg",
     enabled: true,
   },
   aimee_cardwell: {
