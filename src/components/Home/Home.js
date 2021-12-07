@@ -2116,30 +2116,37 @@ class Home extends Component {
                         </>
                       )}
 
-                    {this.state.UI.activeMenu.id === menuItemsId.Audi && (
-                      <div
-                        className={`submenu-container active expended ${
-                          this.state.UI.activeSubMenu
-                            ? this.state.UI.activeSubMenu.id === SubMenuId.POll
-                              ? ""
-                              : "d-none"
-                            : "d-none"
-                        }`}
-                      >
-                        <PublicPoll
-                          onHeadingClick={this.closeSubMenu}
-                          PollAdmin_Col={"pollAdmin"}
-                          PollAdmin_Doc={"adminAccess"}
-                          Poll_Doc={"poll"}
-                          forceOpen={() =>
-                            this.handlePollforceOpen(
-                              menuItemsIndex.Audi,
-                              SubMenuId.POll
-                            )
-                          }
-                        ></PublicPoll>
-                      </div>
-                    )}
+                    {this.state.UI.activeSubMenu &&
+                      this.state.UI.activeMenu.id === menuItemsId.Audi && (
+                        <>
+                          {this.state.UI.activeSubMenu.id ===
+                            SubMenuId.POll && (
+                            <div
+                              className={`submenu-container active expended ${
+                                this.state.UI.activeSubMenu
+                                  ? this.state.UI.activeSubMenu.id ===
+                                    SubMenuId.POll
+                                    ? ""
+                                    : "d-none"
+                                  : "d-none"
+                              }`}
+                            >
+                              <PublicPoll
+                                onHeadingClick={this.closeSubMenu}
+                                PollAdmin_Col={"pollAdmin"}
+                                PollAdmin_Doc={"adminAccess"}
+                                Poll_Doc={"poll"}
+                                forceOpen={() =>
+                                  this.handlePollforceOpen(
+                                    menuItemsIndex.Audi,
+                                    SubMenuId.POll
+                                  )
+                                }
+                              ></PublicPoll>
+                            </div>
+                          )}
+                        </>
+                      )}
 
                     {this.state.UI.activeSubMenu &&
                       this.state.UI.activeMenu.id === menuItemsId.bdr && (

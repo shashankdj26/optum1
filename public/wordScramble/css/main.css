@@ -282,7 +282,8 @@ d-block {
   font-size: 30px;
   color: #333333;
   line-height: 1;
-  background-image: url(../img/headerBG.jpg);
+  /* background-image: url(../img/headerBG.jpg); */
+  background-color: #f57f28;
   background-size: cover;
   background-repeat: no-repeat;
   /* margin-bottom: 2rem; */
@@ -506,7 +507,7 @@ d-block {
 
 .login100-form-btn:hover {
   color: #fff;
-  background: #e4823c;
+  background: #f57f28;
 
   transform: scale(1.1);
   /* border-radius: 0.2rem; */

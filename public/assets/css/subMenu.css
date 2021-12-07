@@ -502,7 +502,7 @@
   /* height: auto; */
   display: flex;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-69%);
   z-index: 2;
   animation: 0.75s commentSection forwards;
   height: fit-content;
