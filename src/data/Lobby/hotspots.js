@@ -405,10 +405,10 @@ export let InfoHotspots = {
     enabled: true,
     name: "Agenda",
     desk_style: {
-      margin: "2.4% -15%",
+      margin: "2.4% -2.3%",
     },
     mobile_style: {
-      margin: "3.5% -15.5%",
+      margin: "3.5% -2.5%",
     },
     get style() {
       return isMobileOnly ? this.mobile_style : this.desk_style;
@@ -437,7 +437,7 @@ export let InfoHotspots = {
   },
   FAQ: {
     id: "FAQs",
-    enabled: true,
+    enabled: false,
     name: "FAQs",
     desk_style: {
       margin: "2.4% 7.7%",
@@ -658,7 +658,7 @@ export let ResourceCenterStalls = {
     enabled: true,
     name: `Video Resources`,
     style: {
-      margin: isMobileOnly ? "-4% -3%" : "-4% -3%",
+      margin: isMobileOnly ? "-4% -3%" : "-4.5% -2.4%",
     },
     hotspotType: HotspotType.videoPlayer,
     link: VideoPlayerData,
@@ -674,7 +674,7 @@ export let ResourceCenterStalls = {
     enabled: true,
     name: `Good Reads`,
     style: {
-      margin: isMobileOnly ? "-3% -15%" : "-3% -14.2%",
+      margin: isMobileOnly ? "-3% -15%" : "-4% -14.2%",
     },
     hotspotType: HotspotType.pdfPlayer,
     link: LobbyStall1PdfPlayer,
