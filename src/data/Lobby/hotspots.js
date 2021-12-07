@@ -419,7 +419,7 @@ export let InfoHotspots = {
     hotspotType: HotspotType.pdf,
     buttonType: HotspotButtonType.default,
     // link: StaticLinks.agenda,
-    link: "/web/viewer.html?file=%2Fassets%2Fcontent%2Foptum-2021%2FAgenda.pdf",
+    link: "/web/viewer.html?file=%2Fassets%2Fcontent%2Foptum-2021%2FAgendaNew.pdf",
     // link: "https://mintinvestmentsummit.com/#responsive",
   },
   helpdesk: {
