@@ -220,6 +220,11 @@ class Application extends Component {
       const isSpeaker = await checkForSpeaker(userAuth.email);
       window.isSpeaker = isSpeaker;
 
+      window.userData = {
+        name: userAuth.displayName,
+        profile_image: "/assets/images/Profile-picture.png",
+      };
+
       checkForSpecialUser(userAuth, (err, link) => {
         if (err) {
           console.log(err);

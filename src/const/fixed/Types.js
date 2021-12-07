@@ -34,7 +34,7 @@ export const AnalyticsLocations = {
   Rencen: "Explore Optum",
   ExiBooth: "exibooth",
   ProductReviewBooth: "product_Booth",
-  Teambuilding: "Meet_our_leaders",
+  Teambuilding: "Meet_the_jury",
 };
 
 export const VideoType = {
