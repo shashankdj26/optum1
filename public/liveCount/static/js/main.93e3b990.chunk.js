@@ -466,11 +466,11 @@
                                                     //     )
                                                     //     .concat(n[e].company? n[e].company:''),
                                                     // }),
-                                                    Object(o.jsx)("div", {
-                                                      className:
-                                                        "connect-card-email",
-                                                      children: n[e].email,
-                                                    }),
+                                                    // Object(o.jsx)("div", {
+                                                    //   className:
+                                                    //     "connect-card-email",
+                                                    //   children: n[e].email,
+                                                    // }),
                                                   ],
                                                 }),
                                               ],
