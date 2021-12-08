@@ -640,7 +640,7 @@ export let ResourceCenterStalls = {
   },
   video: {
     id: "ResourceCenter_centerVideo",
-    enabled: true,
+    enabled: false,
     name: `video`,
     style: {
       margin: "-14% 28%",

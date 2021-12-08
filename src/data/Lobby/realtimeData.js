@@ -28,7 +28,7 @@ export const VideoPlayerData = {
     type: VideoType.vimeo,
     id: "video-3",
     link: "https://player.vimeo.com/video/488504488?h=5da77bd890&title=0&byline=0&portrait=0&autoplay=1&autopause=0&app_id=122963",
-    name: "PH Testimonials",
+    name: "Employee Testimonials",
     thumbnail: "/assets/images/vimeoThumbnail/ph_testimonials.jpg",
     videoCode:
       "1010849386-4a8bd662cae798423db715afffe32de5e3b6af4cb72ce657613746546a09679a-d",
@@ -39,7 +39,7 @@ export const VideoPlayerData = {
     type: VideoType.vimeo,
     id: "video-4",
     link: "https://player.vimeo.com/video/488504175?h=3e1955de48&title=0&byline=0&portrait=0&autoplay=1&autopause=0&app_id=122963",
-    name: "Meet our employees- Anupam",
+    name: "Meet Anupam Gupta - Vice President, Data Science",
     thumbnail: "/assets/images/vimeoThumbnail/anupam.jpg",
     videoCode:
       "1010848719-b660b820e227c750971639b953c186f63be0635e59ba54ecdb50855c5222dff6-d",
@@ -54,6 +54,17 @@ export const VideoPlayerData = {
     thumbnail: "/assets/images/vimeoThumbnail/technology.jpg",
     videoCode:
       "1011431980-ddf122bc56dddcb3c2434a8bec6f2305fd9e82f91da3d98f97f551aba7d6d9fa-d",
+    description: "",
+  },
+
+  "video-6": {
+    enabled: true,
+    type: VideoType.youtube,
+    id: "video-6",
+    link: "https://www.youtube.com/watch?v=huMorwstIpY",
+    name: "Optum Stratethon Season 2 Experience",
+    thumbnail: "/assets/images/vimeoThumbnail/technology.jpg",
+    videoCode: "huMorwstIpY",
     description: "",
   },
 };
@@ -124,21 +135,21 @@ export const LobbyStall1PdfPlayer = {
     enabled: true,
     id: "Executive_Supplement_Page_(India)_FINAL",
     link: "/web/viewer.html?file=%2Fassets%2Fcontent%2Foptum-2021%2FExecutive Supplement Page (India) FINAL.pdf",
-    name: "Executive Supplement Page (India) FINAL",
+    name: "Optum India",
     description: "",
   },
   "pdf-2": {
     enabled: true,
     id: "Optum_EL_Sheet_FINAL",
     link: "/web/viewer.html?file=%2Fassets%2Fcontent%2Foptum-2021%2FOptum EL Sheet FINAL.pdf",
-    name: "Optum EL Sheet FINAL",
+    name: "Optum Overview",
     description: "",
   },
   "pdf-3": {
     enabled: true,
     id: "Optum_4",
     link: "/web/viewer.html?file=%2Fassets%2Fcontent%2Foptum-2021%2FOptum-4.pdf",
-    name: "Optum-4",
+    name: "Technology careers at Optum",
     description: "",
   },
 };
