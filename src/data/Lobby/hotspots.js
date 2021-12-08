@@ -704,7 +704,7 @@ export let zoomMeeting = {};
 export let AudiData = {
   introVideo: VideoString.AUDITORIUM,
   link: "https://vimeo.com/event/473964",
-  placementStyle: { margin: "10.8% 34.2%", width: "30.9%", height: "57%" },
+  placementStyle: { margin: "14.2% 34.3%", width: "30.9%", height: "41%" },
 };
 
 export let AudiZoomLink = {
