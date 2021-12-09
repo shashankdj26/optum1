@@ -105,7 +105,7 @@ class LobbyTut extends Component {
                     </strong>
                     <br></br>
                     <br></br>
-                    We are excited to have you with us today. 12 finalist teams
+                    We are excited to have you with us today. 13 finalist teams
                     from across 202 colleges, 5 countries, over 16,000
                     participants have made it here today. Come join us in
                     cheering them on they realise their true potential.

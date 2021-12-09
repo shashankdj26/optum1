@@ -419,7 +419,7 @@ export let InfoHotspots = {
     hotspotType: HotspotType.pdf,
     buttonType: HotspotButtonType.default,
     // link: StaticLinks.agenda,
-    link: "/web/viewer.html?file=%2Fassets%2Fcontent%2Foptum-2021%2FAgendaNew.pdf",
+    link: "/web/viewer.html?file=%2Fassets%2Fcontent%2Foptum-2021%2FAgendaOptum.pdf",
     // link: "https://mintinvestmentsummit.com/#responsive",
   },
   helpdesk: {
@@ -704,7 +704,7 @@ export let zoomMeeting = {};
 export let AudiData = {
   introVideo: VideoString.AUDITORIUM,
   link: "https://vimeo.com/event/473964",
-  placementStyle: { margin: "14.2% 34.3%", width: "30.9%", height: "41%" },
+  placementStyle: { margin: "14.2% 34.1%", width: "31%", height: "41%" },
 };
 
 export let AudiZoomLink = {
