@@ -34,14 +34,13 @@
         v = a.n(p);
       a(351), a(352), a(354), a(355);
       v.a.initializeApp({
-        apiKey: "AIzaSyCs6NzzHFwuOywcjKb6weU2tnblFOJYQJQ",
-        authDomain: "optum-cdcd7.firebaseapp.com",
-        databaseURL: "https://optum-cdcd7-default-rtdb.firebaseio.com",
-        projectId: "optum-cdcd7",
-        storageBucket: "optum-cdcd7.appspot.com",
-        messagingSenderId: "33244416026",
-        appId: "1:33244416026:web:cd039c460016444059a9a3",
-        measurementId: "G-ZR8NLSNB91",
+        apiKey: "AIzaSyCi_y6t63OqbHG1KJlxmzzLYVYgq-vqksI",
+        authDomain: "herovirtual22.firebaseapp.com",
+        projectId: "herovirtual22",
+        storageBucket: "herovirtual22.appspot.com",
+        messagingSenderId: "1094006397159",
+        appId: "1:1094006397159:web:bf387462f37e9d9ff0ea42",
+        measurementId: "G-2Y17CRXF3M",
       });
       var f = v.a.auth(),
         b = v.a.firestore(),

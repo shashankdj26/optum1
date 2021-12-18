@@ -289,12 +289,13 @@
           (n(125),
           n(223),
           c.a.initializeApp({
-            apiKey: "AIzaSyCQQx4uV9rQTwEluckwWLm6DsbbzWt8VoA",
-            authDomain: "zoom-demo-c7f6f.firebaseapp.com",
-            projectId: "zoom-demo-c7f6f",
-            storageBucket: "zoom-demo-c7f6f.appspot.com",
-            messagingSenderId: "317824783999",
-            appId: "1:317824783999:web:3d699ef0abea7002b4514a",
+            apiKey: "AIzaSyCi_y6t63OqbHG1KJlxmzzLYVYgq-vqksI",
+            authDomain: "herovirtual22.firebaseapp.com",
+            projectId: "herovirtual22",
+            storageBucket: "herovirtual22.appspot.com",
+            messagingSenderId: "1094006397159",
+            appId: "1:1094006397159:web:bf387462f37e9d9ff0ea42",
+            measurementId: "G-2Y17CRXF3M",
           }));
       t.a = a;
     },
